@@ -35,7 +35,7 @@ Dipersiapkan oleh:
 
    Indonesia merupakan negara yang memproduksi limbah makanan paling banyak di Asia Tenggara. Sekitar 14,73 juta ton limbah makanan dihasilkan oleh Indonesia per tahun berdasarkan dari United Nations Environment Programme (UNEP) dalam laporan Food Waste Index Report 2024. Hal ini menunjukkan gentingnya pengolahan sampah yang efektif di Indonesia, sejalan dengan UU Nomor 18 Tahun 2008 yang telah menetapkan bahwa dibutuhkannya pengelolaan sampah secara sistematis menyeluruh dan berkesinambungan.  Di ranag global, isu Food Waste ini menjadi bagian besar dari permasalahan yang dipayungi oleh SDG 12 yaitu Konsumsi dan Produksi yang Bertanggung Jawab. Dengan target SDG yang mendatang pada 2030, dibutuhkannya suatu solusi untuk menanggulangi permasalahan ini. 
 	Akar permasalahan dari tingginya limbah makanan ada pada pada rantai penyediaan konsumsi, di mana baik produsen maupun konsumen sama-sama berkontribusi terhadap pembuangan miliaran porsi makanan. Di skala global sendiri, laporan UNEP mengatakan bahwa terdapat 1.05 miliar ton makanan dibuang setiap tahunnya, dengan sektor produsen seperti restoran dan katering sebagai penyumbang kedua terbesar, yaiut 28% dari limbah tersebut. 
-	Permasalahan limbah makanan ini bukan hanya kegagalan moral, melainkan sebuah masalah yang menghabiskan sumber daya alam yang terbesar. Baik produsen dan konsumen memiliki tanggung jawab dalam masalah ini, sehingga diperlukannya usaha aktif dan langkah strategis dari kedua belah pihak dalam rangka memenuhi target SDG 12. Dari sisi produsen, diperlukan sebuah solusi untuk pengolahan limbah yang dihasilkan. Sementara itu, dari sisi konsumen diperlukan pembiasaan aktif untuk membudayakan kebiasaan yang mendukung penyelesaiin krisis food waste.
+	Permasalahan limbah makanan ini merupakan sebuah permasalahan moral sekaligus permasalahan yang menghabiskan sumber daya alam yang terbesar. Baik produsen dan konsumen memiliki tanggung jawab dalam masalah ini, sehingga diperlukannya usaha aktif dan langkah strategis dari kedua belah pihak dalam rangka memenuhi target SDG 12. Dari sisi produsen, diperlukan sebuah solusi untuk pengolahan limbah yang dihasilkan. Sementara itu, dari sisi konsumen diperlukan pembiasaan aktif untuk membudayakan kebiasaan yang mendukung penyelesaiin krisis food waste.
 
 
 ## 1.2 Analisis Kondisi Saat Ini
@@ -184,6 +184,8 @@ Buatlah daftar seluruh aktor (pengguna) yang akan berinteraksi langsung dengan s
 
 # Referensi
 - Badan Pangan Nasional. Publikasi Badan Pangan Nasional. Diakses pada 30 Agustus 2026, dari https://pustaka.badanpangan.go.id/publikasi/d296c101daa88a51f6ca8cfc1ac79b50
+- European Commission. Food Waste - Food Safety. Diakses pada 2 September 2026, dari https://food.ec.europa.eu/food-safety/food-waste_en
+- Global Society News. Global food waste crisis deepens as billions of meals are discarded daily. Diakses pada 2 September 2026, dari https://www.globalsociety.earth/post/global-food-waste-crisis-deepens-as-billions-of-meals-are-discarded-daily
 - United Nations Environment Programme (UNEP). (2024). Food Waste Index Report 2024. Diakses pada 30 Agustus 2026, dari https://www.unep.org/resources/publication/food-waste-index-report-2024
 - Swimlane Diagram
 https://drive.google.com/drive/folders/1fYs04KAW0zfQqJsw1mqpRjiPesHe3xFr?usp=sharing 
