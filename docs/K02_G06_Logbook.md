@@ -35,7 +35,8 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | 
 | *30-07-2026* | *Nadia Aulia Syafarani* | *Mengerjakan bab 1.1 dan 2.1* | *2* | *Done* | *Sulit menentukan latar belakang yang relevan* | 
 | *2-08-2026* | *Nadia Aulia Syafarani* | *Merevisi bab 1.1 dan 2.1* | *3* | *Done* | *-* | 
-| *05-05-2026* | *John Doe* | *Mendesain diagram kelas* | *3* | *Done* | *-* | 
+| *30-07-2026* | *Renata Puspanegara Ninagan* | *Mengerjakan diagram bab 3.4* | *2* | *Done* | *Sulit memahami swimlane diagram yang dibutuhkan* | 
+| *2-08-2026* | *Renata Puspanegara Ninagan* | *Mengerjakan diagram bab 3.4* | *2* | *Done* | *-* | 
 | | | | | | | |
 
 **Catatan/Evaluasi Milestone 1:**
