@@ -35,11 +35,13 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | 
 | *30-08-2026* | *Nadia Aulia Syafarani* | *Mengerjakan bab 1.1 dan 2.1* | *2* | *Done* | *Sulit menentukan latar belakang yang relevan* | 
 | *30-08-2026* | *Renata Puspanegara Ninagan* | *Mengerjakan diagram bab 3.4* | *2* | *Done* | *Sulit memahami swimlane diagram yang dibutuhkan* | 
+| *30-08-2026* | *Sherin Felicia Danessa* | *Mengerjakan subbab 1.2 dan 2.2* | *2* | *Done* | *Kesulitan memahami isi subbab 1.1* | 
 | *30-08-2026* | *Cendra Asih Chairunnisa* | *Mengerjakan draft subbab tabel 3.1 dan 3.2* | *1* | *Ongoing* | *-* |
 | *2-09-2026* | *Nadia Aulia Syafarani* | *Merevisi bab 1.1 dan 2.1* | *3* | *Done* | *-* | 
 | *2-09-2026* | *Renata Puspanegara Ninagan* | *Mengerjakan diagram bab 3.4* | *2* | *Done* | *-* | 
 | *2-09-2026* | *Ghina Emelia Yantes* | *Mengerjakan tabel deskripsi aktivitas bab 3.3* | *1.5* | *Masih dalam penyesuaian* | *Masih ada beberapa detail yang perlu didiskusikan lagi* | 
 | *2-09-2026* | *Cendra Asih Chairunnisa* | *Mengerjakan tabel subbab 3.1 dan 3.2* | *2* | *Done* | *Kesulitan menyesuaikan dan menyamakan fitur* | 
+| *2-09-2026* | *Sherin Felicia Danessa* | *Merevisi isi subbab 1.2 dan format 2.2* | *1,5* | *Ongoing* | *Terlalu lama mencari reference untuk aplikasi Surplus* | 
 
 
 **Catatan/Evaluasi Milestone 1:**
