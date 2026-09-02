@@ -68,15 +68,21 @@ Buatlah daftar seluruh aktor (pengguna) yang akan berinteraksi langsung dengan s
 
 | Aktor | Deskripsi |
 | :--- | :--- |
-| *Pembeli : Pengelola sisa makanan menjadi kompos, pakan ternak* | *Pengguna ini bertindak sebagai pihak yang bertanggung jawab untuk memproses transaksi harian dan melayani pembayaran pelanggan. Karakteristik dari pengguna ini adalah mengutamakan kecepatan dan keakuratan saat bertransaksi.* |
-| *Penjual : Kantin ITB* | *Pengguna ini bertindak sebagai pihak yang bertindak sebagai penjual sisa makanan bekas kantin  setiap harinya dan menetapkan harga dengan memerhatikan berat serta kualitasnya/standar. Karakteristik ini mengutamakan tempat deskripsi barang.* |
+| *Pembeli* | *Pengguna ini bertindak sebagai pembeli yang mencari makanan sisa toko yang sudah tidak memenuhi standar jual normal namun masih layak dikonsumsi, dengan keuntungan, harga yang lebih murah. Karakteristik pengguna ini mengutamakan kemudahan melihat pilihan makanan yang tersedia lengkap dengan deskripsi, harga, dan informasi toko, serta kemudahan dalam melakukan pemesanan dan pembayaran. Pembeli memiliki quest log in harian dan bisa mendapatkan diskon apabila sudah mencapai jumlah memenuhi* |
+| *Penjual* | *Pengguna ini bertindak sebagai pihak toko yang pada jam tutup (atau mendekati) memiliki makanan tidak terjual dan tidak dapat dijual kembali esok/kemudian hari karena tidak memenuhi standar jual toko, namun makanan tersebut masih layak dikonsumsi. Dengan menjual makanan tersebut dengan harga diskon, toko dapat mengurangi kerugian. Karakteristik pengguna ini mengutamakan kemudahan dalam mengelola profil toko serta memasukkan, memperbarui, dan menghapus informasi makanan yang dijual.* |
 
 
 ## 3.2 Kebutuhan Pengguna Awal
 | ID | Aktor | Kebutuhan / Aktivitas | Tujuan / Nilai |
 | :--- | :--- | :--- | :--- |
-| US-01 | *Penjual : Kantin ITB* |  *Memasukkan barang ke penjualan* | *Instruksi mudah diikuti (proses tidak ribet) dan deskripsi cukup (berat, kondisi, komposisi utama)* |
-| US-02 | *Pembeli : Pengelola sisa makanan menjadi kompos* | *Mengecek barang * | *Tampilan mudah ditangkap informasi barangnya (tidak ribet)* |
+| US-01 | *Pembeli* | *Mendaftar dan mengisi profil akun (nama, nomor kontak, dan alamat)* | *Sistem memiliki informasi yang dibutuhkan untuk proses pengiriman makanan* |
+| US-02 | *Pembeli* | *Melihat daftar makanan yang dijual beserta deskripsinya (nama dan bahan utama, nama dan alamat toko, jam buka toko, kuantitas tersedia, tanggal dijual, dan estimasi tanggal kadaluarsa)* | *Informasi makanan mudah dibaca dan dipahami* |
+| US-03 | *Pembeli* | *Memilih makanan beserta kuantitas dan melakukan pemesanan dengan pembayaran QRIS* | *Makanan yang dipesan dapat dikirim ke alamat sesuai profil akun* |
+| US-04 | *Pembeli* | *Mendapat reward dari log-in harian* | *Promo tambahan dari quest log in harian di website. Tujuan gamifikasi seru dan mudah dilakukan meskipun harian* |
+| US-05 | *Penjual* | *Memasukkan profil toko (nama dan alamat toko, nomor telepon toko, dan deskripsi spesialisasi makanan seperti lauk, roti, atau camilan)* | *Toko dapat dikenali pembeli dan penjual bisa memantau total pendapatan dari makanan terjual* |
+| US-06 | *Penjual* | *Menambahkan makanan yang dijual beserta deskripsinya (nama dan bahan utama, jam ketersediaan, kuantitas, tanggal dijual, tanggal kadaluarsa, dan keterangan tambahan opsional)* | *Kemudahan mempublikasikan informasi makanan* |
+| US-07 | *Penjual* | *Mengedit deskripsi makanan yang sudah diunggah* | *Kemudahan memperbarui informasi makanan apabila terjadi perubahan* |
+| US-08 | *Penjual* | *Menerima notifikasi saat makanan dibeli dan dibayar, dengan saldo bertambah otomatis serta kuantitas makanan berkurang (stok habis jika mencapai nol)* | *Transaksi dan pengelolaan stok berjalan otomatis tanpa perlu diproses manual* |
 
 
 ## 3.3 Deskripsi Aktivitas
