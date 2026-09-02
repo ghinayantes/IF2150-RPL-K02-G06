@@ -96,7 +96,7 @@ Buatlah daftar seluruh aktor (pengguna) yang akan berinteraksi langsung dengan s
 
 ## 3.3 Deskripsi Aktivitas
 
-**Aktivitas Penjual (Kantin ITB)**
+**Aktivitas Penjual**
  
 *Login & Registrasi Akun*
  
@@ -128,7 +128,7 @@ Buatlah daftar seluruh aktor (pengguna) yang akan berinteraksi langsung dengan s
 | A09 | Menyimpan perubahan data | Sistem menyimpan perubahan dan memperbarui tampilan listing yang dilihat pembeli. | US-06 |
 | A10 | Menghapus listing | Penjual menghapus listing yang stoknya sudah habis terjual. | US-06 |
  
-**Aktivitas Pembeli (Mahasiswa)**
+**Aktivitas Pembeli**
  
 *Login & Registrasi Akun*
  
