@@ -4,20 +4,20 @@
 
 | Informasi | Keterangan |
 |---|---|
-| Kelas | *[Kelas]* |
-| Nomor Kelompok | *[Nomor Kelompok]* |
-| Nama Kelompok | *[Nama Kelompok]* |
-| Nama Perangkat Lunak | *[Nama P/L]* |
+| Kelas | *K02* |
+| Nomor Kelompok | *G06* |
+| Nama Kelompok | *Rengginang* |
+| Nama Perangkat Lunak | *Food Waste Stop* |
 
 **Anggota Kelompok:**
 
 | NIM | Nama |
 |---|---|
-| *[NIM 1]* | *[Nama Anggota 1]* |
-| *[NIM 2]* | *[Nama Anggota 2]* |
-| *[NIM 3]* | *[Nama Anggota 3]* |
-| *[NIM 4]* | *[Nama Anggota 4]* |
-| *[NIM 5]* | *[Nama Anggota 5]* |
+| *13525120* | *Nadia Aulia Syafarani* |
+| *13525041* | *Renata Puspanegara Ninagan* |
+| *13525119* | *Ghina Emelia Yantes* |
+| *13525017* | *Cendra Asih Chairunnisa* |
+| *13525089* | *Sherin Felicia Danessa* |
 
 ---
 
@@ -29,14 +29,10 @@
 
 ### Log Penggunaan AI per Milestone
 
-Silakan catat penggunaan AI yang berdampak signifikan pada pengerjaan tugas (misal: *generate* fungsi algoritma yang kompleks, *generate* draf dokumen SKPL/DPPL, atau *debugging* error utama). 
-*Penggunaan sepele seperti memperbaiki *typo* atau auto-complete satu baris kode tidak perlu dicatat.*
-
 ### Milestone 1
 | Tool AI | Tujuan Penggunaan | Contoh Prompt Utama | Modifikasi & Validasi Manusia |
 | :--- | :--- | :--- | :--- |
-| *[Nama AI]* | *[Sertakan Tujuan Penggunaan]* | *[Tuliskan Prompt Utama]* | *[Tuliskan Keputusan Hasil Validasi]* |
-| *Gemini* | *Mengecek relasi antar class* | *"Apakah relasi antara class User dan Order dalam UML ini seharusnya composition atau aggregation?"* | *AI menyarankan composition, tapi setelah dicek kembali ke requirement, kami menggunakan aggregation karena Order masih bisa eksis di history.* |
+| *Claude* | *Memperbaiki kebahasaan* | *[Isi paragraf teks yang sudah ditulis dan masih belum rapi] Berikan saran perubahan tanpa mengubah teks* | *AI memberikan beberapa rekomendasi perbaikan kebahasaan dan diberikan dan kami memilih beberapa bagian yang bisa digunakan* |
 | | | | | |
 
 ### Milestone 2
