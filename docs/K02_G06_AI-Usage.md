@@ -49,9 +49,7 @@ Kami yang bertanda tangan di bawah ini menyatakan bahwa seluruh log penggunaan A
 | Tanda Tangan | Nama Anggota |
 | :---: | :--- |
 | <img width="574" height="199" alt="signature (4)" src="https://github.com/user-attachments/assets/2419d345-8868-44fd-9c81-9a0a62ae1398" /> | **19625120 - Nadia Aulia Syafarani** |
-| <img width="660" height="364" alt="WhatsApp Image 2026-09-02 at 20 34 29" src="https://github.com/user-attachments/assets/6c06a675-8f8d-44d3-9a7c-2c4c9230592d" />
- | **19625168 - Cendra Asih Chairunnisa** |
-| <img width="823" height="326" alt="signature (1) (1)" src="https://github.com/user-attachments/assets/673429b4-2239-4d7b-b8ba-e963fd74175a" />
- | **19625096 - Renata Puspanegara Ninagan** |
+| <img width="660" height="364" alt="WhatsApp Image 2026-09-02 at 20 34 29" src="https://github.com/user-attachments/assets/6c06a675-8f8d-44d3-9a7c-2c4c9230592d" /> | **19625168 - Cendra Asih Chairunnisa** |
+| <img width="823" height="326" alt="signature (1) (1)" src="https://github.com/user-attachments/assets/673429b4-2239-4d7b-b8ba-e963fd74175a" /> | **19625096 - Renata Puspanegara Ninagan** |
 | <img src="./assets/ttd-anggota4.png" width="100"> | **[NIM - Nama Anggota 4]** |
 | <img src="./assets/ttd-anggota5.png" width="100"> | **[NIM - Nama Anggota 5]** |
