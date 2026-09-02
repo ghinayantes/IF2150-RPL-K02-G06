@@ -44,9 +44,10 @@ Indonesia merupakan negara yang memproduksi limbah makanan paling banyak di Asia
 # BAB 2: Analisis Solusi
 
 ## 2.1 Deskripsi Perangkat Lunak
-  Solusi yang kami ajukan yaitu software berupa web application gamifikasi bagi mahasiswa untuk membangun kebiasaan mengurangi food waste. Platform web application dipilih dikarenakan aksesibilitasnya yang tinggi. Dengan ini, pengguna dapat langsung mengaksesnya tanpa perlu mengunduh aplikasi tambahan.
-  Untuk mendorong pengguna, diberikan sistem minigame di mana apabila mereka melakukan kegiatan yang mengurangi limbah makanan, maka mereka akan mendapatkan poin tertentu. Salah satu metode mengurangi limbah makanan yang difasilitasi yaitu pengurangan limbah makanan dengan membeli makanan berlebih dari kantin. Perangkat lunak ini memungkinkan penjual untuk mendata daftar produk yang berlebih, mengunggah foto beserta stok yang tersisa, dan menginformasikan harga diskon. Dengan begini, pihak kantin dapat mengurangi limbah makanan yang diproduksi dan pengguna bisa dengan cepat mendapatkan informasi mengenai sisa makanan yang ada. Opsi challenge lain yang bisa diberikan adalah pengguna dapat mengumpulkan limbah makanan mereka untuk diberikan kepada pihak ketiga agar dapat diolah. Untuk setiap task akan diminta bukti, dan ketika bukti sudah diberikan maka poin akan bertambah. 
-	Nilai unik dari perangkat lunak ini adalah sistem game yang diimplementasikan dengan konsep daily task. Selain itu, penerapan reward di akhir setelah terkumpul cukup poin akan membuat pengguna menjadi lebih terdorong untuk terus melakukannya. Konsep reward ini akan dilakukan dengan UI telur yang dapat ‘diberi makan’ poin, yang kemudian akan menetas ketika poin sudah cukup. Hal ini dapat memecahkan salah satu masalah dalam pendorongan SDG, yaitu retensi dan konsistensi pelaku. Dengan mendorong konsep game, maka aktivitas pendukungan SDG 12 akan terasa lebih seru dan menarik, sehingga dapat membentuk kebiasaan jangka panjang bagi pengguna.
+  Solusi yang kami ajukan yaitu web application berbasis gamifikasi yang ditujukan bagi pengguna untuk membangun kebiasaan dalam mengurangi food waste. Platform web application dipilih dikarenakan aksesibilitasnya yang tinggi. Dengan ini, pengguna dapat langsung mengaksesnya tanpa perlu mengunduh aplikasi tambahan.
+Fitur utama perangkat lunak ini yaitu pengurangan limbah makanan dengan memfasilitasi pembelian makanan berlebih dari berbagai toko atau penjual. Perangkat lunak ini memungkinkan penjual untuk mendata daftar produk yang berlebih, mengunggah foto beserta stok yang tersisa, dan menginformasikan harga diskon. Dengan begini, pihak penjual dapat mengurangi limbah makanan yang diproduksi untuk diberikan kepada konsumen yang masih membutuhkannya. Di sisi lain, pengguna bisa dengan cepat mendapatkan informasi mengenai sisa makanan yang ada dengan harga yang lebih terjangkau.
+Untuk mendorong keterlibatan pengguna yang konsisten, perangkat lunak ini menerapkan sistem gamifikasi yang terinspirasi dari konsep permainan Shopee Tanam. Dalam sistem ini, pengguna akan diberikan sejumlah poin tertentu apabila login dan membeli makanan. Poin yang terkumpul dapat digunakan untuk mengembangkan progres pengguna tersebut. Semakin banyak poin yang terakumulasi, semakin berkembang progres pengguna. Setelah poin sudah cukup terakumulasi, maka pengguna akan diberikan reward tertentu agar memiliki tujuan yang dicapai di setiap aktivitas.
+	Nilai unik dari perangkat lunak ini adalah penggabungan platform pembelian makanan berlebih dengan sistem gamifikasi yang diterapkan. Perangkat lunak ini tidak hanya mendorong konsumsi makanan yang lebih bertanggung jawab, tetapi juga mendorong mekanisme permainan untuk meningkatkan retensi pengguna. Dengan adanya progres yang dapat dilihat, maka aktivitas pendukungan SDG 12 akan terasa lebih seru dan menarik, sehingga dapat membentuk kebiasaan jangka panjang bagi pengguna.
 
 ## 2.2 Asumsi dan Batasan
 Asumsi dari sisi pengguna adalah mahasiswa sebagai pembeli dan penjual kantin sebagai penyedia makanannya. Mahasiswa bersedia membeli makanan dengan harga yang lebih rendah selama makanan masih layak untuk dikonsumsi dan penjual bertanggung jawab dalam memastikan makanan yang ditawarkan masih layak dan aman untuk dikonsumsi. Sistem reward dari konsep game dapat menjadi salah satu motivasi yang dapat mendorong mahasiswa untuk menggunakan layanan. 
@@ -73,7 +74,67 @@ Buatlah daftar seluruh aktor (pengguna) yang akan berinteraksi langsung dengan s
 | US-01 | *Penjual : Kantin ITB* |  *Memasukkan barang ke penjualan* | *Instruksi mudah diikuti (proses tidak ribet) dan deskripsi cukup (berat, kondisi, komposisi utama)* |
 | US-02 | *Pembeli : Pengelola sisa makanan menjadi kompos* | *Mengecek barang * | *Tampilan mudah ditangkap informasi barangnya (tidak ribet)* |
 
-## 3.3 Model Proses Bisnis
+
+## 3.3 Deskripsi Aktivitas
+
+**Aktivitas Penjual (Kantin ITB)**
+ 
+*Login & Registrasi Akun*
+ 
+| ID | Aktivitas | Penjelasan | ID User Story |
+| :--- | :--- | :--- | :--- |
+| PL01 | Membuka aplikasi | Penjual mengakses aplikasi untuk memulai sesi penggunaan. | US-04 |
+| PL02 | Memeriksa status akun | Sistem menanyakan apakah penjual sudah memiliki akun terdaftar. | US-04 |
+| PL03 | Login dengan akun yang ada | Penjual memasukkan kredensial akun; sistem melakukan validasi dan menampilkan pesan error jika tidak valid. | US-04 |
+| PL04 | Mendaftarkan akun toko | Jika belum memiliki akun, penjual mengisi data toko pada menu registrasi. | US-04 |
+| PL05 | Masuk ke halaman utama | Sistem menyimpan data login/registrasi yang valid dan mengarahkan penjual ke halaman utama. | US-04 |
+ 
+*Mendata Makanan Berlebih Baru*
+ 
+| ID | Aktivitas | Penjelasan | ID User Story |
+| :--- | :--- | :--- | :--- |
+| A01 | Membuka form tambah makanan berlebih | Penjual pada halaman utama memilih opsi menambahkan makanan berlebih baru. | US-01 |
+| A02 | Mengisi deskripsi produk | Penjual memasukkan nama makanan, berat/porsi, kondisi, dan komposisi utama agar instruksi input tetap ringkas dan mudah diikuti. | US-01 |
+| A03 | Mengunggah foto makanan | Penjual menyertakan foto sebagai bukti visual kondisi dan kelayakan makanan yang ditawarkan. | US-01 |
+| A04 | Menetapkan stok tersisa | Penjual memasukkan jumlah stok/porsi makanan berlebih yang masih tersedia untuk dijual. | US-01 |
+| A05 | Menetapkan harga diskon | Penjual menentukan harga diskon dari makanan berlebih tersebut. | US-01 |
+| A06 | Mempublikasikan listing | Sistem memvalidasi kelengkapan data lalu menampilkan listing ke daftar makanan berlebih yang dapat dilihat pembeli. | US-01 |
+ 
+*Memperbarui Data Makanan*
+ 
+| ID | Aktivitas | Penjelasan | ID User Story |
+| :--- | :--- | :--- | :--- |
+| A07 | Membuka menu perubahan data makanan | Penjual memilih opsi memperbarui data pada listing yang sudah pernah didata. | US-06 |
+| A08 | Mengubah rincian listing | Penjual mengubah stok, harga, atau deskripsi listing yang sudah ada. | US-06 |
+| A09 | Menyimpan perubahan data | Sistem menyimpan perubahan dan memperbarui tampilan listing yang dilihat pembeli. | US-06 |
+| A10 | Menghapus listing | Penjual menghapus listing yang stoknya sudah habis terjual. | US-06 |
+ 
+**Aktivitas Pembeli (Mahasiswa)**
+ 
+*Login & Registrasi Akun*
+ 
+| ID | Aktivitas | Penjelasan | ID User Story |
+| :--- | :--- | :--- | :--- |
+| BL01 | Membuka aplikasi | Pembeli mengakses aplikasi untuk memulai sesi penggunaan. | US-05 |
+| BL02 | Memeriksa status akun | Sistem menanyakan apakah pembeli sudah memiliki akun terdaftar. | US-05 |
+| BL03 | Login dengan akun yang ada | Pembeli memasukkan kredensial akun; sistem melakukan validasi dan menampilkan pesan error jika tidak valid. | US-05 |
+| BL04 | Mendaftarkan akun pembeli | Jika belum memiliki akun, pembeli mengisi data diri pada menu registrasi. | US-05 |
+| BL05 | Masuk ke halaman utama | Sistem menyimpan data login/registrasi yang valid dan mengarahkan pembeli ke halaman utama. | US-05 |
+ 
+*Menjelajah & Membeli Makanan*
+ 
+| ID | Aktivitas | Penjelasan | ID User Story |
+| :--- | :--- | :--- | :--- |
+| B01 | Menampilkan daftar makanan berlebih | Sistem menampilkan seluruh listing makanan berlebih yang masih tersedia dari kantin, agar informasinya mudah ditangkap sekilas. | US-02 |
+| B02 | Menyaring atau mencari listing | Pembeli menyaring daftar berdasarkan kriteria seperti kantin, rentang harga, atau kategori makanan. | US-02 |
+| B03 | Melihat detail informasi makanan | Pembeli membuka satu listing untuk melihat foto, berat/porsi, kondisi, dan harga diskon secara rinci. | US-02 |
+| B04 | Memeriksa ketersediaan stok | Pembeli memastikan stok listing yang diminati masih tersedia sebelum melanjutkan ke proses berikutnya. | US-02 |
+| B05 | Memilih makanan untuk dibeli | Pembeli menandai listing yang diminati dan melanjutkan ke proses pemesanan. | US-03 |
+| B06 | Mengonfirmasi pesanan dan harga | Sistem menampilkan ringkasan pesanan beserta harga diskon untuk dikonfirmasi pembeli sebelum pembayaran. | US-03 |
+| B07 | Melakukan pembayaran | Pembeli menyelesaikan pembayaran sesuai harga diskon yang telah dikonfirmasi. | US-03 |
+| B08 | Mengambil makanan di kantin | Pembeli menunjukkan bukti pemesanan dan mengambil makanan langsung di kantin, sesuai batasan sistem yang tidak menyediakan layanan pengantaran. | US-03 |
+
+## 3.4 Model Proses Bisnis
 
 <p align="center">
 <img alt="Swimlane Diagram Sistem Login Penjual" src="https://github.com/user-attachments/assets/40124979-d1a9-45d3-86da-ed159426420e" width="70%"> 
