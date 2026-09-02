@@ -19,7 +19,7 @@ Dipersiapkan oleh:
 
 | NIM | Nama |
 |---|---|
-| *13525120* | *Nadia Aulia Syafarani* |
+| *13525122* | *Nadia Aulia Syafarani* |
 | *13525041* | *Renata Puspanegara Ninagan* |
 | *13525119* | *Ghina Emelia Yantes* |
 | *13525017* | *Cendra Asih Chairunnisa* |
