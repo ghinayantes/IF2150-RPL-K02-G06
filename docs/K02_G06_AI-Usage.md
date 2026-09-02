@@ -52,4 +52,4 @@ Kami yang bertanda tangan di bawah ini menyatakan bahwa seluruh log penggunaan A
 | <img width="660" height="364" alt="WhatsApp Image 2026-09-02 at 20 34 29" src="https://github.com/user-attachments/assets/6c06a675-8f8d-44d3-9a7c-2c4c9230592d" /> | **13525017 - Cendra Asih Chairunnisa** |
 | <img width="823" height="326" alt="signature (1) (1)" src="https://github.com/user-attachments/assets/673429b4-2239-4d7b-b8ba-e963fd74175a" /> | **13525041 - Renata Puspanegara Ninagan** |
 | <img width="823" height="326" src="./assets/ttd-anggota4.png"> | **13525119 - Ghina Emelia Yantes** |
-| <img width="300" height="200" alt="ttd" src="https://github.com/user-attachments/assets/2b5975b4-0950-4065-b037-7c51f96ff0d2"> | **[13525089 - Sherin Felicia Danessa]** |
+| <img width="823" height="326" alt="ttd" src="https://github.com/user-attachments/assets/2b5975b4-0950-4065-b037-7c51f96ff0d2"> | **[13525089 - Sherin Felicia Danessa]** |
