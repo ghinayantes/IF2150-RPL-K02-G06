@@ -9,7 +9,7 @@ TOPIC BRAINSTORMING
 
 ## *Food Waste Stop*
 
-### Untuk: *Aurelia Jennifer*
+### Untuk: *Aurelia Jennifer Gunawan*
 
 Dipersiapkan oleh:
 | Informasi | Keterangan |
