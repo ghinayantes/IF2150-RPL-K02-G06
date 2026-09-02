@@ -33,7 +33,7 @@
 | Tool AI | Tujuan Penggunaan | Contoh Prompt Utama | Modifikasi & Validasi Manusia |
 | :--- | :--- | :--- | :--- |
 | *Claude* | *Memperbaiki kebahasaan* | *[Isi paragraf teks yang sudah ditulis dan masih belum rapi] Berikan saran perubahan tanpa mengubah teks* | *AI memberikan beberapa rekomendasi perbaikan kebahasaan dan diberikan dan kami memilih beberapa bagian yang bisa digunakan* |
-| | | | | |
+| *Gemini* | *Brainstorming ide aplikasi* | *Berikan saran aplikasi unik yang bisa menjawab permasalahan SDG 12* | *AI memberikan beberapa rekomendasi aplikasi yang dapat menjawab permasalahan SDG 12* |
 
 ### Milestone 2
 | Tool AI | Tujuan Penggunaan | Contoh Prompt Utama | Modifikasi & Validasi Manusia |
