@@ -14,8 +14,8 @@ TOPIC BRAINSTORMING
 Dipersiapkan oleh:
 | Informasi | Keterangan |
 | --- | --- |
-| Kelas | *\K02\* |
-| Kelompok | *\G06\*  |
+| Kelas | *K02* |
+| Kelompok | *G06*  |
 
 | NIM | Nama |
 |---|---|
