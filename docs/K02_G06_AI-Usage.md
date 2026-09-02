@@ -48,7 +48,9 @@ Kami yang bertanda tangan di bawah ini menyatakan bahwa seluruh log penggunaan A
 
 | Tanda Tangan | Nama Anggota |
 | :---: | :--- |
-| <img src="./assets/ttd-anggota1.png" width="100"> | **[NIM - Nama Anggota 1]** |
+| <img width="574" height="199" alt="signature (4)" src="https://github.com/user-attachments/assets/2419d345-8868-44fd-9c81-9a0a62ae1398" />
+ | **[19625120
+ - Nadia Aulia Syafarani]** |
 | <img src="./assets/ttd-anggota2.png" width="100"> | **[NIM - Nama Anggota 2]** |
 | <img src="./assets/ttd-anggota3.png" width="100"> | **[NIM - Nama Anggota 3]** |
 | <img src="./assets/ttd-anggota4.png" width="100"> | **[NIM - Nama Anggota 4]** |
