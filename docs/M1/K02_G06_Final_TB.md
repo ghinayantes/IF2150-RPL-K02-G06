@@ -191,6 +191,16 @@ Buatlah daftar seluruh aktor (pengguna) yang akan berinteraksi langsung dengan s
 
 <br>
 
+<p align="center">
+<img alt="Swimlane Diagram untuk Reward dari Login Streak" src="https://github.com/user-attachments/assets/7dfd1515-0793-495f-ab38-51f295469bbc
+" width="70%"> 
+</p>
+<p align="center">
+<i>Gambar 4. Swimlane Diagram untuk Reward dari Login Streak</i>
+</p>
+
+<br>
+
 # Referensi
 - Badan Pangan Nasional. Publikasi Badan Pangan Nasional. Diakses pada 30 Agustus 2026, dari https://pustaka.badanpangan.go.id/publikasi/d296c101daa88a51f6ca8cfc1ac79b50
 - European Commission. Food Waste - Food Safety. Diakses pada 2 September 2026, dari https://food.ec.europa.eu/food-safety/food-waste_en
