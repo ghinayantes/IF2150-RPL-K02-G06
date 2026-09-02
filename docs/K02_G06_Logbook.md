@@ -33,13 +33,14 @@
 
 | Tanggal | Nama Anggota | Deskripsi Pekerjaan | Durasi (Jam) | Status | Kendala / *Blocker* | 
 | :--- | :--- | :--- | :--- | :--- | :--- | 
-| *30-07-2026* | *Nadia Aulia Syafarani* | *Mengerjakan bab 1.1 dan 2.1* | *2* | *Done* | *Sulit menentukan latar belakang yang relevan* | 
-| *30-07-2026* | *Renata Puspanegara Ninagan* | *Mengerjakan diagram bab 3.4* | *2* | *Done* | *Sulit memahami swimlane diagram yang dibutuhkan* | 
-| *2-08-2026* | *Nadia Aulia Syafarani* | *Merevisi bab 1.1 dan 2.1* | *3* | *Done* | *-* | 
-| *2-08-2026* | *Renata Puspanegara Ninagan* | *Mengerjakan diagram bab 3.4* | *2* | *Done* | *-* | 
-| *2-08-2026* | *Ghina Emelia Yantes* | *Mengerjakan tabel deskripsi aktivitas bab 3.3* | *1.5* | *Masih dalam penyesuaian* | *Masih ada beberapa detail yang perlu didiskusikan lagi* | 
-| *2-08-2026* | *Cendra Asih Chairunnisa* | *Mengerjakan tabel subbab 3.1 dan 3.2* | *2* | *Done* | *Kesulitan menyesuaikan dan menyamakan fitur* | 
+| *30-08-2026* | *Nadia Aulia Syafarani* | *Mengerjakan bab 1.1 dan 2.1* | *2* | *Done* | *Sulit menentukan latar belakang yang relevan* | 
+| *30-08-2026* | *Renata Puspanegara Ninagan* | *Mengerjakan diagram bab 3.4* | *2* | *Done* | *Sulit memahami swimlane diagram yang dibutuhkan* | 
 | *30-08-2026* | *Cendra Asih Chairunnisa* | *Mengerjakan draft subbab tabel 3.1 dan 3.2* | *1* | *Ongoing* | *-* |
+| *2-09-2026* | *Nadia Aulia Syafarani* | *Merevisi bab 1.1 dan 2.1* | *3* | *Done* | *-* | 
+| *2-09-2026* | *Renata Puspanegara Ninagan* | *Mengerjakan diagram bab 3.4* | *2* | *Done* | *-* | 
+| *2-09-2026* | *Ghina Emelia Yantes* | *Mengerjakan tabel deskripsi aktivitas bab 3.3* | *1.5* | *Masih dalam penyesuaian* | *Masih ada beberapa detail yang perlu didiskusikan lagi* | 
+| *2-09-2026* | *Cendra Asih Chairunnisa* | *Mengerjakan tabel subbab 3.1 dan 3.2* | *2* | *Done* | *Kesulitan menyesuaikan dan menyamakan fitur* | 
+
 
 **Catatan/Evaluasi Milestone 1:**
 * *(Isi jika ada catatan khusus untuk asisten atau evaluasi singkat kerja tim)*
