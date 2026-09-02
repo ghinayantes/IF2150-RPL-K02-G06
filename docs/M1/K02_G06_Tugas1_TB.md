@@ -76,10 +76,37 @@ Buatlah daftar seluruh aktor (pengguna) yang akan berinteraksi langsung dengan s
 ## 3.3 Model Proses Bisnis
 
 <p align="center">
-<img alt="Contoh Activity Diagram" src="./assets/diagram/diagram-act-1.avif" width="70%"> 
+<img alt="Swimlane Diagram Sistem Login Penjual" src="https://github.com/user-attachments/assets/40124979-d1a9-45d3-86da-ed159426420e" width="70%"> 
 </p>
 <p align="center">
-<i>Gambar 1. Contoh Activity Diagram</i>
+<i>Gambar 1. Swimlane Diagram Sistem Login Penjual</i>
+</p>
+
+<br>
+
+<p align="center">
+<img alt="Swimlane Diagram Sistem Login Pembeli" src="https://github.com/user-attachments/assets/c5ff9026-2821-4e41-9777-4a52b1c73a60" width="70%"> 
+</p>
+<p align="center">
+<i>Gambar 2. Swimlane Diagram Sistem Login Pembeli</i>
+</p>
+
+<br>
+
+<p align="center">
+<img alt="Swimlane Diagram Transaksi Pembelian Makanan di Aplikasi" src="https://github.com/user-attachments/assets/949d3571-fb1f-4f49-8fa5-b5f41b13507f" width="70%"> 
+</p>
+<p align="center">
+<i>Gambar 3. Swimlane Diagram untuk Transaksi Pembelian Makanan di Aplikasi</i>
+</p>
+
+<br>
+
+<p align="center">
+<img alt="Swimlane Diagram untuk Edit Data Penjualan Toko" src="https://github.com/user-attachments/assets/df73195a-de37-42ca-a3b4-93583ae10d38" width="70%"> 
+</p>
+<p align="center">
+<i>Gambar 4. Swimlane Diagram untuk Edit Data Penjualan Toko</i>
 </p>
 
 <br>
@@ -87,3 +114,5 @@ Buatlah daftar seluruh aktor (pengguna) yang akan berinteraksi langsung dengan s
 # Referensi
 - Badan Pangan Nasional. Publikasi Badan Pangan Nasional. Diakses pada 30 Agustus 2026, dari https://pustaka.badanpangan.go.id/publikasi/d296c101daa88a51f6ca8cfc1ac79b50
 - United Nations Environment Programme (UNEP). (2024). Food Waste Index Report 2024. Diakses pada 30 Agustus 2026, dari https://www.unep.org/resources/publication/food-waste-index-report-2024
+- Swimlane Diagram
+https://drive.google.com/drive/folders/1fYs04KAW0zfQqJsw1mqpRjiPesHe3xFr?usp=sharing 
