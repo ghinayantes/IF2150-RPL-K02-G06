@@ -4,20 +4,20 @@
 
 | Informasi | Keterangan |
 |---|---|
-| Kelas | *[Kelas]* |
-| Nomor Kelompok | *[Nomor Kelompok]* |
-| Nama Kelompok | *[Nama Kelompok]* |
-| Nama Perangkat Lunak | *[Nama P/L]* |
+| Kelas | *K02* |
+| Nomor Kelompok | *G06* |
+| Nama Kelompok | *Rengginang* |
+| Nama Perangkat Lunak | *Food Waste Stop* |
 
 **Anggota Kelompok:**
 
 | NIM | Nama |
 |---|---|
-| *[NIM 1]* | *[Nama Anggota 1]* |
-| *[NIM 2]* | *[Nama Anggota 2]* |
-| *[NIM 3]* | *[Nama Anggota 3]* |
-| *[NIM 4]* | *[Nama Anggota 4]* |
-| *[NIM 5]* | *[Nama Anggota 5]* |
+| *13525120* | *Nadia Aulia Syafarani* |
+| *13525041* | *Renata Puspanegara Ninagan* |
+| *13525119* | *Ghina Emelia Yantes* |
+| *13525017* | *Cendra Asih Chairunnisa* |
+| *13525089* | *Sherin Felicia Danessa* |
 
 ---
 
@@ -29,11 +29,12 @@
 ---
 
 ### Milestone 1
-**Periode:** [Tanggal Mulai] - [Tanggal Selesai]
+**Periode:** 27 Agustus 2026 - 2 September 2026
 
 | Tanggal | Nama Anggota | Deskripsi Pekerjaan | Durasi (Jam) | Status | Kendala / *Blocker* | 
 | :--- | :--- | :--- | :--- | :--- | :--- | 
-| *04-05-2026* | *[Nama Mahasiswa]* | *[Jelaskan Pekerjaan secara Singkat]* | *[Durasi Pengerjaan]* | *[On Progress/Done]* | [Kendala yang dialami, jika tidak ada cukup tandai "-"] | 
+| *30-07-2026* | *Nadia Aulia Syafarani* | *Mengerjakan bab 1.1 dan 2.1* | *2* | *Done* | *Sulit menentukan latar belakang yang relevan* | 
+| *2-08-2026* | *Nadia Aulia Syafarani* | *Merevisi bab 1.1 dan 2.1* | *3* | *Done* | *-* | 
 | *05-05-2026* | *John Doe* | *Mendesain diagram kelas* | *3* | *Done* | *-* | 
 | | | | | | | |
 
