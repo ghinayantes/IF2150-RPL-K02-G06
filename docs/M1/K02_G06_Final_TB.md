@@ -54,9 +54,18 @@ Dipersiapkan oleh:
 	Nilai unik dari perangkat lunak ini adalah penggabungan platform pembelian makanan berlebih dengan sistem gamifikasi yang diterapkan. Perangkat lunak ini tidak hanya mendorong konsumsi makanan yang lebih bertanggung jawab, tetapi juga mendorong mekanisme permainan untuk meningkatkan retensi pengguna. Dengan adanya progres yang dapat dilihat, maka aktivitas pendukungan SDG 12 akan terasa lebih seru dan menarik, sehingga dapat membentuk kebiasaan jangka panjang bagi pengguna.
 
 ## 2.2 Asumsi dan Batasan
-Asumsi dari sisi pengguna adalah mahasiswa sebagai pembeli dan penjual kantin sebagai penyedia makanannya. Mahasiswa bersedia membeli makanan dengan harga yang lebih rendah selama makanan masih layak untuk dikonsumsi dan penjual bertanggung jawab dalam memastikan makanan yang ditawarkan masih layak dan aman untuk dikonsumsi. Sistem reward dari konsep game dapat menjadi salah satu motivasi yang dapat mendorong mahasiswa untuk menggunakan layanan. 
-	Untuk asumsi teknis, sistem dapat diakses oleh mahasiswa maupun penjual melalui perangkatnya masing-masing yang terhubung dengan internet. Data menu, transaksi, akun pengguna, dan reward tersimpan secara terpusat dan reward dihitung berdasarkan transaksi yang berhasil saja.
-	Sistem yang dikembangkan memiliki ruang lingkup yang terbatas yaitu pada lingkungan kantin kampus dan berfokus pada makanan yang tidak terjual tetapi masih layak untuk dikonsumsi. Pengambilan makanan dilakukan secara langsung di kantin sehingga sistem tidak mencangkup proses distribusi makanan dan menyediakan layanan pengantaran. Reward digunakan sebagai pendorong bagi pembeli dan dapat ditukarkan untuk potongan harga makanan, tidak dalam bentuk penukaran dalam bentuk uang tunai. Sistem tidak mengecek kembali kelayakan makanan dan hanya berperan sebagai media untuk mempertemukan penjual dan mahasiswa
+	Asumsi dari sisi pengguna, berupa:
+Mahasiswa sebagai pembeli dan penjual makanan sebagai penyedia makanannya.
+Mahasiswa bersedia membeli makanan dengan harga yang lebih rendah selama makanan masih layak untuk dikonsumsi dan penjual bertanggung jawab dalam memastikan makanan yang ditawarkan masih layak dan aman untuk dikonsumsi.
+Sistem reward dari konsep game dapat menjadi salah satu motivasi yang dapat mendorong mahasiswa untuk menggunakan layanan. 
+	Untuk asumsi teknis, berupa:
+Sistem dapat diakses oleh mahasiswa maupun penjual melalui perangkatnya masing-masing yang terhubung dengan internet.
+Data menu, transaksi, akun pengguna, dan reward tersimpan secara terpusat dan reward dihitung berdasarkan transaksi yang berhasil saja.
+	Sistem yang dikembangkan memiliki batasan berupa:
+Ruang lingkup yang terbatas yaitu pada lingkungan kantin kampus dan berfokus pada makanan yang tidak terjual tetapi masih layak untuk dikonsumsi.
+Reward digunakan sebagai pendorong bagi pembeli dan dapat ditukarkan untuk potongan harga makanan, tidak dalam bentuk penukaran dalam bentuk uang tunai.
+Sistem tidak mengecek kembali kelayakan makanan dan hanya berperan sebagai media untuk mempertemukan penjual dan mahasiswa.
+
 
 
 ---
