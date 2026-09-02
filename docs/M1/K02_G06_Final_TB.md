@@ -192,8 +192,7 @@ Buatlah daftar seluruh aktor (pengguna) yang akan berinteraksi langsung dengan s
 <br>
 
 <p align="center">
-<img alt="Swimlane Diagram untuk Reward dari Login Streak" src="https://github.com/user-attachments/assets/7dfd1515-0793-495f-ab38-51f295469bbc
-" width="70%"> 
+<img alt="Swimlane Diagram untuk Reward dari Login Streak" src="https://github.com/user-attachments/assets/3febbd8d-a276-4754-9200-cd2bee1feacd" width="70%"> 
 </p>
 <p align="center">
 <i>Gambar 4. Swimlane Diagram untuk Reward dari Login Streak</i>
