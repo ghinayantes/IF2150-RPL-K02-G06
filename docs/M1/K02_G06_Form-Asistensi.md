@@ -11,7 +11,7 @@
 | **Nama Kelompok** | *Rengginang*  |
 | **Nama Perangkat Lunak** | *Food Waste Stop*  |
 | **Dokumen** | *K02_G06_Tugas1_TB*  |
-| **Asisten** | *[Nama Asisten]* |
+| **Asisten** | *Aurelia Jennifer Gunawan* |
 
 ### Anggota Kelompok
 
