@@ -37,7 +37,7 @@
 | *2-08-2026* | *Nadia Aulia Syafarani* | *Merevisi bab 1.1 dan 2.1* | *3* | *Done* | *-* | 
 | *30-07-2026* | *Renata Puspanegara Ninagan* | *Mengerjakan diagram bab 3.4* | *2* | *Done* | *Sulit memahami swimlane diagram yang dibutuhkan* | 
 | *2-08-2026* | *Renata Puspanegara Ninagan* | *Mengerjakan diagram bab 3.4* | *2* | *Done* | *-* | 
-| *2-08-2026* | *Ghina Emelia Yantes* | *Mengerjakan tabel deskripsi aktivitas bab 3.3* | *1.5* | *Masih dalam penyesuaian* | *Masih ada beberapa detail yang perlu didiskusikan lagi* | 
+| *2-08-2026* | *Ghina Emelia Yantes* | *Mengerjakan tabel deskripsi aktivitas bab 3.3* | *1.5* | *Done* | *Masih ada beberapa detail yang perlu didiskusikan lagi* | 
 | | | | | | | |
 
 **Catatan/Evaluasi Milestone 1:**
