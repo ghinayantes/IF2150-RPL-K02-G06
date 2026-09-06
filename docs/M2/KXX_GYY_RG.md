@@ -87,14 +87,6 @@ kriteria seperti kantin, rentang harga, atau kategori makanan. | US-02 |
 
 ## 2.3 Pemetaan Kebutuhan
 
-Perhatikan kembali semua aktivitas yang telah didefinisikan pada tabel deskripsi aktivitas atau *activity diagram*. Jabarkan kebutuhan sistem yang akan dibuat dengan mengacu pada aktivitas-aktivitas tersebut. Setiap aktivitas (ID Aktivitas) dapat memiliki satu atau lebih kebutuhan yang berbeda. Pastikan untuk mengidentifikasi dan mengisi semua jenis kebutuhan yang relevan untuk setiap aktivitas, yaitu:
-
-- **User Requirement**, yaitu kebutuhan dari sudut pandang pengguna (apa yang dapat dilakukan pengguna).
-- **Business Requirement**, yaitu aturan, kebijakan, atau standar bisnis yang harus dipenuhi oleh sistem.
-- **System Requirement**, yaitu kebutuhan yang menjelaskan apa yang harus dilakukan sistem dan bagaimana sistem harus bekerja dari segi performa, keamanan, keandalan, dsb.
-
-Lengkapi juga dengan penjelasannya dan apakah keperluan tersebut perlu didukung oleh perangkat lunak atau tidak. Jenis kebutuhan tidak terbatas hanya dari tiga jenis di atas, dapat ditambahkan yang lain juga bila diperlukan, misalnya kebutuhan regulasi (*Legal*).
-
 | ID Kebutuhan | ID Aktivitas | Jenis Kebutuhan | Deskripsi Kebutuhan | P/L |
 | :--- | :--- | :--- | :--- | :--- |
 | *R01* | *PL01, BL01* | *System* | *Sistem dapat diakses baik di desktop maupun mobile tanpa mengunduh aplikasi tambahan* | *Ya* |
@@ -112,6 +104,24 @@ Lengkapi juga dengan penjelasannya dan apakah keperluan tersebut perlu didukung 
 | *R13* | *A09, B07* | *System* | *Setelah pembayaran berhasil, sistem otomatis mengurangi jumlah stok makanan di database sesuai jumlah yang dibeli* | *Ya* |
 | *R14* | *B08* | *System* | *Sistem memberikan kode unik pembayaran sebagai bukti pembelian* | *Ya* |
 | *R15* | *BL04, PL04* | *Legal* | *Registrasi menggunakan data pribadi sehingga harus mematuhi UU Perlindungan Data yang berlaku* | *Ya* |
+| *R16* | *PL04, BL04* | *User* | *Pengguna dapat mendaftarkan akun baru dengan mengisi data diri (nama, nomor kontak, dan alamat/nama toko) melalui form registrasi* | *Ya* |
+| *R17* | *PL02, BL02* | *System* | *Sistem memeriksa status akun (baru/sudah terdaftar) berdasarkan kredensial yang dimasukkan dan mengarahkan pengguna ke alur login atau registrasi yang sesuai* | *Ya* |
+| *R18* | *A01, A02* | *User* | *Penjual dapat menambahkan makanan berlebih baru dengan mengisi nama, kondisi, dan komposisi utama makanan melalui form yang ringkas* | *Ya* |
+| *R19* | *A02* | *System* | *Sistem memvalidasi kelengkapan field wajib (nama, porsi, kondisi, komposisi) sebelum listing dapat dipublikasikan dan menampilkan pesan error jika ada field yang kosong* | *Ya* |
+| *R20* | *A04, A05* | *User* | *Penjual dapat menentukan jumlah stok dan harga diskon dari makanan berlebih yang akan dijual* | *Ya* |
+| *R21* | *A04* | *System* | *Sistem hanya menerima input stok berupa bilangan bulat positif dan menolak input nol atau negatif* | *Ya* |
+| *R22* | *A05* | *System* | *Sistem memvalidasi bahwa harga diskon yang dimasukkan tidak bernilai nol, negatif, atau melebihi harga jual normal* | *Ya* |
+| *R23* | *A05* | *Business* | *Harga diskon yang ditetapkan penjual harus lebih rendah dari harga jual normal makanan tersebut, sesuai tujuan platform mengurangi kerugian penjual tanpa memberatkan pembeli* | *Ya* |
+| *R24* | *A07, A08* | *User* | *Penjual dapat mengubah stok, harga, atau deskripsi listing makanan yang sudah pernah diunggah* | *Ya* |
+| *R25* | *A02* | *Business* | *Makanan yang didata sebagai "makanan berlebih" harus merupakan makanan yang tidak habis terjual namun masih dalam kondisi layak konsumsi, sesuai batasan sistem yang tidak melakukan pengecekan ulang kelayakan makanan* | *Tidak* |
+| *R26* | *B01, B03* | *User* | *Pembeli dapat melihat daftar dan detail makanan berlebih (foto, porsi, kondisi, harga) yang tersedia dari berbagai kantin* | *Ya* |
+| *R27* | *B01* | *System* | *Sistem menampilkan daftar listing makanan berlebih secara real-time (otomatis diperbarui saat ada perubahan stok) tanpa perlu memuat ulang halaman* | *Ya* |
+| *R28* | *B03* | *System* | *Sistem menampilkan detail listing (foto, deskripsi, harga) secara responsif dalam waktu kurang dari 2 detik saat listing dipilih* | *Ya* |
+| *R29* | *B08* | *Business* | *Pengambilan makanan hanya dapat dilakukan langsung di kantin/toko penjual; platform tidak menyediakan layanan pengantaran* | *Tidak* |
+| *R30* | *BL05* | *User* | *Pembeli dapat memperoleh poin dari quest login harian yang dapat digunakan untuk mengembangkan progres dan mendapatkan reward* | *Ya* |
+| *R31* | *BL05* | *Business* | *Poin reward hasil gamifikasi hanya dapat ditukarkan untuk potongan harga makanan, tidak dalam bentuk uang tunai* | *Ya* |
+| *R32* | *A06, B07* | *Business* | *Platform dapat mengenakan biaya layanan (komisi) dari setiap transaksi yang berhasil kepada penjual* | *Ya* |
+| *R33* | *A03, B03* | *Legal* | *Foto makanan yang diunggah penjual harus merupakan foto asli kondisi makanan yang bersangkutan, bukan gambar ilustrasi, guna menghindari informasi yang menyesatkan pembeli* | *Tidak* |
 
 ## 2.4 Kebutuhan Fungsional (KF)
 
