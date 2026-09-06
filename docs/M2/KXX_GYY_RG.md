@@ -82,9 +82,56 @@ Definisikan apa yang ingin dicapai oleh pengguna saat menggunakan sistem ini dal
 
 ## 2.2 Deskripsi Aktivitas
 
-Buatlah daftar seluruh aktivitas yang terdapat dalam sistem solusi, lengkap dengan ID dan penjelasan. Telusuri hubungan aktivitas tersebut dengan *user story* yang sudah dituliskan sebelumnya. Bisa dibuat dalam bentuk tabel.
-
-kriteria seperti kantin, rentang harga, atau kategori makanan. | US-02 |
+**Aktivitas Penjual**
+ 
+*Login & Registrasi Akun*
+ 
+| ID | Aktivitas | Penjelasan | ID User Story |
+| :--- | :--- | :--- | :--- |
+| PL01 | Membuka aplikasi | Penjual mengakses aplikasi untuk memulai sesi penggunaan. | US-04 |
+| PL02 | Memeriksa status akun | Sistem menanyakan apakah penjual sudah memiliki akun terdaftar. | US-04 |
+| PL03 | Login dengan akun yang ada | Penjual memasukkan kredensial akun; sistem melakukan validasi dan menampilkan pesan error jika tidak valid. | US-04 |
+| PL04 | Mendaftarkan akun toko | Jika belum memiliki akun, penjual mengisi data toko pada menu registrasi. | US-04 |
+| PL05 | Masuk ke halaman utama | Sistem menyimpan data login/registrasi yang valid dan mengarahkan penjual ke halaman utama. | US-04 |
+ 
+*Mendata Makanan Berlebih Baru*
+ 
+| ID | Aktivitas | Penjelasan | ID User Story |
+| :--- | :--- | :--- | :--- |
+| A01 | Membuka form tambah makanan berlebih | Penjual pada halaman utama memilih opsi menambahkan makanan berlebih baru. | US-01 |
+| A02 | Mengisi deskripsi produk | Penjual memasukkan nama makanan, berat/porsi, kondisi, dan komposisi utama agar instruksi input tetap ringkas dan mudah diikuti. | US-01 |
+| A03 | Mengunggah foto makanan | Penjual menyertakan foto sebagai bukti visual kondisi dan kelayakan makanan yang ditawarkan. | US-01 |
+| A04 | Menetapkan stok tersisa | Penjual memasukkan jumlah stok/porsi makanan berlebih yang masih tersedia untuk dijual. | US-01 |
+| A05 | Menetapkan harga diskon | Penjual menentukan harga diskon dari makanan berlebih tersebut. | US-01 |
+| A06 | Mempublikasikan listing | Sistem memvalidasi kelengkapan data lalu menampilkan listing ke daftar makanan berlebih yang dapat dilihat pembeli. | US-01 |
+ 
+*Memperbarui Data Makanan*
+ 
+| ID | Aktivitas | Penjelasan | ID User Story |
+| :--- | :--- | :--- | :--- |
+| A07 | Membuka menu perubahan data makanan | Penjual memilih opsi memperbarui data pada listing yang sudah pernah didata. | US-06 |
+| A08 | Mengubah rincian listing | Penjual mengubah stok, harga, atau deskripsi listing yang sudah ada. | US-06 |
+| A09 | Menyimpan perubahan data | Sistem menyimpan perubahan dan memperbarui tampilan listing yang dilihat pembeli. | US-06 |
+| A10 | Menghapus listing | Penjual menghapus listing yang stoknya sudah habis terjual. | US-06 |
+ 
+**Aktivitas Pembeli**
+ 
+*Login & Registrasi Akun*
+ 
+| ID | Aktivitas | Penjelasan | ID User Story |
+| :--- | :--- | :--- | :--- |
+| BL01 | Membuka aplikasi | Pembeli mengakses aplikasi untuk memulai sesi penggunaan. | US-05 |
+| BL02 | Memeriksa status akun | Sistem menanyakan apakah pembeli sudah memiliki akun terdaftar. | US-05 |
+| BL03 | Login dengan akun yang ada | Pembeli memasukkan kredensial akun; sistem melakukan validasi dan menampilkan pesan error jika tidak valid. | US-05 |
+| BL04 | Mendaftarkan akun pembeli | Jika belum memiliki akun, pembeli mengisi data diri pada menu registrasi. | US-05 |
+| BL05 | Masuk ke halaman utama | Sistem menyimpan data login/registrasi yang valid dan mengarahkan pembeli ke halaman utama. | US-05 |
+ 
+*Menjelajah & Membeli Makanan*
+ 
+| ID | Aktivitas | Penjelasan | ID User Story |
+| :--- | :--- | :--- | :--- |
+| B01 | Menampilkan daftar makanan berlebih | Sistem menampilkan seluruh listing makanan berlebih yang masih tersedia dari kantin, agar informasinya mudah ditangkap sekilas. | US-02 |
+| B02 | Menyaring atau mencari listing | Pembeli menyaring daftar berdasarkan kriteria seperti kantin, rentang harga, atau kategori makanan. | US-02 |
 | B03 | Melihat detail informasi makanan | Pembeli membuka satu listing untuk melihat foto, berat/porsi, kondisi, dan harga diskon secara rinci. | US-02 |
 | B04 | Memeriksa ketersediaan stok | Pembeli memastikan stok listing yang diminati masih tersedia sebelum melanjutkan ke proses berikutnya. | US-02 |
 | B05 | Memilih makanan untuk dibeli | Pembeli menandai listing yang diminati dan melanjutkan ke proses pemesanan. | US-03 |
