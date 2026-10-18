@@ -169,7 +169,7 @@ Tabel 3.1. Identifikasi Kelas Use Case [UC01]
 | 1 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
 | 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
 
-### 3.2.2 Sequence Diagram
+### 3.1.2 Sequence Diagram
 
 Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
 
@@ -214,9 +214,9 @@ Pada diagram, pastikan:
 **ID Use Case:** *07*  
 **Nama Use Case:** *Login ke sistem*
 
-### 3.2.1 Identifikasi Kelas
+### 3.7.1 Identifikasi Kelas
 
-Tabel 3.1. Identifikasi Kelas Use Case [UC07]
+Tabel 3.7. Identifikasi Kelas Use Case [UC07]
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
 |:--- | :--- | :--- |
@@ -224,7 +224,7 @@ Tabel 3.1. Identifikasi Kelas Use Case [UC07]
 | 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
 | ... | *...* | *...* |
 
-### 3.1.2 Sequence Diagram
+### 3.7.2 Sequence Diagram
 
 Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
 
@@ -246,7 +246,7 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 <i>Gambar X. Sequence Diagram [UC01] - [Nama skenario alternatif]</i>
 </p>
 
-### 3.1.3 Diagram Kelas
+### 3.7.3 Diagram Kelas
 
 Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
 
@@ -257,7 +257,53 @@ Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.
 <i>Gambar X. Diagram Kelas [Nama Uce Case]</i>
 </p>
 
+## 3.8 Use Case 08
 
+**ID Use Case:** *08*  
+**Nama Use Case:** *Mengklaim reward login*
+
+### 3.8.1 Identifikasi Kelas
+
+Tabel 3.8. Identifikasi Kelas Use Case [UC07]
+
+| No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
+|:--- | :--- | :--- |
+| 1 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
+| 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
+| ... | *...* | *...* |
+
+### 3.8.2 Sequence Diagram
+
+Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
+
+- **Skenario Normal**
+
+<p align="center">
+<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
+</p>
+<p align="center">
+<i>Gambar X. Sequence Diagram [UC01]</i>
+</p>
+
+- **Skenario Alternatif [Nomor]: [Nama Skenario]**
+
+<p align="center">
+<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
+</p>
+<p align="center">
+<i>Gambar X. Sequence Diagram [UC01] - [Nama skenario alternatif]</i>
+</p>
+
+### 3.8.3 Diagram Kelas
+
+Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
+
+<p align="center">
+<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh_class-diagram2.jpg" width="35%">
+</p>
+<p align="center">
+<i>Gambar X. Diagram Kelas [Nama Uce Case]</i>
+</p>
 
 ---
 
