@@ -222,7 +222,6 @@ Tabel 3.7. Identifikasi Kelas Use Case [UC07]
 |:--- | :--- | :--- |
 | 1 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
 | 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
-| ... | *...* | *...* |
 
 ### 3.7.2 Sequence Diagram
 
@@ -251,7 +250,7 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
 
 <p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh_class-diagram2.jpg" width="35%">
+<img width="532" height="227" alt="Class07-UC07 - Class drawio" src="https://github.com/user-attachments/assets/d5fc1440-4df1-4973-8091-6d8f8ab7870a" />
 </p>
 <p align="center">
 <i>Gambar X. Diagram Kelas [Nama Uce Case]</i>
