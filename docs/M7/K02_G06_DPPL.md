@@ -209,6 +209,100 @@ Pada diagram, pastikan:
 - Semua operasi yang dipanggil pada sequence diagram 3.1.2 (skenario normal dan alternatif) ada pada kelas yang bersangkutan.
 - Kelas yang sama dengan kelas di use case lain memakai nama, atribut, dan metode yang konsisten.
 
+## 3.5 Use Case 05
+
+**ID Use Case:** *05*  
+**Nama Use Case:** *Melakukan Pembayaran*
+
+### 3.5.1 Identifikasi Kelas
+
+Tabel 3.5. Identifikasi Kelas Use Case [UC05]
+
+| No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
+|:--- | :--- | :--- |
+| 1 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
+| 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
+
+### 3.7.2 Sequence Diagram
+
+Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
+
+- **Skenario Normal**
+
+<p align="center">
+<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
+</p>
+<p align="center">
+<i>Gambar X. Sequence Diagram [UC05]</i>
+</p>
+
+- **Skenario Alternatif [Nomor]: [Nama Skenario]**
+
+<p align="center">
+<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
+</p>
+<p align="center">
+<i>Gambar X. Sequence Diagram [UC05] - [Nama skenario alternatif]</i>
+</p>
+
+### 3.5.3 Diagram Kelas
+
+Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
+
+<p align="center">
+<img width="532" height="227" alt="Class07-UC07 - Class drawio" src="https://github.com/user-attachments/assets/d5fc1440-4df1-4973-8091-6d8f8ab7870a" />
+</p>
+<p align="center">
+<i>Gambar X. Diagram Kelas Melakukan Pembayaran</i>
+</p>
+
+## 3.6 Use Case 06
+
+**ID Use Case:** *06*  
+**Nama Use Case:** *Mengedit Listing*
+
+### 3.6.1 Identifikasi Kelas
+
+Tabel 3.6. Identifikasi Kelas Use Case [UC06]
+
+| No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
+|:--- | :--- | :--- |
+| 1 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
+| 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
+
+### 3.6.2 Sequence Diagram
+
+Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
+
+- **Skenario Normal**
+
+<p align="center">
+<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
+</p>
+<p align="center">
+<i>Gambar X. Sequence Diagram [UC06]</i>
+</p>
+
+- **Skenario Alternatif [Nomor]: [Nama Skenario]**
+
+<p align="center">
+<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
+</p>
+<p align="center">
+<i>Gambar X. Sequence Diagram [UC06] - [Nama skenario alternatif]</i>
+</p>
+
+### 3.6.3 Diagram Kelas
+
+Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
+
+<p align="center">
+<img width="532" height="227" alt="Class07-UC07 - Class drawio" src="https://github.com/user-attachments/assets/d5fc1440-4df1-4973-8091-6d8f8ab7870a" />
+</p>
+<p align="center">
+<i>Gambar X. Diagram Kelas Mengedit Listing</i>
+</p>
+
 ## 3.7 Use Case 07
 
 **ID Use Case:** *07*  
