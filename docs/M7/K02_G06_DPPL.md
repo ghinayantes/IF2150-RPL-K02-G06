@@ -223,7 +223,7 @@ Tabel 3.5. Identifikasi Kelas Use Case [UC05]
 | 1 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
 | 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
 
-### 3.7.2 Sequence Diagram
+### 3.5.2 Sequence Diagram
 
 Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
 
