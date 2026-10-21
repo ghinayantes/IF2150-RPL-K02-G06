@@ -492,6 +492,25 @@ Tabel 3.7. Identifikasi Kelas Use Case [UC07]
 <i>Gambar 3.7.1 Sequence Diagram [UC07]</i>
 </p>
 
+- **Skenario Alternatif 1 : Input salah**
+
+<p align="center">
+<img width="801" height="890" alt="SISTEM7 drawio" src="https://github.com/user-attachments/assets/12a8f851-2ba7-40e5-b321-809db697fd70" />
+</p>
+<p align="center">
+<i>Gambar 3.5.2 Sequence Diagram [UC07] - Input salah</i>
+</p>
+
+- **Skenario Alternatif 2: Sistem gagal**
+
+<p align="center">
+<img width="795" height="581" alt="07TADIINPUT drawio" src="https://github.com/user-attachments/assets/b0acdc68-8402-4e35-8de3-c625d3c3c7b5" />
+</p>
+<p align="center">
+<i>Gambar 3.5.2 Sequence Diagram [UC07] - Sistem gagal</i>
+</p>
+
+
 ### 3.7.3 Diagram Kelas
 
 <p align="center">
@@ -527,6 +546,24 @@ Tabel 3.8. Identifikasi Kelas Use Case [UC08]
 </p>
 <p align="center">
 <i>Gambar 3.8.1 Sequence Diagram [UC08]</i>
+</p>
+
+- **Skenario Alternatif 1: Poin tidak mencukupi**
+
+<p align="center">
+<img width="631" height="564" alt="POINKURANG8 drawio" src="https://github.com/user-attachments/assets/20d17265-96d2-4607-953e-62a1d75fd77d" />
+</p>
+<p align="center">
+<i>Gambar 3.5.2 Sequence Diagram [UC08] - Poin tidak mencukupi</i>
+</p>
+
+- **Skenario Alternatif 2: Sistem gagal**
+
+<p align="center">
+<img width="795" height="690" alt="SISTEMGAGAL-8 drawio" src="https://github.com/user-attachments/assets/164b7fc3-3abe-4576-bd98-a91a2f520fbc" />
+</p>
+<p align="center">
+<i>Gambar 3.5.2 Sequence Diagram [UC08] - Sistem gagal</i>
 </p>
 
 ### 3.8.3 Diagram Kelas
