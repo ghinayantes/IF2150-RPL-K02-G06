@@ -197,7 +197,7 @@ Tabel 3.1. Identifikasi Kelas Use Case [UC01]
 <img width="55%" alt="Normal UC01" src="./assets/diagram/normal-UC01.png">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC01]</i>
+<i>Gambar 3.1.1 Sequence Diagram [UC01]</i>
 </p>
 
 - **Skenario Alternatif 1:  Verifikasi penambahan makanan gagal**
@@ -206,7 +206,7 @@ Tabel 3.1. Identifikasi Kelas Use Case [UC01]
 <img width="55%" alt="skenario1-UC01" src="./assets/diagram/skenario2-UC01.png">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC01] - [Verifikasi penambahan makanan gagal]</i>
+<i>Gambar 3.1.2 Sequence Diagram [UC01] - [Verifikasi penambahan makanan gagal]</i>
 </p>
 
 - **Skenario Alternatif 2:  Percobaan keluar saat penambahan makanan**
@@ -215,7 +215,7 @@ Tabel 3.1. Identifikasi Kelas Use Case [UC01]
 <img width="55%" alt="skenario2-UC01" src="./assets/diagram/skenario1-UC01.png">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC01] - [Percobaan keluar saat penambahan makanan]</i>
+<i>Gambar 3.1.3 Sequence Diagram [UC01] - [Percobaan keluar saat penambahan makanan]</i>
 </p>
 
 ### 3.1.3 Diagram Kelas
@@ -224,7 +224,7 @@ Tabel 3.1. Identifikasi Kelas Use Case [UC01]
 <img alt="diagramKelasUC01.png" src="./assets/diagram/diagramKelasUC01.png" width="35%">
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas UC02</i>
+<i>Gambar 3.1.4 Diagram Kelas UC02</i>
 </p>
 
 ## 3.2 Use Case 02
@@ -249,7 +249,7 @@ Tabel 3.1. Identifikasi Kelas Use Case [UC01]
 <img alt="Normal UC02" src="./assets/diagram/normal-UC02.png" width="50%">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC02]</i>
+<i>Gambar 3.2.1 Sequence Diagram [UC02]</i>
 </p>
 
 - **Skenario Alternatif 1:  Listing makanan surplus tidak tersedia**
@@ -258,7 +258,7 @@ Tabel 3.1. Identifikasi Kelas Use Case [UC01]
 <img alt="skenario1-UC02" src="./assets/diagram/skenario1-UC02.png" width="50%">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC02] - [Verifikasi penambahan makanan gagal]</i>
+<i>Gambar 3.2.2 Sequence Diagram [UC02] - [Verifikasi penambahan makanan gagal]</i>
 </p>
 
 ### 3.2.3 Diagram Kelas
@@ -267,7 +267,7 @@ Tabel 3.1. Identifikasi Kelas Use Case [UC01]
 <img alt="diagramKelasUC02.png" src="./assets/diagram/diagramKelasUC02.png" width="35%">
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas UC02</i>
+<i>Gambar 3.2.3 Diagram Kelas UC02</i>
 </p>
 
 ## 3.3 Use Case 03
@@ -293,7 +293,7 @@ Tabel 3.3. Identifikasi Kelas Use Case [UC03]
 <img width="90%" alt="Sequence Diagram UC03 Skenario Normal" src="./assets/diagram/sequence/sd-uc03-normal.png">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC03]</i>
+<i>Gambar 3.3.1 Sequence Diagram [UC03]</i>
 </p>
 
 - **Skenario Alternatif 1: Listing yang dipilih tiba-tiba dihapus**
@@ -302,7 +302,7 @@ Tabel 3.3. Identifikasi Kelas Use Case [UC03]
 <img width="90%" alt="Sequence Diagram UC03 Skenario Alternatif 1" src="./assets/diagram/sequence/sd-uc03-alt1.png">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC03] - [Listing yang dipilih tiba-tiba dihapus]</i>
+<i>Gambar 3.3.2 Sequence Diagram [UC03] - [Listing yang dipilih tiba-tiba dihapus]</i>
 </p>
 
 ### 3.3.3 Diagram Kelas
@@ -311,7 +311,7 @@ Tabel 3.3. Identifikasi Kelas Use Case [UC03]
 <img width="100%" alt="Diagram Kelas UC03" src="./assets/diagram/class/cd-uc03.png">
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas Melihat Detail Makanan Surplus</i>
+<i>Gambar 3.3.3 Diagram Kelas Melihat Detail Makanan Surplus</i>
 </p>
 
 ## 3.4 Use Case 04
@@ -337,7 +337,7 @@ Tabel 3.4. Identifikasi Kelas Use Case [UC04]
 <img width="75%" alt="Sequence Diagram UC04 Skenario Normal" src="./assets/diagram/sequence/sd-uc04-normal.png">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC04]</i>
+<i>Gambar 3.4.1 Sequence Diagram [UC04]</i>
 </p>
 
 - **Skenario Alternatif 1: Kata kunci yang dicari tidak ada**
@@ -346,7 +346,7 @@ Tabel 3.4. Identifikasi Kelas Use Case [UC04]
 <img width="90%" alt="Sequence Diagram UC04 Skenario Alternatif 1" src="./assets/diagram/sequence/sd-uc04-alt1.png">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC04] - [Kata kunci yang dicari tidak ada]</i>
+<i>Gambar 3.4.2 Sequence Diagram [UC04] - [Kata kunci yang dicari tidak ada]</i>
 </p>
 
 - **Skenario Alternatif 2: Rentang harga yang dicari tidak ada**
@@ -355,7 +355,7 @@ Tabel 3.4. Identifikasi Kelas Use Case [UC04]
 <img width="90%" alt="Sequence Diagram UC04 Skenario Alternatif 2" src="./assets/diagram/sequence/sd-uc04-alt2.png">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC04] - [Rentang harga yang dicari tidak ada]</i>
+<i>Gambar 3.4.3 Sequence Diagram [UC04] - [Rentang harga yang dicari tidak ada]</i>
 </p>
 
 ### 3.4.3 Diagram Kelas
@@ -364,7 +364,7 @@ Tabel 3.4. Identifikasi Kelas Use Case [UC04]
 <img width="100%" alt="Diagram Kelas UC04" src="./assets/diagram/class/cd-uc04.png">
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas Menyaring Listing Makanan Surplus</i>
+<i>Gambar 3.4.4 Diagram Kelas Menyaring Listing Makanan Surplus</i>
 </p>
 
 ## 3.5 Use Case 05
@@ -390,15 +390,13 @@ Tabel 3.5. Identifikasi Kelas Use Case [UC05]
 
 ### 3.5.2 Sequence Diagram
 
-Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
-
 - **Skenario Normal**
 
 <p align="center">
 <img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC05]</i>
+<i>Gambar 3.5.1 Sequence Diagram [UC05]</i>
 </p>
 
 - **Skenario Alternatif [Nomor]: [Nama Skenario]**
@@ -407,18 +405,16 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 <img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC05] - [Nama skenario alternatif]</i>
+<i>Gambar 3.5.2 Sequence Diagram [UC05] - [Nama skenario alternatif]</i>
 </p>
 
 ### 3.5.3 Diagram Kelas
-
-Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
 
 <p align="center">
 <img width="100%" alt="Class07-UC07 - Class drawio" src="./assets/diagram/class/cd-uc05.drawio.png" />
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas Melakukan Pembayaran</i>
+<i>Gambar 3.5.2 Diagram Kelas Melakukan Pembayaran</i>
 </p>
 
 ## 3.6 Use Case 06
@@ -440,15 +436,13 @@ Tabel 3.6. Identifikasi Kelas Use Case [UC06]
 
 ### 3.6.2 Sequence Diagram
 
-Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
-
 - **Skenario Normal**
 
 <p align="center">
 <img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC06]</i>
+<i>Gambar 3.6.1 Sequence Diagram [UC06]</i>
 </p>
 
 - **Skenario Alternatif [Nomor]: [Nama Skenario]**
@@ -457,18 +451,16 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 <img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC06] - [Nama skenario alternatif]</i>
+<i>Gambar 3.6.2 Sequence Diagram [UC06] - [Nama skenario alternatif]</i>
 </p>
 
 ### 3.6.3 Diagram Kelas
-
-Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
 
 <p align="center">
 <img width="100%" alt="Class06-UC06 - Class drawio" src="./assets/diagram/class/cd-uc06.png" />
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas Mengedit Listing</i>
+<i>Gambar 3.6.3 Diagram Kelas Mengedit Listing</i>
 </p>
 
 ## 3.7 Use Case 07
@@ -491,15 +483,13 @@ Tabel 3.7. Identifikasi Kelas Use Case [UC07]
 
 ### 3.7.2 Sequence Diagram
 
-Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
-
 - **Skenario Normal**
 
 <p align="center">
 <img width="65%" alt="NORMAL7 drawio" src="https://github.com/user-attachments/assets/51ceae74-b3d8-4c20-adc5-6e0c0bd2837b" />
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC07]</i>
+<i>Gambar 3.7.1 Sequence Diagram [UC07]</i>
 </p>
 
 ### 3.7.3 Diagram Kelas
@@ -508,7 +498,7 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 <img width="750" height="487" alt="UC7FIX drawio" src="https://github.com/user-attachments/assets/5f43186f-e33f-4488-985c-8d3dc966cdcb" />
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas Login Ke Sistem</i>
+<i>Gambar 3.7.2 Diagram Kelas Login Ke Sistem</i>
 </p>
 
 ## 3.8 Use Case 08
@@ -518,7 +508,7 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 
 ### 3.8.1 Identifikasi Kelas
 
-Tabel 3.8. Identifikasi Kelas Use Case [UC07]
+Tabel 3.8. Identifikasi Kelas Use Case [UC08]
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
 |:--- | :--- | :--- |
@@ -536,7 +526,7 @@ Tabel 3.8. Identifikasi Kelas Use Case [UC07]
 <img width="65%" alt="NORMAL8 drawio (1)" src="https://github.com/user-attachments/assets/39501d5b-8e30-44cd-987d-2c1057d69feb" />
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC08]</i>
+<i>Gambar 3.8.1 Sequence Diagram [UC08]</i>
 </p>
 
 ### 3.8.3 Diagram Kelas
@@ -545,7 +535,7 @@ Tabel 3.8. Identifikasi Kelas Use Case [UC07]
 <img width="734" height="440" alt="UC8FIX drawio" src="https://github.com/user-attachments/assets/8a5d4db4-64d8-4777-9f58-3b7fe3cf4b67" />
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas Mengklaim Reward Login</i>
+<i>Gambar 3.8.2 Diagram Kelas Mengklaim Reward Login</i>
 </p>
 
 ## 3.9 Use Case 09
@@ -574,7 +564,7 @@ Tabel 3.9. Identifikasi Kelas Use Case [UC09]
 
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram UC09</i>
+<i>Gambar 3.9.1 Sequence Diagram UC09</i>
 </p>
 
 - **Skenario Alternatif 01: Toko belum punya listing**
@@ -583,7 +573,7 @@ Tabel 3.9. Identifikasi Kelas Use Case [UC09]
 <img width="75%" alt="alt" src="https://github.com/user-attachments/assets/5c07730e-b936-4d41-87c9-cbf2e6f0ca33" />
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram UC09 - Toko belum punya listing</i>
+<i>Gambar 3.9.2 Sequence Diagram UC09 - Toko belum punya listing</i>
 </p>
 
 ### 3.9.3 Diagram Kelas
@@ -593,7 +583,7 @@ Tabel 3.9. Identifikasi Kelas Use Case [UC09]
 
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas UC09</i>
+<i>Gambar 3.9.2 Diagram Kelas UC09</i>
 </p>
 
 ---
