@@ -399,13 +399,13 @@ Tabel 3.5. Identifikasi Kelas Use Case [UC05]
 <i>Gambar 3.5.1 Sequence Diagram [UC05]</i>
 </p>
 
-- **Skenario Alternatif [Nomor]: [Nama Skenario]**
+- **Skenario Alternatif [1]: [Pembeli membatalkan pembayaran]**
 
 <p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
+<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/sequence/sd-uc055-alternative.png" width="50%">
 </p>
 <p align="center">
-<i>Gambar 3.5.2 Sequence Diagram [UC05] - [Nama skenario alternatif]</i>
+<i>Gambar 3.5.2 Sequence Diagram [UC05] - [Pembeli membatalkan pembayaran]</i>
 </p>
 
 ### 3.5.3 Diagram Kelas
