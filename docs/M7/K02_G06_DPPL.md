@@ -494,8 +494,8 @@ Tabel 3.7. Identifikasi Kelas Use Case [UC07]
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
 |:--- | :--- | :--- |
-| 1 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
-| 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
+| 1 | *LoginView* | *Pengguna mengambil alih login()* |
+| 2 | *AuthController, Validasi* | *Pengguna mengambil alih validasiKredensial()* |
 
 ### 3.7.2 Sequence Diagram
 
@@ -504,10 +504,10 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 - **Skenario Normal**
 
 <p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
+<img width="796" height="691" alt="NORMAL7 drawio" src="https://github.com/user-attachments/assets/51ceae74-b3d8-4c20-adc5-6e0c0bd2837b" />
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC01]</i>
+<i>Gambar X. Sequence Diagram [UC07]</i>
 </p>
 
 - **Skenario Alternatif [Nomor]: [Nama Skenario]**
@@ -516,7 +516,7 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 <img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC01] - [Nama skenario alternatif]</i>
+<i>Gambar X. Sequence Diagram [UC07] - [Nama skenario alternatif]</i>
 </p>
 
 ### 3.7.3 Diagram Kelas
@@ -539,21 +539,18 @@ Tabel 3.8. Identifikasi Kelas Use Case [UC07]
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
 |:--- | :--- | :--- |
-| 1 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
-| 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
-| ... | *...* | *...* |
+| 1 | *RewardView* | *Pembeli mengambil alih klaimReward()* |
+| 2 | *RewardController* | *RewardLogin mengambil alih prosesKlaim() dan konfirmasiKlaim()* |
 
 ### 3.8.2 Sequence Diagram
-
-Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
 
 - **Skenario Normal**
 
 <p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
+<img width="795" height="690" alt="NORMAL8 drawio (1)" src="https://github.com/user-attachments/assets/39501d5b-8e30-44cd-987d-2c1057d69feb" />
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC01]</i>
+<i>Gambar X. Sequence Diagram [UC08]</i>
 </p>
 
 - **Skenario Alternatif [Nomor]: [Nama Skenario]**
