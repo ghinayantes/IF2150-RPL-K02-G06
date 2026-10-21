@@ -454,10 +454,8 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 
 ### 3.7.3 Diagram Kelas
 
-Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
-
 <p align="center">
-<img width="532" height="227" alt="Class07-UC07 - Class drawio" src="https://github.com/user-attachments/assets/d5fc1440-4df1-4973-8091-6d8f8ab7870a" />
+<img width="743" height="465" alt="Class07-UC07 - Class drawio (2)" src="https://github.com/user-attachments/assets/7d419610-25d2-457d-837c-64f1494affd2" />
 </p>
 <p align="center">
 <i>Gambar X. Diagram Kelas [Nama Uce Case]</i>
@@ -500,15 +498,52 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 <i>Gambar X. Sequence Diagram [UC01] - [Nama skenario alternatif]</i>
 </p>
 
-### 3.8.3 Diagram Kelas
+## 3.9 Use Case 09
 
-Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
+**ID Use Case:** *09*  
+**Nama Use Case:** *Menghapus makana dari listing*
+
+### 3.9.1 Identifikasi Kelas
+
+Tabel 3.9. Identifikasi Kelas Use Case [UC09]
+
+| No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
+|:--- | :--- | :--- |
+| 1 | *Pengguna* | *verifikasiPassword()<br>getPeran() <br>bukaListing()* |
+| 2 | *Penjual* | *memilikiListing()<br>hapusListing()* |
+| 3 | *ListingMakanan* | *cariById()<br>ambilSemuaTersedia()<br>cariDaftar()<br>isTersedia()<br>ubahData()<br>kurangiStok()<br>nonaktifkan()* |
+| 4 | *ListingView* | *tampilkanMenuListing()<br>tampilkanKonfirmasiHapus()<br>hapusMakanan()* |
+| 4 | *ListingController* | *tambahListing()<br>ubahListing()<br>hapusListing()<br>isPenjual()* |
+
+### 3.9.2 Sequence Diagram
+
+- **Skenario Normal**
 
 <p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh_class-diagram2.jpg" width="35%">
+<img width="649" height="874" alt="happy" src="https://github.com/user-attachments/assets/0d0a9c32-325b-4c81-9305-7430262cf344" />
+
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas [Nama Uce Case]</i>
+<i>Gambar X. Sequence Diagram UC09</i>
+</p>
+
+- **Skenario Alternatif 01: Toko belum punya listing**
+
+<p align="center">
+<img width="649" height="378" alt="alt" src="https://github.com/user-attachments/assets/5c07730e-b936-4d41-87c9-cbf2e6f0ca33" />
+</p>
+<p align="center">
+<i>Gambar X. Sequence Diagram UC09 - Toko belum punya listing</i>
+</p>
+
+### 3.8.3 Diagram Kelas
+
+<p align="center">
+<img width="729" height="442" alt="cd drawio" src="https://github.com/user-attachments/assets/1593d186-76ec-4c4a-9574-b8bd5581be7e" />
+
+</p>
+<p align="center">
+<i>Gambar X. Diagram Kelas UC09</i>
 </p>
 
 ---
@@ -542,7 +577,7 @@ Tabel 4.1. Daftar Kelas Perancangan Keseluruhan
 
 | ID Kelas | Nama Kelas | Atribut | Metode/Operasi |
 | :--- | :--- | :--- | :--- |
-| *C01* | *Pengguna* «abstract» | *- idPengguna: Integer<br>- nama: String<br>- email: String<br>- passwordHash: String* | *+ verifikasiPassword(password: String): Boolean<br>+ getPeran(): String* |
+| *C01* | *Pengguna* «abstract» | *- idPengguna: Integer<br>- nama: String<br>- email: String<br>- password: String* | *+ verifikasiPassword(password: String): Boolean<br>+ getPeran(): String* |
 | *C02* | *Penjual* | *- namaToko: String<br>- alamatToko: String* | *+ getPeran(): String<br>+ memilikiListing(listing: ListingMakanan): Boolean* |
 | *C03* | *Pembeli* | *–* | *+ getPeran(): String* |
 | *C04* | *ListingMakanan* | *- idListing: Integer<br>- idPenjual: Integer<br>- namaMakanan: String<br>- deskripsi: String<br>- porsi: String<br>- kondisi: String<br>- foto: String<br>- harga: Integer<br>- stok: Integer<br>- batasKedaluwarsa: DateTime<br>- aktif: Boolean* | *+ cariById(idListing: Integer): ListingMakanan {static}<br>+ ambilSemuaTersedia(): List&lt;ListingMakanan&gt; {static}<br>+ cariDaftar(kataKunci: String, hargaMin: Integer, hargaMaks: Integer): List&lt;ListingMakanan&gt; {static}<br>+ isTersedia(waktu: DateTime): Boolean<br>+ ubahData(data: DataListing): void<br>+ kurangiStok(jumlah: Integer): void<br>+ nonaktifkan(): void* |
