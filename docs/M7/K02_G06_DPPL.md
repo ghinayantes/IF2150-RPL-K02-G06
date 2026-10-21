@@ -8,7 +8,7 @@ DESKRIPSI PERANCANGAN PERANGKAT LUNAK (DPPL)
 <br>
 
 ## *Food Waste Stop*
-<img width="1665" height="1658" alt="log" src="https://github.com/user-attachments/assets/4444d8f8-8565-4a3e-bc73-00ac09b6d0c9" />
+<img width="40%" alt="log" src="https://github.com/user-attachments/assets/4444d8f8-8565-4a3e-bc73-00ac09b6d0c9" />
 
 ### Untuk: *Aurelia Jennifer Gunawan*
 
@@ -175,71 +175,12 @@ Logical view dipilih karena memperlihatkan pembagian tanggung jawab antarkompone
 
 # BAB 3: Realisasi Use Case
 
-## 3.x Use Case [Nama Use Case contoh]
-
-**ID Use Case:** *[UC0x sesuai SKPL]*  
-**Nama Use Case:** *[Nama use case sesuai SKPL]*
-
-### 3.x.1 Identifikasi Kelas
-
-Identifikasi kelas yang terkait dengan use case tersebut. Kelas di tahap perancangan dapat berbeda dengan dengan kelas di tahap analisis. Dapat menggunakan tabel di bawah:
-
-Tabel 3.1. Identifikasi Kelas Use Case [UC0x]
-
-| No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
-|:--- | :--- | :--- |
-| 1 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
-| 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
-
-### 3.x.2 Sequence Diagram
-
-Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
-
-- **Skenario Normal**
-
-<p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
-</p>
-<p align="center">
-<i>Gambar X. Sequence Diagram [UC01]</i>
-</p>
-
-- **Skenario Alternatif [Nomor]: [Nama Skenario]**
-
-<p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
-</p>
-<p align="center">
-<i>Gambar X. Sequence Diagram [UC01] - [Nama skenario alternatif]</i>
-</p>
-
-### 3.1.3 Diagram Kelas
-
-Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
-
-<p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh_class-diagram2.jpg" width="35%">
-</p>
-<p align="center">
-<i>Gambar X. Diagram Kelas [Nama Uce Case]</i>
-</p>
-
-Pada diagram, pastikan:
-- Atribut dituliskan beserta visibilitas dan tipe datanya, misalnya `- email: String`.
-- Operasi dituliskan beserta visibilitas, parameter, dan tipe kembaliannya, misalnya `+ login(email: String, password: String): Boolean`.
-- Relasi antarkelas (asosiasi, agregasi, komposisi, generalisasi, dan dependensi) digambarkan lengkap dengan multiplisitas.
-- Semua operasi yang dipanggil pada sequence diagram 3.1.2 (skenario normal dan alternatif) ada pada kelas yang bersangkutan.
-- Kelas yang sama dengan kelas di use case lain memakai nama, atribut, dan metode yang konsisten.
-
-
 ## 3.1 Use Case 01
 
 **ID Use Case:** *01*  
 **Nama Use Case:** *Menambahkan listing makanan surplus*
 
 ### 3.1.1 Identifikasi Kelas
-
-Identifikasi kelas yang terkait dengan use case tersebut. Kelas di tahap perancangan dapat berbeda dengan dengan kelas di tahap analisis. Dapat menggunakan tabel di bawah:
 
 Tabel 3.1. Identifikasi Kelas Use Case [UC01]
 
@@ -250,53 +191,41 @@ Tabel 3.1. Identifikasi Kelas Use Case [UC01]
 
 ### 3.1.2 Sequence Diagram
 
-Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
-
 - **Skenario Normal**
 
 <p align="center">
-<img alt="Normal UC01" src="./assets/diagram/normal-UC01.png" width="50%">
+<img width="55%" alt="Normal UC01" src="./assets/diagram/normal-UC01.png">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC01]</i>
+<i>Gambar 3.1.1 Sequence Diagram [UC01]</i>
 </p>
 
 - **Skenario Alternatif 1:  Verifikasi penambahan makanan gagal**
 
 <p align="center">
-<img alt="skenario1-UC01" src="./assets/diagram/skenario2-UC01.png" width="50%">
+<img width="55%" alt="skenario1-UC01" src="./assets/diagram/skenario2-UC01.png">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC01] - [Verifikasi penambahan makanan gagal]</i>
+<i>Gambar 3.1.2 Sequence Diagram [UC01] - [Verifikasi penambahan makanan gagal]</i>
 </p>
 
 - **Skenario Alternatif 2:  Percobaan keluar saat penambahan makanan**
 
 <p align="center">
-<img alt="skenario2-UC01" src="./assets/diagram/skenario1-UC01.png" width="50%">
+<img width="55%" alt="skenario2-UC01" src="./assets/diagram/skenario1-UC01.png">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC01] - [Percobaan keluar saat penambahan makanan]</i>
+<i>Gambar 3.1.3 Sequence Diagram [UC01] - [Percobaan keluar saat penambahan makanan]</i>
 </p>
 
 ### 3.1.3 Diagram Kelas
 
-Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
-
 <p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh_class-diagram2.jpg" width="35%">
+<img alt="diagramKelasUC01.png" src="./assets/diagram/diagramKelasUC01.png" width="35%">
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas [Nama Uce Case]</i>
+<i>Gambar 3.1.4 Diagram Kelas UC02</i>
 </p>
-
-Pada diagram, pastikan:
-- Atribut dituliskan beserta visibilitas dan tipe datanya, misalnya `- email: String`.
-- Operasi dituliskan beserta visibilitas, parameter, dan tipe kembaliannya, misalnya `+ login(email: String, password: String): Boolean`.
-- Relasi antarkelas (asosiasi, agregasi, komposisi, generalisasi, dan dependensi) digambarkan lengkap dengan multiplisitas.
-- Semua operasi yang dipanggil pada sequence diagram 3.1.2 (skenario normal dan alternatif) ada pada kelas yang bersangkutan.
-- Kelas yang sama dengan kelas di use case lain memakai nama, atribut, dan metode yang konsisten.
-
 
 ## 3.2 Use Case 02
 
@@ -304,8 +233,6 @@ Pada diagram, pastikan:
 **Nama Use Case:** *Melihat listing makanan surplus*
 
 ### 3.2.1 Identifikasi Kelas
-
-Identifikasi kelas yang terkait dengan use case tersebut. Kelas di tahap perancangan dapat berbeda dengan dengan kelas di tahap analisis. Dapat menggunakan tabel di bawah:
 
 Tabel 3.1. Identifikasi Kelas Use Case [UC01]
 
@@ -316,15 +243,13 @@ Tabel 3.1. Identifikasi Kelas Use Case [UC01]
 
 ### 3.2.2 Sequence Diagram
 
-Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
-
 - **Skenario Normal**
 
 <p align="center">
 <img alt="Normal UC02" src="./assets/diagram/normal-UC02.png" width="50%">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC02]</i>
+<i>Gambar 3.2.1 Sequence Diagram [UC02]</i>
 </p>
 
 - **Skenario Alternatif 1:  Listing makanan surplus tidak tersedia**
@@ -333,18 +258,16 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 <img alt="skenario1-UC02" src="./assets/diagram/skenario1-UC02.png" width="50%">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC02] - [Verifikasi penambahan makanan gagal]</i>
+<i>Gambar 3.2.2 Sequence Diagram [UC02] - [Verifikasi penambahan makanan gagal]</i>
 </p>
 
 ### 3.2.3 Diagram Kelas
 
-Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
-
 <p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh_class-diagram2.jpg" width="35%">
+<img alt="diagramKelasUC02.png" src="./assets/diagram/diagramKelasUC02.png" width="35%">
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas [Nama Uce Case]</i>
+<i>Gambar 3.2.3 Diagram Kelas UC02</i>
 </p>
 
 ## 3.3 Use Case 03
@@ -364,28 +287,32 @@ Tabel 3.3. Identifikasi Kelas Use Case [UC03]
 
 ### 3.3.2 Sequence Diagram
 
+- **Skenario Normal**
+
 <p align="center">
-<img alt="Sequence Diagram UC03" src="./assets/diagram/sequence/sd-uc03.png" width="80%">
+<img width="90%" alt="Sequence Diagram UC03 Skenario Normal" src="./assets/diagram/sequence/sd-uc03-normal.png">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC03]</i>
+<i>Gambar 3.3.1 Sequence Diagram [UC03]</i>
 </p>
 
-Langkah 1 skenario (membuka halaman listing) sama dengan UC02, sehingga digambarkan sebagai fragmen `ref` ke UC02. Setelah Pembeli memilih satu listing, KatalogView meminta detailnya ke KatalogController, yang mengambil listing melalui `ListingMakanan.cariById()`.
+- **Skenario Alternatif 1: Listing yang dipilih tiba-tiba dihapus**
 
-- **Skenario Normal:** cabang `alt [listing ditemukan dan tersedia]`. KatalogController memastikan listing masih tersedia melalui `isTersedia()` (aktif, stok > 0, dan belum melewati batas kedaluwarsa), lalu KatalogView menampilkan detailnya dalam pop-up.
-- **Skenario Alternatif 1: Listing yang dipilih tiba-tiba dihapus:** cabang `[listing tidak ditemukan atau tidak lagi tersedia]`. KatalogController mengembalikan `null`, dan KatalogView menampilkan pesan bahwa listing sudah tidak tersedia (KF07).
+<p align="center">
+<img width="90%" alt="Sequence Diagram UC03 Skenario Alternatif 1" src="./assets/diagram/sequence/sd-uc03-alt1.png">
+</p>
+<p align="center">
+<i>Gambar 3.3.2 Sequence Diagram [UC03] - [Listing yang dipilih tiba-tiba dihapus]</i>
+</p>
 
 ### 3.3.3 Diagram Kelas
 
 <p align="center">
-<img alt="Diagram Kelas UC03" src="./assets/diagram/class/cd-uc03.png" width="100%">
+<img width="100%" alt="Diagram Kelas UC03" src="./assets/diagram/class/cd-uc03.png">
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas Melihat Detail Makanan Surplus</i>
+<i>Gambar 3.3.3 Diagram Kelas Melihat Detail Makanan Surplus</i>
 </p>
-
-KatalogView bergantung pada KatalogController untuk setiap aksi Pembeli, dan KatalogController membaca nol atau lebih ListingMakanan. Pencarian data listing dilakukan oleh operasi statis ListingMakanan (bergaris bawah), karena Model bertugas mengakses database sesuai APL.
 
 ## 3.4 Use Case 04
 
@@ -404,29 +331,41 @@ Tabel 3.4. Identifikasi Kelas Use Case [UC04]
 
 ### 3.4.2 Sequence Diagram
 
+- **Skenario Normal**
+
 <p align="center">
-<img alt="Sequence Diagram UC04" src="./assets/diagram/sequence/sd-uc04.png" width="90%">
+<img width="75%" alt="Sequence Diagram UC04 Skenario Normal" src="./assets/diagram/sequence/sd-uc04-normal.png">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC04]</i>
+<i>Gambar 3.4.1 Sequence Diagram [UC04]</i>
 </p>
 
-Diagram dibagi menjadi dua bagian sesuai langkah skenario: pencarian dengan kata kunci (langkah 1) dan penyaringan dengan rentang harga (langkah 2–3). Kedua bagian memakai alur yang sama, yaitu `kirimPencarian()` → `cariListing()` → `ListingMakanan.cariDaftar()`, yang hanya mengembalikan listing tersedia. Parameter yang tidak diisi Pembeli bernilai `null`, dan kata kunci tetap terbawa saat Pembeli memilih rentang harga.
+- **Skenario Alternatif 1: Kata kunci yang dicari tidak ada**
 
-- **Skenario Normal:** cabang `alt [hasil tidak kosong]` pada kedua bagian.
-- **Skenario Alternatif 1: Kata kunci yang dicari tidak ada:** cabang `[hasil kosong]` pada bagian pencarian dengan kata kunci.
-- **Skenario Alternatif 2: Rentang harga yang dicari tidak ada:** cabang `[hasil kosong]` pada bagian penyaringan dengan rentang harga.
+<p align="center">
+<img width="90%" alt="Sequence Diagram UC04 Skenario Alternatif 1" src="./assets/diagram/sequence/sd-uc04-alt1.png">
+</p>
+<p align="center">
+<i>Gambar 3.4.2 Sequence Diagram [UC04] - [Kata kunci yang dicari tidak ada]</i>
+</p>
+
+- **Skenario Alternatif 2: Rentang harga yang dicari tidak ada**
+
+<p align="center">
+<img width="90%" alt="Sequence Diagram UC04 Skenario Alternatif 2" src="./assets/diagram/sequence/sd-uc04-alt2.png">
+</p>
+<p align="center">
+<i>Gambar 3.4.3 Sequence Diagram [UC04] - [Rentang harga yang dicari tidak ada]</i>
+</p>
 
 ### 3.4.3 Diagram Kelas
 
 <p align="center">
-<img alt="Diagram Kelas UC04" src="./assets/diagram/class/cd-uc04.png" width="100%">
+<img width="100%" alt="Diagram Kelas UC04" src="./assets/diagram/class/cd-uc04.png">
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas Menyaring Listing Makanan Surplus</i>
+<i>Gambar 3.4.4 Diagram Kelas Menyaring Listing Makanan Surplus</i>
 </p>
-
-UC04 memakai kelas yang sama dengan UC03. Operasi yang dipakai pada UC04 adalah `kirimPencarian()`, `tampilkanPilihanHarga()`, `tampilkanDaftar()`, dan `tampilkanPesan()` pada KatalogView, `cariListing()` pada KatalogController, serta `cariDaftar()` pada ListingMakanan.
 
 ## 3.5 Use Case 05
 
@@ -451,35 +390,31 @@ Tabel 3.5. Identifikasi Kelas Use Case [UC05]
 
 ### 3.5.2 Sequence Diagram
 
-Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
-
 - **Skenario Normal**
 
 <p align="center">
 <img alt="Sequence diagram skenario normal UC05" src="./assets/diagram/sequence/sd-uc055-normal.png" width="50%">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC05]</i>
+<i>Gambar 3.5.1 Sequence Diagram [UC05]</i>
 </p>
 
 - **Skenario Alternatif [Nomor]: [Nama Skenario]**
 
 <p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="docs/M7/assets/diagram/class/cd-uc05.drawio.png" width="50%">
+<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC05] - [Nama skenario alternatif]</i>
+<i>Gambar 3.5.2 Sequence Diagram [UC05] - [Nama skenario alternatif]</i>
 </p>
 
 ### 3.5.3 Diagram Kelas
 
-Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
-
 <p align="center">
-<img width="532" height="227" alt="Class07-UC07 - Class drawio" src="./assets/diagram/class/cd-uc05.drawio.png" />
+<img width="100%" alt="Class07-UC07 - Class drawio" src="./assets/diagram/class/cd-uc05.drawio.png" />
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas Melakukan Pembayaran</i>
+<i>Gambar 3.5.2 Diagram Kelas Melakukan Pembayaran</i>
 </p>
 
 ## 3.6 Use Case 06
@@ -501,8 +436,6 @@ Tabel 3.6. Identifikasi Kelas Use Case [UC06]
 
 ### 3.6.2 Sequence Diagram
 
-Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
-
 - **Skenario Normal**
 
 <p align="center">
@@ -512,15 +445,22 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 <i>Gambar X. Sequence Diagram [UC06]</i>
 </p>
 
-### 3.6.3 Diagram Kelas
-
-Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
+- **Skenario Alternatif [Nomor]: [Nama Skenario]**
 
 <p align="center">
-<img width="532" height="227" alt="Class06-UC06 - Class drawio" src="./assets/diagram/class/cd-uc06.png" />
+<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas Mengedit Listing</i>
+<i>Gambar X. Sequence Diagram [UC06] - [Nama skenario alternatif]</i>
+</p>
+
+### 3.6.3 Diagram Kelas
+
+<p align="center">
+<img width="100%" alt="Class06-UC06 - Class drawio" src="./assets/diagram/class/cd-uc06.png" />
+</p>
+<p align="center">
+<i>Gambar 3.6.3 Diagram Kelas Mengedit Listing</i>
 </p>
 
 ## 3.7 Use Case 07
@@ -534,38 +474,31 @@ Tabel 3.7. Identifikasi Kelas Use Case [UC07]
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
 |:--- | :--- | :--- |
-| 1 | *LoginView* | *Pengguna mengambil alih login()* |
-| 2 | *AuthController, Validasi* | *Pengguna mengambil alih validasiKredensial()* |
+| 1 | *LoginView* | *tampilkanForm, kirimKredensial, tampilkanPesan, arahkanKeBeranda* |
+| 2 | *AuthController* | *login* |
+| 3 | *Validasi* | *validasiKredensial* |
+| 4 | *Pengguna* | *verifikasiPassword, getPeran* |
+| 5 | *Pembeli* | *getPeran* |
+| 6 | *Penjual* | *getPeran* |
 
 ### 3.7.2 Sequence Diagram
-
-Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
 
 - **Skenario Normal**
 
 <p align="center">
-<img width="796" height="691" alt="NORMAL7 drawio" src="https://github.com/user-attachments/assets/51ceae74-b3d8-4c20-adc5-6e0c0bd2837b" />
+<img width="65%" alt="NORMAL7 drawio" src="https://github.com/user-attachments/assets/51ceae74-b3d8-4c20-adc5-6e0c0bd2837b" />
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC07]</i>
-</p>
-
-- **Skenario Alternatif [Nomor]: [Nama Skenario]**
-
-<p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
-</p>
-<p align="center">
-<i>Gambar X. Sequence Diagram [UC07] - [Nama skenario alternatif]</i>
+<i>Gambar 3.7.1 Sequence Diagram [UC07]</i>
 </p>
 
 ### 3.7.3 Diagram Kelas
 
 <p align="center">
-<img width="743" height="465" alt="Class07-UC07 - Class drawio (2)" src="https://github.com/user-attachments/assets/7d419610-25d2-457d-837c-64f1494affd2" />
+<img width="750" height="487" alt="UC7FIX drawio" src="https://github.com/user-attachments/assets/5f43186f-e33f-4488-985c-8d3dc966cdcb" />
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas [Nama Uce Case]</i>
+<i>Gambar 3.7.2 Diagram Kelas Login Ke Sistem</i>
 </p>
 
 ## 3.8 Use Case 08
@@ -575,40 +508,34 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 
 ### 3.8.1 Identifikasi Kelas
 
-Tabel 3.8. Identifikasi Kelas Use Case [UC07]
+Tabel 3.8. Identifikasi Kelas Use Case [UC08]
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
 |:--- | :--- | :--- |
-| 1 | *RewardView* | *Pembeli mengambil alih klaimReward()* |
-| 2 | *RewardController* | *RewardLogin mengambil alih prosesKlaim() dan konfirmasiKlaim()* |
+| 1 | *RewardView* | *kirimKlaim, tampilkanKupon, tampilkanPesan, tampilkanProgres* |
+| 2 | *RewardController* | *klaimReward, lihatProgres, catatLogin* |
+| 3 | *RewardLogin* | *cukupUntukKlaim, kurangiPoin* |
+| 4 | *Kupon* | *Model data pembuatan objek kupon (isBerlaku)* |
+| 5 | *Pembeli* | *getPeran* |
 
 ### 3.8.2 Sequence Diagram
 
 - **Skenario Normal**
 
 <p align="center">
-<img width="795" height="690" alt="NORMAL8 drawio (1)" src="https://github.com/user-attachments/assets/39501d5b-8e30-44cd-987d-2c1057d69feb" />
+<img width="65%" alt="NORMAL8 drawio (1)" src="https://github.com/user-attachments/assets/39501d5b-8e30-44cd-987d-2c1057d69feb" />
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC08]</i>
-</p>
-
-- **Skenario Alternatif [Nomor]: [Nama Skenario]**
-
-<p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
-</p>
-<p align="center">
-<i>Gambar X. Sequence Diagram [UC01] - [Nama skenario alternatif]</i>
+<i>Gambar 3.8.1 Sequence Diagram [UC08]</i>
 </p>
 
 ### 3.8.3 Diagram Kelas
 
 <p align="center">
-<img width="699" height="440" alt="Class07-UC08 - Class drawio" src="https://github.com/user-attachments/assets/bd498e8e-5f97-480c-9dac-96443185e56c" />
+<img width="734" height="440" alt="UC8FIX drawio" src="https://github.com/user-attachments/assets/8a5d4db4-64d8-4777-9f58-3b7fe3cf4b67" />
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas [Nama Uce Case]</i>
+<i>Gambar 3.8.2 Diagram Kelas Mengklaim Reward Login</i>
 </p>
 
 ## 3.9 Use Case 09
@@ -633,30 +560,30 @@ Tabel 3.9. Identifikasi Kelas Use Case [UC09]
 - **Skenario Normal**
 
 <p align="center">
-<img width="649" height="874" alt="happy" src="https://github.com/user-attachments/assets/0d0a9c32-325b-4c81-9305-7430262cf344" />
+<img width="55%" alt="happy" src="https://github.com/user-attachments/assets/0d0a9c32-325b-4c81-9305-7430262cf344" />
 
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram UC09</i>
+<i>Gambar 3.9.1 Sequence Diagram UC09</i>
 </p>
 
 - **Skenario Alternatif 01: Toko belum punya listing**
 
 <p align="center">
-<img width="649" height="378" alt="alt" src="https://github.com/user-attachments/assets/5c07730e-b936-4d41-87c9-cbf2e6f0ca33" />
+<img width="75%" alt="alt" src="https://github.com/user-attachments/assets/5c07730e-b936-4d41-87c9-cbf2e6f0ca33" />
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram UC09 - Toko belum punya listing</i>
+<i>Gambar 3.9.2 Sequence Diagram UC09 - Toko belum punya listing</i>
 </p>
 
 ### 3.9.3 Diagram Kelas
 
 <p align="center">
-<img width="729" height="442" alt="cd drawio" src="https://github.com/user-attachments/assets/1593d186-76ec-4c4a-9574-b8bd5581be7e" />
+<img width="75%" alt="cd drawio" src="https://github.com/user-attachments/assets/1593d186-76ec-4c4a-9574-b8bd5581be7e" />
 
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas UC09</i>
+<i>Gambar 3.9.2 Diagram Kelas UC09</i>
 </p>
 
 ---
@@ -692,7 +619,7 @@ Tabel 4.1. Daftar Kelas Perancangan Keseluruhan
 | :--- | :--- | :--- | :--- |
 | *C01* | *Pengguna* «abstract» | *- idPengguna: Integer<br>- nama: String<br>- email: String<br>- password: String* | *+ verifikasiPassword(password: String): Boolean<br>+ getPeran(): String<br>+ bukaListing(): listingMakanan* |
 | *C02* | *Penjual* | *- namaToko: String<br>- alamatToko: String* | *+ getPeran(): String<br>+ memilikiListing(listing: ListingMakanan): Boolean* |
-| *C03* | *Pembeli* | *namaAkun: String* | *-* |
+| *C03* | *Pembeli* | *namaAkun: String* | *getPeran(): String* |
 | *C04* | *ListingMakanan* | *- idListing: Integer<br>- idPenjual: Integer<br>- namaMakanan: String<br>- deskripsi: String<br>- porsi: String<br>- kondisi: String<br>- foto: String<br>- harga: Integer<br>- stok: Integer<br>- batasKedaluwarsa: DateTime<br>- aktif: Boolean* | *+ cariById(idListing: Integer): ListingMakanan {static}<br>+ ambilSemuaTersedia(): List&lt;ListingMakanan&gt; {static}<br>+ cariDaftar(kataKunci: String, hargaMin: Integer, hargaMaks: Integer): List&lt;ListingMakanan&gt; {static}<br>+ isTersedia(waktu: DateTime): Boolean<br>+ ubahData(data: DataListing): void<br>+ kurangiStok(jumlah: Integer): void<br>+ nonaktifkan(): void* |
 | *C05* | *MetodePembayaran* «interface» | *–* | *+ buatTagihan(transaksi: Transaksi): String<br>+ cekStatus(idTransaksi: Integer): String* |
 | *C06* | *Transaksi* | *- idTransaksi: Integer<br>- idPembeli: Integer<br>- tanggal: DateTime<br>- batasWaktuBayar: DateTime<br>- totalHarga: Integer<br>- status: StatusTransaksi<br>- kodePengambilan: String* | *+ hitungTotal(): Integer<br>+ tandaiLunas(): void<br>+ batalkan(): void<br>+ isLewatBatasWaktu(waktu: DateTime): Boolean* |

@@ -131,4 +131,16 @@
 | *07-10-2026* | *Renata Puspanegara Ninagan* | *Menyelesaikan Bab 3* | *0.5* | *Done* | *-* |
 | *07-10-2026* | *Sherin Felicia Danessa* | *Menyelesaikan Bab 1.1* | *0.5* | *Done* | *-* |
 
+---
+### Milestone 7
+**Periode:** 7 Oktober 2026 - 21 Oktober 2026
+| Tanggal | Nama Anggota | Deskripsi Pekerjaan | Durasi (Jam) | Status | Kendala / *Blocker* | 
+| :--- | :--- | :--- | :--- | :--- | :--- | 
+| *07-10-2026* | *Nadia Aulia Syafarani* | *Menyelesaikan Bab 3.7 dan 3.8* | *3* | *Done* | *-* |
+| *07-10-2026* | *Cendra Asih Chairunnisa* | *Menyelesaikan Bab 3.1 dan 3.2* | *3* | *Done* | *-* |
+| *07-10-2026* | *Ghina Emelia Yantes* | *Menyelesaikan Bab 3.3 dan 3.4* | *3* | *Done* | *-* |
+| *07-10-2026* | *Renata Puspanegara Ninagan* | *Menyelesaikan Bab 3.9 dan 4* | *3* | *Done* | *-* |
+| *07-10-2026* | *Sherin Felicia Danessa* | *Menyelesaikan Bab 3.5 dan 3.6* | *3* | *Done* | *-* |
+
 ``Gunakan format penulisan Logbook yang sama untuk setiap Milestone dan pastikan pembuatan Daftar Isi juga sudah sesuai sebelum Logbook dikumpulkan. ``
+
