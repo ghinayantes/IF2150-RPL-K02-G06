@@ -38,7 +38,7 @@
 
 <!-- ![](./assets/foto-asistensi.jpg) -->
 <p align="center">
-  <img src="./assets/foto-asistensi.jpg" width="100%">
+  <img width="720" height="1600" alt="WhatsApp Image 2026-10-21 at 21 07 00" src="https://github.com/user-attachments/assets/6f186271-045f-4e1f-9a04-f368f632dea1" />
 </p>
 
 <p align="center">
