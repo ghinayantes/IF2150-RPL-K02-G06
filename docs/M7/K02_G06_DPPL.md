@@ -559,8 +559,10 @@ Tabel 3.7. Identifikasi Kelas Use Case [UC07]
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
 |:--- | :--- | :--- |
-| 1 | *LoginView* | *Pengguna mengambil alih login()* |
-| 2 | *AuthController, Validasi* | *Pengguna mengambil alih validasiKredensial()* |
+| 1 | *LoginView* | *tampilkanForm, kirimKredensial* |
+| 2 | *AuthController* | *login* |
+| 3 | *Validasi* | *validasiKredensial* |
+| 4 | *Pengguna* | *verifikasiPassword* |
 
 ### 3.7.2 Sequence Diagram
 
@@ -575,22 +577,13 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 <i>Gambar X. Sequence Diagram [UC07]</i>
 </p>
 
-- **Skenario Alternatif [Nomor]: [Nama Skenario]**
-
-<p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
-</p>
-<p align="center">
-<i>Gambar X. Sequence Diagram [UC07] - [Nama skenario alternatif]</i>
-</p>
-
 ### 3.7.3 Diagram Kelas
 
 <p align="center">
-<img width="75%" alt="Class07-UC07 - Class drawio (2)" src="https://github.com/user-attachments/assets/7d419610-25d2-457d-837c-64f1494affd2" />
+<img width="750" height="487" alt="UC7FIX drawio" src="https://github.com/user-attachments/assets/5f43186f-e33f-4488-985c-8d3dc966cdcb" />
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas [Nama Uce Case]</i>
+<i>Gambar X. Diagram Kelas Login Ke Sistem</i>
 </p>
 
 ## 3.8 Use Case 08
@@ -604,8 +597,10 @@ Tabel 3.8. Identifikasi Kelas Use Case [UC07]
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
 |:--- | :--- | :--- |
-| 1 | *RewardView* | *Pembeli mengambil alih klaimReward()* |
-| 2 | *RewardController* | *RewardLogin mengambil alih prosesKlaim() dan konfirmasiKlaim()* |
+| 1 | *RewardView* | *kirimKlaim, tampilkanKupon* |
+| 2 | *RewardController* | *klaimReward, lihatProgres* |
+| 3 | *RewardLogin* | *cukupUntukKlaim, kurangiPoin* |
+| 4 | *Kupon* | *Model data pembuatan objek kupon* |
 
 ### 3.8.2 Sequence Diagram
 
@@ -618,22 +613,13 @@ Tabel 3.8. Identifikasi Kelas Use Case [UC07]
 <i>Gambar X. Sequence Diagram [UC08]</i>
 </p>
 
-- **Skenario Alternatif [Nomor]: [Nama Skenario]**
-
-<p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
-</p>
-<p align="center">
-<i>Gambar X. Sequence Diagram [UC01] - [Nama skenario alternatif]</i>
-</p>
-
 ### 3.8.3 Diagram Kelas
 
 <p align="center">
-<img width="75%" alt="Class07-UC08 - Class drawio" src="https://github.com/user-attachments/assets/bd498e8e-5f97-480c-9dac-96443185e56c" />
+<img width="734" height="440" alt="UC8FIX drawio" src="https://github.com/user-attachments/assets/8a5d4db4-64d8-4777-9f58-3b7fe3cf4b67" />
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas [Nama Uce Case]</i>
+<i>Gambar X. Diagram Kelas Mengklaim Reward Login</i>
 </p>
 
 ## 3.9 Use Case 09
