@@ -593,7 +593,7 @@ Tabel 3.9. Identifikasi Kelas Use Case [UC09]
 ## 4.1 Diagram Kelas
 
 <p align="center">
-<img alt="Diagram Kelas Perancangan Keseluruhan Food Waste Stop" src="./assets/diagram/class/cd-keseluruhan.png" width="90%">
+<img width="1559" height="1009" alt="cdl drawio" src="https://github.com/user-attachments/assets/fdf8aec9-3d79-4873-9fff-5bac79ec2343" />
 </p>
 <p align="center">
 <i>Gambar 4.1. Diagram Kelas Perancangan Keseluruhan Food Waste Stop</i>
