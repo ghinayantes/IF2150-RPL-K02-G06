@@ -234,19 +234,28 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 - **Skenario Normal**
 
 <p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
+<img alt="Normal UC01" src="./assets/diagram/normal-UC01.png" width="50%">
 </p>
 <p align="center">
 <i>Gambar X. Sequence Diagram [UC01]</i>
 </p>
 
-- **Skenario Alternatif [Nomor]: [Nama Skenario]**
+- **Skenario Alternatif 1:  Verifikasi penambahan makanan gagal**
 
 <p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
+<img alt="skenario1-UC01" src="./assets/diagram/skenario2-UC01.png" width="50%">
 </p>
 <p align="center">
-<i>Gambar X. Sequence Diagram [UC01] - [Nama skenario alternatif]</i>
+<i>Gambar X. Sequence Diagram [UC01] - [Verifikasi penambahan makanan gagal]</i>
+</p>
+
+- **Skenario Alternatif 2:  Percobaan keluar saat penambahan makanan**
+
+<p align="center">
+<img alt="skenario2-UC01" src="./assets/diagram/skenario1-UC01.png" width="50%">
+</p>
+<p align="center">
+<i>Gambar X. Sequence Diagram [UC01] - [Percobaan keluar saat penambahan makanan]</i>
 </p>
 
 ### 3.1.3 Diagram Kelas
