@@ -410,7 +410,7 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.1. **Setiap kelas pada diagram wajib menampilkan atribut dan metode/operasi langsung di dalam kotak kelasnya**, sehingga tidak perlu membuat tabel daftar atribut dan metode per kelas pada subbab ini. Daftar lengkap atribut dan metode seluruh kelas disajikan pada Tabel 4.1 (Bab 4).
 
 <p align="center">
-<img width="532" height="227" alt="Class07-UC07 - Class drawio" src="https://github.com/user-attachments/assets/d5fc1440-4df1-4973-8091-6d8f8ab7870a" />
+<img width="532" height="227" alt="Class06-UC06 - Class drawio" src="docs/M7/assets/diagram/class/cd-uc06.png" />
 </p>
 <p align="center">
 <i>Gambar X. Diagram Kelas Mengedit Listing</i>
