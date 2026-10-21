@@ -445,14 +445,6 @@ Tabel 3.6. Identifikasi Kelas Use Case [UC06]
 <i>Gambar X. Sequence Diagram [UC06]</i>
 </p>
 
-- **Skenario Alternatif [Nomor]: [Nama Skenario]**
-
-<p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
-</p>
-<p align="center">
-<i>Gambar X. Sequence Diagram [UC06] - [Nama skenario alternatif]</i>
-</p>
 
 ### 3.6.3 Diagram Kelas
 
