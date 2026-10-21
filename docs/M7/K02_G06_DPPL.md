@@ -456,7 +456,7 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 - **Skenario Normal**
 
 <p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
+<img alt="Sequence diagram skenario normal UC05" src="./assets/diagram/sequence/sd-uc055-normal.png" width="50%">
 </p>
 <p align="center">
 <i>Gambar X. Sequence Diagram [UC05]</i>
@@ -510,15 +510,6 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 </p>
 <p align="center">
 <i>Gambar X. Sequence Diagram [UC06]</i>
-</p>
-
-- **Skenario Alternatif [Nomor]: [Nama Skenario]**
-
-<p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
-</p>
-<p align="center">
-<i>Gambar X. Sequence Diagram [UC06] - [Nama skenario alternatif]</i>
 </p>
 
 ### 3.6.3 Diagram Kelas
