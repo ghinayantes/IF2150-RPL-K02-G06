@@ -482,10 +482,12 @@ Tabel 3.7. Identifikasi Kelas Use Case [UC07]
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
 |:--- | :--- | :--- |
-| 1 | *LoginView* | *tampilkanForm, kirimKredensial* |
+| 1 | *LoginView* | *tampilkanForm, kirimKredensial, tampilkanPesan, arahkanKeBeranda* |
 | 2 | *AuthController* | *login* |
 | 3 | *Validasi* | *validasiKredensial* |
-| 4 | *Pengguna* | *verifikasiPassword* |
+| 4 | *Pengguna* | *verifikasiPassword, getPeran* |
+| 5 | *Pembeli* | *getPeran* |
+| 6 | *Penjual* | *getPeran* |
 
 ### 3.7.2 Sequence Diagram
 
@@ -520,10 +522,11 @@ Tabel 3.8. Identifikasi Kelas Use Case [UC07]
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
 |:--- | :--- | :--- |
-| 1 | *RewardView* | *kirimKlaim, tampilkanKupon* |
-| 2 | *RewardController* | *klaimReward, lihatProgres* |
+| 1 | *RewardView* | *kirimKlaim, tampilkanKupon, tampilkanPesan, tampilkanProgres* |
+| 2 | *RewardController* | *klaimReward, lihatProgres, catatLogin* |
 | 3 | *RewardLogin* | *cukupUntukKlaim, kurangiPoin* |
-| 4 | *Kupon* | *Model data pembuatan objek kupon* |
+| 4 | *Kupon* | *Model data pembuatan objek kupon (isBerlaku)* |
+| 5 | *Pembeli* | *getPeran* |
 
 ### 3.8.2 Sequence Diagram
 
