@@ -1,7 +1,7 @@
 <h1>
 IF2150 REKAYASA PERANGKAT LUNAK
 <br>
-TUGAS 5
+TUGAS 7
 <br>
 DESKRIPSI PERANCANGAN PERANGKAT LUNAK (DPPL)
 </h1>
@@ -29,30 +29,30 @@ Dipersiapkan oleh:
 
 ## Daftar Perubahan
 
+Daftar berikut mencatat perbedaan rancangan pada DPPL ini terhadap dokumen SKPL dan APL. Dokumen SKPL dan APL tidak diubah, sehingga bagian DPPL yang tercantum di bawah ini menjadi acuan untuk tahap implementasi.
+
 | Revisi | Deskripsi |
 | :--- | :--- |
-| *A* | *Deskripsikan perubahan yang dilakukan dari dokumen sebelumnya pada dokumen ini. Jika tidak terdapat perubahan, harap kosongkan tabel.* |
-| *B* |  |
-| *C* |  |
-| ... |  |
+| *A* | *Kelas View dan Controller dari APL (LoginView, KatalogView, ListingView, PembayaranView, RewardView, AuthController, KatalogController, ListingController, PembayaranController, RewardController) serta Validasi dan PaymentGatewayAdapter ditambahkan sebagai kelas perancangan. Method yang merupakan aksi antarmuka (`checkout()`, `bayar()`, `tampilkanListingAll()`, `konfirmasiHapus()`, dsb.) dipindahkan dari kelas Penjual, Pembeli, dan ListingMakanan ke View atau Controller yang bersangkutan.* |
+| *B* | *Penjual dan Pembeli tetap menjadi subkelas dari Pengguna (sesuai SKPL), menggantikan atribut `peran` pada komponen Pengguna di APL.* |
+| *C* | *Password di-hash di sisi server menggunakan bcrypt setelah dikirim melalui HTTPS. Rancangan ini menggantikan KNF02 SKPL dan LoginView APL yang melakukan hashing SHA-256 di sisi client, karena hash yang dibuat di client akan berfungsi sebagai password itu sendiri.* |
+| *D* | *Ditambahkan kelas ItemTransaksi untuk menyimpan listing dan jumlah porsi yang dibeli (SKPL 2.1, aktivitas A07). Transaksi kini berelasi dengan Pembeli dan ItemTransaksi.* |
+| *E* | *Ditambahkan kelas Kupon sebagai hasil klaim reward pada UC08 (SKPL 2.4 no. 5). Penggunaan kupon saat pembayaran belum menjadi bagian dari skenario UC05 pada SKPL, sehingga belum direalisasikan pada DPPL ini.* |
+| *F* | *ListingMakanan mendapat atribut `batasKedaluwarsa`, `porsi`, `kondisi`, dan `aktif`, serta operasi statis untuk mengambil data listing dari database (`cariById()`, `ambilSemuaTersedia()`, `cariDaftar()`). Penghapusan listing (UC09) dilakukan dengan menonaktifkan listing (soft delete) agar riwayat Transaksi yang merujuk ke listing tersebut tetap utuh.* |
+| *G* | *RewardLogin mendapat atribut `tanggalLoginTerakhir` untuk mendeteksi login pertama pada suatu hari. Poin login hanya diberikan kepada Pembeli (sesuai SKPL 2.3).* |
+| *H* | *MetodePembayaran pada SKPL dirancang sebagai interface yang direalisasikan oleh PaymentGatewayAdapter untuk berkomunikasi dengan QRIS dummy.* |
+| *I* | *ListingController memeriksa bahwa listing yang diedit atau dihapus adalah milik penjual yang sedang login. Pengecekan dan pengurangan stok pada pembayaran dijalankan dalam satu transaksi database dengan penguncian baris (KNF01), dan transaksi yang belum dibayar hingga `batasWaktuBayar` dibatalkan otomatis.* |
 
 ---
 
 <br>
-
-> **Petunjuk pengerjaan:** *[Silahkan hapus bagian ini setelah selesai mengerjakan]*
->
-> Dokumen ini melanjutkan **Spesifikasi Kebutuhan Perangkat Lunak (SKPL)** dan **Arsitektur Perangkat Lunak (APL)**. Gunakan nama, ID, kebutuhan, dan use case yang konsisten dengan kedua dokumen tersebut. Contoh pola ID baru di bawah dapat disesuaikan dengan kesepakatan kelompok, ID yang sudah ada tetap dipertahankan.
-
-<br>
-
----
-
 
 # BAB 1: Pendahuluan
 
 ## 1.1 Tujuan Penulisan Dokumen
-Tuliskan dengan ringkas tujuan dokumen DPPL ini dibuat dan siapa saja yang akan menggunakan dokumen ini.
+Dokumen Deskripsi Perancangan Perangkat Lunak (DPPL) ini disusun untuk menjelaskan rancangan aplikasi web Food Waste Stop sebagai bagian dari Tugas Besar mata kuliah Rekayasa Perangkat Lunak (RPL). Dokumen ini menerjemahkan kebutuhan pada SKPL dan arsitektur pada APL menjadi rancangan yang siap diimplementasikan, meliputi lingkungan implementasi, komponen arsitektur, realisasi setiap use case dalam bentuk *sequence diagram* dan diagram kelas, serta matriks kerunutan kelas terhadap use case.
+
+Dokumen ini ditujukan bagi asisten dan/atau dosen mata kuliah RPL sebagai bahan evaluasi, serta bagi anggota kelompok sebagai acuan pada tahap implementasi dan pengujian.
 
 ## 1.2 Lingkup Masalah
 Industri makanan sering menghasilkan makanan surplus yang masih layak konsumsi tetapi tidak terjual. Makanan tersebut umumnya dibuang sehingga menambah sampah makanan dan menimbulkan kerugian ekonomi bagi pelaku industri. Selain itu, belum tersedia wadah yang memudahkan penjualan makanan surplus kepada konsumen dengan harga terjangkau.
@@ -60,19 +60,22 @@ Industri makanan sering menghasilkan makanan surplus yang masih layak konsumsi t
 Food Waste Stop merupakan web aplikasi untuk kegiatan jual-beli makanan surplus. Food Waste Stop berfokus menjadi solusi permasalahan sampah makanan industri. Selain itu, Food Waste Stop juga mengurangi kerugian ekonomi industri.
 
 ## 1.3 Definisi, Istilah, dan Singkatan
-Semua definisi dan singkatan yang digunakan dalam dokumen ini beserta penjelasannya.
 
 Tabel 1.3. Definisi Istilah dan Singkatan
 
 | Singkatan, Akronim, atau Istilah | Penjelasan |
 | :--- | :--- |
 | *P/L* | *Singkatan dari Perangkat Lunak, yaitu aplikasi yang memberikan perintah kepada komputer untuk menjalankan tugas tertentu.* |
-| *DPPL* | *Singkatan dari Spesifikasi Kebutuhan Perangkat Lunak, yaitu dokumen yang merangkum kriteria-kriteria yang diperlukan untuk membangun aplikasi menjalankan tugasnya.* |
+| *DPPL* | *Singkatan dari Deskripsi Perancangan Perangkat Lunak, yaitu dokumen yang menjelaskan rancangan arsitektur, kelas, dan interaksi antarobjek yang menjadi acuan implementasi perangkat lunak.* |
+| *SKPL* | *Singkatan dari Spesifikasi Kebutuhan Perangkat Lunak.* |
+| *APL* | *Singkatan dari Arsitektur Perangkat Lunak.* |
 | *UC* | *Singkatan dari Use Case.* |
-| *EARS* | *Easy Approach to Requirements Syntax, yaitu pola penulisan kebutuhan agar konsisten dan mudah diuji.* |
+| *MVC* | *Model-View-Controller, yaitu pola arsitektur yang memisahkan tampilan (View), pengendali alur (Controller), dan data serta aturan bisnis (Model).* |
+| *QRIS* | *Quick Response Code Indonesian Standard. Pada aplikasi ini digunakan versi dummy sebagai simulasi pembayaran.* |
+| *bcrypt* | *Algoritma hashing password yang menggunakan salt dan faktor biaya sehingga tahan terhadap serangan tebak massal.* |
+| *Soft delete* | *Penghapusan data dengan menandainya sebagai nonaktif, bukan menghapusnya secara fisik dari database.* |
 
 ## 1.4 Aturan Penomoran
-Tuliskan aturan penomoran (ID) yang digunakan dalam dokumen ini. Gunakan pola ID yang **sama** dengan yang sudah dipakai pada dokumen-dokumen sebelumnya, jangan membuat pola baru di dokumen ini.
 
 Tabel 1.4. Aturan Penomoran
 
@@ -80,13 +83,17 @@ Tabel 1.4. Aturan Penomoran
 | :--- | :--- | :--- |
 | *Aktor* | *AXX* | *Pihak di luar sistem (pengguna, perangkat, atau sistem lain) yang berinteraksi dengan sistem* |
 | *Use Case* | *UCXX* | *Rangkaian interaksi antara aktor dan sistem untuk mencapai suatu tujuan tertentu* |
-| *Kelas* | *CXX* | *Representasi objek dalam sistem yang memiliki atribut dan metode, digunakan dalam perancangan struktur sistem* |
+| *Kelas* | *CXX* | *Representasi objek dalam sistem yang memiliki atribut dan metode. C01–C07 mengikuti SKPL, sedangkan C08 dan seterusnya adalah kelas baru pada tahap perancangan* |
 
 ## 1.5 Referensi
-Cantumkan dokumentasi P/L yang dirujuk oleh dokumen ini, **minimal dokumen SKPL dan APL**. Tambahkan buku, panduan, atau dokumentasi lain apabila digunakan.
+- Dokumen Spesifikasi Kebutuhan Perangkat Lunak (SKPL) Food Waste Stop, K02-G06.
+- Dokumen Arsitektur Perangkat Lunak (APL) Food Waste Stop, K02-G06.
+- Sommerville, I. (2016). *Software Engineering* (10th ed.). Pearson.
+- PowerPoint Rekayasa Perangkat Lunak "Objek, Tanggung Jawab, dan Kolaborasi" & "Stereotipe, Gaya Kendali, dan Lapisan".
+- Diagram UML: [https://www.drawio.com/](https://www.drawio.com/), [https://staruml.io/](https://staruml.io/), [https://plantuml.com/](https://plantuml.com/)
 
 ## 1.6 Deskripsi Umum Dokumen (Ikhtisar)
-Tuliskan sistematika pembahasan dokumen ini secara ringkas dan runut, dengan maksimal 1 paragraf.
+BAB 1 berisi pendahuluan dokumen. BAB 2 membahas perancangan arsitektur, meliputi lingkungan implementasi, *style/pattern* acuan, identifikasi komponen, dan model arsitektur. BAB 3 berisi realisasi setiap use case dalam bentuk identifikasi kelas, *sequence diagram*, dan diagram kelas. BAB 4 menyajikan diagram kelas perancangan keseluruhan beserta daftar atribut dan metodenya. BAB 5 berisi matriks kerunutan kelas perancangan terhadap use case.
 
 <br>
 
@@ -96,55 +103,70 @@ Tuliskan sistematika pembahasan dokumen ini secara ringkas dan runut, dengan mak
 
 ## 2.1 Rancangan Lingkungan Implementasi
 
-Sebutkan *operating system*, DBMS, *development tools*, *filing system*, dan bahasa pemrograman yang digunakan.
+Tabel 2.1. Rancangan Lingkungan Implementasi
+
+| Komponen | Spesifikasi |
+| :--- | :--- |
+| *Operating System* | *Pengembangan: Windows/Linux/macOS. Pengguna: OS apa pun yang memiliki web browser modern (Windows, Linux, macOS, Android, iOS)* |
+| *Server* | *Server lokal untuk pengembangan dan demonstrasi* |
+| *DBMS* | *PostgreSQL 15* |
+| *Bahasa Pemrograman* | *TypeScript (front-end), Python 3.11 (back-end), SQL* |
+| *Framework* | *Next.js (React) dengan Node.js v20 untuk proses build; FastAPI untuk back-end* |
+| *Development Tools* | *Visual Studio Code, Git dan GitHub, draw.io, PlantUML* |
+| *Filing System* | *Data terstruktur disimpan di PostgreSQL. Foto listing (PNG/JPG, maks. 10 MB) disimpan sebagai berkas di direktori penyimpanan server, dan path berkasnya disimpan pada atribut `foto` di ListingMakanan* |
 
 ## 2.2 Style/Pattern Arsitektur Acuan
 
-Tentukan *architectural style* atau *pattern* yang menjadi acuan aplikasi, misalnya *layered architecture*, *client-server*, *repository*, *pipe and filter*, atau MVC (*Model-View-Controller*).
-
-
-Gunakan hasil **BAB 1 Style/Pattern Arsitektur Acuan pada dokumen APL**, termasuk alasan pemilihan dan gambar penerapannya pada P/L kelompok. Gunakan komponen aplikasi sendiri pada gambar, bukan hanya contoh pola umum.
+Style yang digunakan adalah client-server: client meminta layanan dan server memproses permintaan tersebut. Pattern yang digunakan adalah MVC, dengan View di sisi client (Next.js), serta Controller dan Model di sisi server (FastAPI). Model membaca dan menyimpan data ke database PostgreSQL.
 
 <p align="center">
-<img alt="Contoh Arsitektur MVC" src="./assets/diagram/contoh-arsitektur-mvc.webp" width="40%">
+  <img width="50%" alt="Arsitektur MVC Food Waste Stop" src="https://github.com/user-attachments/assets/c05b7e88-bbfc-4aca-8004-37839e45328c" />
 </p>
 <p align="center">
-<i>Gambar 1. Contoh Arsitektur MVC</i>
+<i>Gambar 1. Arsitektur MVC Food Waste Stop</i>
 </p>
+
+Alasan pemilihan style/pattern tersebut:
+1. Alur Penjual dan Pembeli memiliki tampilan (View) yang terpisah, tetapi dapat memakai logika yang sama (Controller dan Model).
+2. Pengguna mengakses sistem dari perangkat yang berbeda, tetapi harus melihat data yang sama, sehingga dibutuhkan server terpusat (client-server).
+3. Logika yang membutuhkan keamanan dan konsistensi data, yaitu hashing password (KNF02) dan transaksi pembayaran yang atomik (KNF01), dijalankan di server sehingga tidak dapat dimanipulasi dari sisi client.
 
 ## 2.3 Identifikasi Komponen / Modul / Subsistem
-
-Identifikasi komponen, modul, atau subsistem penyusun aplikasi berdasarkan *pattern* yang telah ditetapkan. Jelaskan tanggung jawab masing-masing komponen. Pengelompokan dapat mengikuti lapisan arsitektur atau fungsi/peran komponen dalam sistem.
-
-Ambil dari **Tabel 2.1 dokumen APL**, lalu kelompokkan berdasarkan lapisan (Model/View/Controller). Kolom **Jenis** diisi sesuai pattern, misalnya View, Controller, Model, Service, Repository. Satu komponen merepresentasikan saatu tanggung jawab utama yang jelas,
 
 Tabel 2.3. Identifikasi Komponen/Modul/Subsistem
 
 | Nama Komponen/Modul/Subsistem | Jenis | Penjelasan |
 | :--- | :--- | :--- |
-| *[Nama komponen/modul/subsistem]* | *[Jenis]* | *[Tanggung jawab komponen]* |
-| *[Nama komponen/modul/subsistem]* | *[Jenis]* | *[Tanggung jawab komponen]* |
-| *...* | *...* | *...* |
+| *LoginView* | *View* | *Menampilkan form login untuk Penjual dan Pembeli, mengirim email dan password ke AuthController melalui HTTPS, menampilkan pesan error, lalu mengarahkan pengguna ke halaman sesuai perannya.* |
+| *KatalogView* | *View* | *Menampilkan daftar listing, detail satu listing, serta kolom pencarian dan penyaringan harga kepada Pembeli, dan meneruskan aksinya ke KatalogController.* |
+| *ListingView* | *View* | *Menampilkan form tambah dan edit listing, dialog konfirmasi keluar, serta tombol dan dialog konfirmasi hapus listing kepada Penjual, dan meneruskan aksinya ke ListingController.* |
+| *PembayaranView* | *View* | *Menampilkan form jumlah porsi, ringkasan pesanan, dan kode QRIS dummy kepada Pembeli, serta meneruskan aksi bayar atau batal ke PembayaranController.* |
+| *RewardView* | *View* | *Menampilkan progres poin login, tombol klaim reward, dan kupon yang didapat kepada Pembeli, lalu meneruskan aksi klaim ke RewardController.* |
+| *AuthController* | *Controller* | *Memproses login (UC07): meneruskan kredensial ke Validasi, memverifikasi password terhadap hash bcrypt milik Pengguna, lalu jika pengguna adalah Pembeli, memerintahkan RewardLogin mencatat login harian dan menambah poin.* |
+| *KatalogController* | *Controller* | *Memproses permintaan melihat listing (UC02), melihat detail (UC03), serta mencari dan menyaring listing (UC04). Hanya listing aktif dengan stok > 0 yang belum melewati batas kedaluwarsa yang dikirim ke View.* |
+| *ListingController* | *Controller* | *Memproses penambahan (UC01), pengeditan (UC06), dan penghapusan (UC09) listing. Input diteruskan ke Validasi, dan untuk edit/hapus diperiksa terlebih dahulu bahwa listing adalah milik penjual yang sedang login.* |
+| *PembayaranController* | *Controller* | *Memproses checkout dan pembayaran (UC05): membuat Transaksi berstatus menunggu bayar beserta ItemTransaksi, meminta kode QRIS melalui MetodePembayaran, lalu setelah pembayaran dikonfirmasi mengunci dan mengurangi stok ListingMakanan serta menandai Transaksi lunas dalam satu transaksi database (KNF01). Transaksi yang dibatalkan atau melewati batas waktu bayar ditandai batal.* |
+| *RewardController* | *Controller* | *Memproses permintaan melihat progres poin dan mengklaim reward (UC08): memeriksa kecukupan poin melalui RewardLogin, mengurangi poin, dan menerbitkan Kupon.* |
+| *Pengguna, Penjual, Pembeli* | *Model* | *Merepresentasikan akun pengguna. Pengguna menyimpan data umum (nama, email, hash password), Penjual menambahkan data toko, dan Pembeli menjadi pemilik RewardLogin, Transaksi, dan Kupon.* |
+| *ListingMakanan* | *Model* | *Merepresentasikan listing makanan surplus milik Penjual (nama, foto, porsi, kondisi, harga, stok, batas kedaluwarsa, status aktif) beserta aturan ketersediaannya dan operasi untuk mengambil data listing dari database.* |
+| *Transaksi, ItemTransaksi* | *Model* | *Merepresentasikan pesanan Pembeli: status, total harga, batas waktu bayar, kode pengambilan, serta daftar listing dan jumlah porsi yang dibeli.* |
+| *RewardLogin, Kupon* | *Model* | *Merepresentasikan poin login harian Pembeli beserta tanggal login terakhir, serta kupon potongan harga hasil klaim reward.* |
+| *Validasi* | *Pendukung* | *Memvalidasi input listing (field wajib, stok dan harga tidak negatif, foto PNG/JPG maks. 10 MB, batas kedaluwarsa belum lewat) dan input login (format email, password tidak kosong).* |
+| *MetodePembayaran, PaymentGatewayAdapter* | *Integrasi Eksternal* | *MetodePembayaran adalah interface pembayaran; PaymentGatewayAdapter merealisasikannya dengan mengirim tagihan ke QRIS dummy, menerima kode QRIS, dan meneruskan status pembayaran ke PembayaranController.* |
+| *Database* | *Pendukung* | *Menyimpan seluruh data Model secara persisten pada PostgreSQL 15 dan menjalankan transaksi database yang memenuhi prinsip ACID.* |
 
 ## 2.4 Model Arsitektur Perangkat Lunak
 
-Buat model arsitektur dalam bentuk satu atau lebih *view* yang memperlihatkan interaksi dan kolaborasi komponen, modul, serta subsistem dalam menjalankan fungsi sistem. Pilih notasi yang sesuai. Contoh *view*: *Logical View*, *Process View*, *Development View*, dan *Physical View*.
+### 2.4.1 View Logical View
 
-Gunakan hasil **BAB 3 Model Arsitektur Perangkat Lunak pada dokumen APL**. 
-
-### 2.4.1 View [Nama View]
-
-Tuliskan secara singkat model arsitektur yang dipilih dan alasan model tersebut cocok untuk aplikasi.
+Logical view dipilih karena memperlihatkan pembagian tanggung jawab antarkomponen MVC dan arah ketergantungannya, sehingga setiap kelas perancangan pada BAB 3 dapat ditelusuri ke komponennya. Setiap View hanya berkomunikasi dengan satu Controller pasangannya melalui HTTPS. Controller memakai Validasi untuk memeriksa input dan memakai Model untuk membaca serta mengubah data. Model menyimpan datanya ke Database. PembayaranController adalah satu-satunya Controller yang berkomunikasi dengan sistem eksternal, yaitu QRIS dummy melalui PaymentGatewayAdapter. AuthController juga memakai Model RewardLogin karena pemberian poin harian terjadi pada saat login.
 
 <p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-logical-view.webp" width="50%">
+<img width="80%" alt="Logical View Food Waste Stop" src="https://github.com/user-attachments/assets/e115d579-4f88-49de-913b-5d40c2c35a95" />
 </p>
 <p align="center">
-<i>Gambar 2. Contoh Logical View pada P/L E-Commerce</i>
+<i>Gambar 2. Logical View Food Waste Stop</i>
 </p>
-
-### 2.4.X View [Nama View]
-*[Lakukan hal yang sama dengan bagian sebelumnya]*
 
 <br>
 
@@ -153,23 +175,23 @@ Tuliskan secara singkat model arsitektur yang dipilih dan alasan model tersebut 
 
 # BAB 3: Realisasi Use Case
 
-## 3.1 Use Case [Nama Use Case 1]
+## 3.x Use Case [Nama Use Case contoh]
 
-**ID Use Case:** *[UC01 sesuai SKPL]*  
+**ID Use Case:** *[UC0x sesuai SKPL]*  
 **Nama Use Case:** *[Nama use case sesuai SKPL]*
 
-### 3.1.1 Identifikasi Kelas
+### 3.x.1 Identifikasi Kelas
 
 Identifikasi kelas yang terkait dengan use case tersebut. Kelas di tahap perancangan dapat berbeda dengan dengan kelas di tahap analisis. Dapat menggunakan tabel di bawah:
 
-Tabel 3.1. Identifikasi Kelas Use Case [UC01]
+Tabel 3.1. Identifikasi Kelas Use Case [UC0x]
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
 |:--- | :--- | :--- |
 | 1 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
 | 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
 
-### 3.1.2 Sequence Diagram
+### 3.x.2 Sequence Diagram
 
 Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
 
@@ -208,6 +230,87 @@ Pada diagram, pastikan:
 - Relasi antarkelas (asosiasi, agregasi, komposisi, generalisasi, dan dependensi) digambarkan lengkap dengan multiplisitas.
 - Semua operasi yang dipanggil pada sequence diagram 3.1.2 (skenario normal dan alternatif) ada pada kelas yang bersangkutan.
 - Kelas yang sama dengan kelas di use case lain memakai nama, atribut, dan metode yang konsisten.
+
+## 3.3 Use Case 03
+
+**ID Use Case:** *UC03*  
+**Nama Use Case:** *Melihat detail makanan surplus*
+
+### 3.3.1 Identifikasi Kelas
+
+Tabel 3.3. Identifikasi Kelas Use Case UC03
+
+| No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
+|:--- | :--- | :--- |
+| 1 | *KatalogView* | *Pembeli* |
+| 2 | *KatalogController* | *ListingMakanan* |
+| 3 | *ListingMakanan* | *ListingMakanan* |
+
+### 3.3.2 Sequence Diagram
+
+<p align="center">
+<img alt="Sequence Diagram UC03" src="./assets/diagram/sequence/sd-uc03.png" width="80%">
+</p>
+<p align="center">
+<i>Gambar 7. Sequence Diagram UC03</i>
+</p>
+
+Langkah 1 skenario (membuka halaman listing) sama dengan UC02, sehingga digambarkan sebagai fragmen `ref` ke UC02. Setelah Pembeli memilih satu listing, KatalogView meminta detailnya ke KatalogController, yang mengambil listing melalui `ListingMakanan.cariById()`.
+
+- **Skenario Normal:** cabang `alt [listing ditemukan dan tersedia]`. KatalogController memastikan listing masih tersedia melalui `isTersedia()` (aktif, stok > 0, dan belum melewati batas kedaluwarsa), lalu KatalogView menampilkan detailnya dalam pop-up.
+- **Skenario Alternatif 1: Listing yang dipilih tiba-tiba dihapus:** cabang `[listing tidak ditemukan atau tidak lagi tersedia]`. KatalogController mengembalikan `null`, dan KatalogView menampilkan pesan bahwa listing sudah tidak tersedia (KF07).
+
+### 3.3.3 Diagram Kelas
+
+<p align="center">
+<img alt="Diagram Kelas UC03" src="./assets/diagram/class/cd-uc03.png" width="100%">
+</p>
+<p align="center">
+<i>Gambar 8. Diagram Kelas UC03</i>
+</p>
+
+KatalogView bergantung pada KatalogController untuk setiap aksi Pembeli, dan KatalogController membaca nol atau lebih ListingMakanan. Pencarian data listing dilakukan oleh operasi statis ListingMakanan (bergaris bawah), karena Model bertugas mengakses database sesuai APL.
+
+## 3.4 Use Case 04
+
+**ID Use Case:** *UC04*  
+**Nama Use Case:** *Menyaring listing makanan surplus*
+
+### 3.4.1 Identifikasi Kelas
+
+Tabel 3.4. Identifikasi Kelas Use Case UC04
+
+| No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
+|:--- | :--- | :--- |
+| 1 | *KatalogView* | *Pembeli* |
+| 2 | *KatalogController* | *ListingMakanan* |
+| 3 | *ListingMakanan* | *ListingMakanan* |
+
+### 3.4.2 Sequence Diagram
+
+<p align="center">
+<img alt="Sequence Diagram UC04" src="./assets/diagram/sequence/sd-uc04.png" width="90%">
+</p>
+<p align="center">
+<i>Gambar 9. Sequence Diagram UC04</i>
+</p>
+
+Diagram dibagi menjadi dua bagian sesuai langkah skenario: pencarian dengan kata kunci (langkah 1) dan penyaringan dengan rentang harga (langkah 2–3). Kedua bagian memakai alur yang sama, yaitu `kirimPencarian()` → `cariListing()` → `ListingMakanan.cariDaftar()`, yang hanya mengembalikan listing tersedia. Parameter yang tidak diisi Pembeli bernilai `null`, dan kata kunci tetap terbawa saat Pembeli memilih rentang harga.
+
+- **Skenario Normal:** cabang `alt [hasil tidak kosong]` pada kedua bagian.
+- **Skenario Alternatif 1: Kata kunci yang dicari tidak ada:** cabang `[hasil kosong]` pada bagian pencarian dengan kata kunci.
+- **Skenario Alternatif 2: Rentang harga yang dicari tidak ada:** cabang `[hasil kosong]` pada bagian penyaringan dengan rentang harga.
+
+### 3.4.3 Diagram Kelas
+
+<p align="center">
+<img alt="Diagram Kelas UC04" src="./assets/diagram/class/cd-uc04.png" width="100%">
+</p>
+<p align="center">
+<i>Gambar 10. Diagram Kelas UC04</i>
+</p>
+
+UC04 memakai kelas yang sama dengan UC03. Operasi yang dipakai pada UC04 adalah `kirimPencarian()`, `tampilkanPilihanHarga()`, `tampilkanDaftar()`, dan `tampilkanPesan()` pada KatalogView, `cariListing()` pada KatalogController, serta `cariDaftar()` pada ListingMakanan.
 
 ## 3.5 Use Case 05
 
@@ -404,23 +507,52 @@ Buatlah diagram kelas untuk use case ini yang terdiri atas kelas-kelas dari 3.1.
 
 ## 4.1 Diagram Kelas
 
-**Bagian ini diisi dengan diagram kelas keseluruhan.**
+<p align="center">
+<img alt="Diagram Kelas Perancangan Keseluruhan Food Waste Stop" src="./assets/diagram/class/cd-keseluruhan.png" width="90%">
+</p>
+<p align="center">
+<i>Gambar 4.1. Diagram Kelas Perancangan Keseluruhan Food Waste Stop</i>
+</p>
 
-<p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-class_diargam.png" width="35%">
-</p>
-<p align="center">
-<i>Gambar 4.1. Diagram Kelas Perancangan Keseluruhan [Nama P/L]</i>
-</p>
+Relasi antarkelas entity:
+- Pengguna (abstrak) ◁— Penjual, Pembeli (generalisasi).
+- Penjual 1 — 0..\* ListingMakanan.
+- Pembeli 1 — 1 RewardLogin.
+- Pembeli 1 — 0..\* Transaksi.
+- Pembeli 1 — 0..\* Kupon.
+- Transaksi 1 ◆— 1..\* ItemTransaksi (komposisi).
+- ItemTransaksi 0..\* — 1 ListingMakanan.
+- PaymentGatewayAdapter - - ▷ MetodePembayaran (realisasi).
+
+Relasi kelas View dan Controller berupa dependensi: setiap View bergantung pada Controller pasangannya, dan setiap Controller bergantung pada kelas Model serta Validasi atau MetodePembayaran yang dipakainya, sesuai Gambar 2.
+
+`DataListing` pada parameter metode adalah struktur data input form listing (nama, deskripsi, porsi, kondisi, harga, stok, batasKedaluwarsa, foto), bukan kelas domain. `StatusTransaksi` adalah enumerasi bernilai `MENUNGGU_BAYAR`, `LUNAS`, dan `BATAL`. Operasi bertanda `{static}` digambar bergaris bawah pada diagram kelas.
 
 Tabel 4.1. Daftar Kelas Perancangan Keseluruhan
 
 | ID Kelas | Nama Kelas | Atribut | Metode/Operasi |
 | :--- | :--- | :--- | :--- |
-| *[C01]* | *[Nama kelas]* | *[Daftar atribut]* | *[Daftar metode/operasi]* |
-| *[C02]* | *[Nama kelas]* | *[Daftar atribut]* | *[Daftar metode/operasi]* |
-| *[C03]* | *[Nama kelas]* | *[Daftar atribut]* | *[Daftar metode/operasi]* |
-| *...* | *...* | *...* | *...* |
+| *C01* | *Pengguna* «abstract» | *- idPengguna: Integer<br>- nama: String<br>- email: String<br>- passwordHash: String* | *+ verifikasiPassword(password: String): Boolean<br>+ getPeran(): String* |
+| *C02* | *Penjual* | *- namaToko: String<br>- alamatToko: String* | *+ getPeran(): String<br>+ memilikiListing(listing: ListingMakanan): Boolean* |
+| *C03* | *Pembeli* | *–* | *+ getPeran(): String* |
+| *C04* | *ListingMakanan* | *- idListing: Integer<br>- idPenjual: Integer<br>- namaMakanan: String<br>- deskripsi: String<br>- porsi: String<br>- kondisi: String<br>- foto: String<br>- harga: Integer<br>- stok: Integer<br>- batasKedaluwarsa: DateTime<br>- aktif: Boolean* | *+ cariById(idListing: Integer): ListingMakanan {static}<br>+ ambilSemuaTersedia(): List&lt;ListingMakanan&gt; {static}<br>+ cariDaftar(kataKunci: String, hargaMin: Integer, hargaMaks: Integer): List&lt;ListingMakanan&gt; {static}<br>+ isTersedia(waktu: DateTime): Boolean<br>+ ubahData(data: DataListing): void<br>+ kurangiStok(jumlah: Integer): void<br>+ nonaktifkan(): void* |
+| *C05* | *MetodePembayaran* «interface» | *–* | *+ buatTagihan(transaksi: Transaksi): String<br>+ cekStatus(idTransaksi: Integer): String* |
+| *C06* | *Transaksi* | *- idTransaksi: Integer<br>- idPembeli: Integer<br>- tanggal: DateTime<br>- batasWaktuBayar: DateTime<br>- totalHarga: Integer<br>- status: StatusTransaksi<br>- kodePengambilan: String* | *+ hitungTotal(): Integer<br>+ tandaiLunas(): void<br>+ batalkan(): void<br>+ isLewatBatasWaktu(waktu: DateTime): Boolean* |
+| *C07* | *RewardLogin* | *- idReward: Integer<br>- idPembeli: Integer<br>- poinTerkumpul: Integer<br>- tanggalLoginTerakhir: Date<br>- POIN_PER_LOGIN: Integer<br>- POIN_PER_KLAIM: Integer* | *+ catatLogin(tanggal: Date): Boolean<br>+ cukupUntukKlaim(): Boolean<br>+ kurangiPoin(jumlah: Integer): void* |
+| *C08* | *ItemTransaksi* | *- idItem: Integer<br>- idListing: Integer<br>- jumlah: Integer<br>- hargaSatuan: Integer* | *+ hitungSubtotal(): Integer* |
+| *C09* | *Kupon* | *- kodeKupon: String<br>- idPembeli: Integer<br>- nilaiPotongan: Integer<br>- berlakuSampai: Date<br>- terpakai: Boolean* | *+ isBerlaku(tanggal: Date): Boolean* |
+| *C10* | *LoginView* | *–* | *+ tampilkanForm(): void<br>+ kirimKredensial(email: String, password: String): void<br>+ tampilkanPesan(pesan: String): void<br>+ arahkanKeBeranda(peran: String): void* |
+| *C11* | *KatalogView* | *–* | *+ pilihListing(idListing: Integer): void<br>+ tampilkanDaftar(daftar: List&lt;ListingMakanan&gt;): void<br>+ tampilkanDetail(listing: ListingMakanan): void<br>+ tampilkanPilihanHarga(): void<br>+ kirimPencarian(kataKunci: String, hargaMin: Integer, hargaMaks: Integer): void<br>+ tampilkanPesan(pesan: String): void* |
+| *C12* | *ListingView* | *–* | *+ tampilkanFormTambah(): void<br>+ tampilkanFormEdit(listing: ListingMakanan): void<br>+ kirimListing(data: DataListing): void<br>+ tampilkanKonfirmasiKeluar(): Boolean<br>+ tampilkanKonfirmasiHapus(listing: ListingMakanan): Boolean<br>+ tampilkanPesan(pesan: String): void* |
+| *C13* | *PembayaranView* | *–* | *+ tampilkanRingkasan(transaksi: Transaksi): void<br>+ tampilkanQRIS(kodeQRIS: String): void<br>+ kirimBayar(idTransaksi: Integer): void<br>+ kirimBatal(idTransaksi: Integer): void<br>+ tampilkanHasil(transaksi: Transaksi): void<br>+ tampilkanPesan(pesan: String): void* |
+| *C14* | *RewardView* | *–* | *+ tampilkanProgres(poin: Integer, bisaKlaim: Boolean): void<br>+ kirimKlaim(): void<br>+ tampilkanKupon(kupon: Kupon): void<br>+ tampilkanPesan(pesan: String): void* |
+| *C15* | *AuthController* | *–* | *+ login(email: String, password: String): Pengguna* |
+| *C16* | *KatalogController* | *–* | *+ ambilListingTersedia(): List&lt;ListingMakanan&gt;<br>+ ambilDetail(idListing: Integer): ListingMakanan<br>+ cariListing(kataKunci: String, hargaMin: Integer, hargaMaks: Integer): List&lt;ListingMakanan&gt;* |
+| *C17* | *ListingController* | *–* | *+ tambahListing(idPenjual: Integer, data: DataListing): ListingMakanan<br>+ ubahListing(idPenjual: Integer, idListing: Integer, data: DataListing): ListingMakanan<br>+ hapusListing(idPenjual: Integer, idListing: Integer): void* |
+| *C18* | *PembayaranController* | *- metodePembayaran: MetodePembayaran* | *+ checkout(idPembeli: Integer, idListing: Integer, jumlah: Integer): Transaksi<br>+ konfirmasiBayar(idTransaksi: Integer): Transaksi<br>+ batalkan(idTransaksi: Integer): void<br>+ batalkanLewatBatasWaktu(): void* |
+| *C19* | *RewardController* | *–* | *+ lihatProgres(idPembeli: Integer): RewardLogin<br>+ klaimReward(idPembeli: Integer): Kupon* |
+| *C20* | *Validasi* | *–* | *+ validasiListing(data: DataListing): List&lt;String&gt;<br>+ validasiKredensial(email: String, password: String): List&lt;String&gt;* |
+| *C21* | *PaymentGatewayAdapter* | *- urlGateway: String* | *+ buatTagihan(transaksi: Transaksi): String<br>+ cekStatus(idTransaksi: Integer): String* |
 
 <br>
 
@@ -428,12 +560,28 @@ Tabel 4.1. Daftar Kelas Perancangan Keseluruhan
 
 # BAB 5: Matriks Kerunutan
 
-Petakan kelas perancangan dengan use case yang terkait. Gunakan **BAB 6 Traceability pada dokumen SKPL** sebagai acuan keterkaitan kelas analisis dan use case, lalu sesuaikan dengan realisasi use case dan kelas perancangan pada BAB 3–BAB 5 DPPL.
-
-Tabel 7.1. Matriks Kerunutan Kelas terhadap Use Case
+Tabel 5.1. Matriks Kerunutan Kelas terhadap Use Case
 
 | Kelas | Use Case Terkait |
 | :--- | :--- |
-| *[ID kelas - Nama kelas]* | *[ID UC - Nama use case]* |
-| *[ID kelas - Nama kelas]* | *[ID UC - Nama use case]* |
-| *...* | *...* |
+| *C01 - Pengguna* | *UC07 - Login ke sistem* |
+| *C02 - Penjual* | *UC01 - Menambahkan listing makanan surplus, UC06 - Mengedit listing, UC07 - Login ke sistem, UC09 - Menghapus listing* |
+| *C03 - Pembeli* | *UC05 - Melakukan pembayaran, UC07 - Login ke sistem, UC08 - Mengklaim reward login* |
+| *C04 - ListingMakanan* | *UC01 - Menambahkan listing makanan surplus, UC02 - Melihat listing makanan surplus, UC03 - Melihat detail makanan surplus, UC04 - Menyaring listing makanan surplus, UC05 - Melakukan pembayaran, UC06 - Mengedit listing, UC09 - Menghapus listing* |
+| *C05 - MetodePembayaran* | *UC05 - Melakukan pembayaran* |
+| *C06 - Transaksi* | *UC05 - Melakukan pembayaran* |
+| *C07 - RewardLogin* | *UC07 - Login ke sistem, UC08 - Mengklaim reward login* |
+| *C08 - ItemTransaksi* | *UC05 - Melakukan pembayaran* |
+| *C09 - Kupon* | *UC08 - Mengklaim reward login* |
+| *C10 - LoginView* | *UC07 - Login ke sistem* |
+| *C11 - KatalogView* | *UC02 - Melihat listing makanan surplus, UC03 - Melihat detail makanan surplus, UC04 - Menyaring listing makanan surplus* |
+| *C12 - ListingView* | *UC01 - Menambahkan listing makanan surplus, UC06 - Mengedit listing, UC09 - Menghapus listing* |
+| *C13 - PembayaranView* | *UC05 - Melakukan pembayaran* |
+| *C14 - RewardView* | *UC08 - Mengklaim reward login* |
+| *C15 - AuthController* | *UC07 - Login ke sistem* |
+| *C16 - KatalogController* | *UC02 - Melihat listing makanan surplus, UC03 - Melihat detail makanan surplus, UC04 - Menyaring listing makanan surplus* |
+| *C17 - ListingController* | *UC01 - Menambahkan listing makanan surplus, UC06 - Mengedit listing, UC09 - Menghapus listing* |
+| *C18 - PembayaranController* | *UC05 - Melakukan pembayaran* |
+| *C19 - RewardController* | *UC08 - Mengklaim reward login* |
+| *C20 - Validasi* | *UC01 - Menambahkan listing makanan surplus, UC06 - Mengedit listing, UC07 - Login ke sistem* |
+| *C21 - PaymentGatewayAdapter* | *UC05 - Melakukan pembayaran* |
