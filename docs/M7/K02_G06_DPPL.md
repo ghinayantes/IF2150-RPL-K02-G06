@@ -394,13 +394,52 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 <i>Gambar X. Sequence Diagram [UC01] - [Nama skenario alternatif]</i>
 </p>
 
+## 3.9 Use Case 09
+
+**ID Use Case:** *09*  
+**Nama Use Case:** *Menghapus makana dari listing*
+
+### 3.9.1 Identifikasi Kelas
+
+Tabel 3.9. Identifikasi Kelas Use Case [UC09]
+
+| No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
+|:--- | :--- | :--- |
+| 1 | *Pengguna* | *verifikasiPassword()<br>getPeran() <br>bukaListing()* |
+| 2 | *Penjual* | *memilikiListing()<br>hapusListing()* |
+| 3 | *ListingMakanan* | *cariById()<br>ambilSemuaTersedia()<br>cariDaftar()<br>isTersedia()<br>ubahData()<br>kurangiStok()<br>nonaktifkan()* |
+| 4 | *ListingView* | *tampilkanMenuListing()<br>tampilkanKonfirmasiHapus()<br>hapusMakanan()* |
+| 4 | *ListingController* | *tambahListing()<br>ubahListing()<br>hapusListing()<br>isPenjual()* |
+
+### 3.9.2 Sequence Diagram
+
+- **Skenario Normal**
+
+<p align="center">
+<img width="649" height="874" alt="happy" src="https://github.com/user-attachments/assets/0d0a9c32-325b-4c81-9305-7430262cf344" />
+
+</p>
+<p align="center">
+<i>Gambar X. Sequence Diagram UC09</i>
+</p>
+
+- **Skenario Alternatif 01: Toko belum punya listing**
+
+<p align="center">
+<img width="649" height="378" alt="alt" src="https://github.com/user-attachments/assets/5c07730e-b936-4d41-87c9-cbf2e6f0ca33" />
+</p>
+<p align="center">
+<i>Gambar X. Sequence Diagram UC09 - Toko belum punya listing</i>
+</p>
+
 ### 3.8.3 Diagram Kelas
 
 <p align="center">
-<img width="699" height="440" alt="Class07-UC08 - Class drawio" src="https://github.com/user-attachments/assets/bd498e8e-5f97-480c-9dac-96443185e56c" />
+<img width="729" height="442" alt="cd drawio" src="https://github.com/user-attachments/assets/1593d186-76ec-4c4a-9574-b8bd5581be7e" />
+
 </p>
 <p align="center">
-<i>Gambar X. Diagram Kelas [Nama Uce Case]</i>
+<i>Gambar X. Diagram Kelas UC09</i>
 </p>
 
 ---
