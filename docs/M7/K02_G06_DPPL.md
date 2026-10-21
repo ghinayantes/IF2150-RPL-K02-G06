@@ -153,23 +153,23 @@ Tuliskan secara singkat model arsitektur yang dipilih dan alasan model tersebut 
 
 # BAB 3: Realisasi Use Case
 
-## 3.1 Use Case [Nama Use Case 1]
+## 3.x Use Case [Nama Use Case contoh]
 
-**ID Use Case:** *[UC01 sesuai SKPL]*  
+**ID Use Case:** *[UC0x sesuai SKPL]*  
 **Nama Use Case:** *[Nama use case sesuai SKPL]*
 
-### 3.1.1 Identifikasi Kelas
+### 3.x.1 Identifikasi Kelas
 
 Identifikasi kelas yang terkait dengan use case tersebut. Kelas di tahap perancangan dapat berbeda dengan dengan kelas di tahap analisis. Dapat menggunakan tabel di bawah:
 
-Tabel 3.1. Identifikasi Kelas Use Case [UC01]
+Tabel 3.1. Identifikasi Kelas Use Case [UC0x]
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
 |:--- | :--- | :--- |
 | 1 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
 | 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
 
-### 3.1.2 Sequence Diagram
+### 3.x.2 Sequence Diagram
 
 Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario normal dan alternatif pada subbab 4.4 SKPL. Diagram melibatkan kelas-kelas yang telah diidentifikasi pada SKPL. 
 
