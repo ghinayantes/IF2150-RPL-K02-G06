@@ -506,7 +506,7 @@ Buat *sequence diagram* untuk **setiap skenario use case**, mencakup skenario no
 - **Skenario Normal**
 
 <p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-sequence_diagram.png" width="50%">
+<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/sequence/sd-uc06.png" width="50%">
 </p>
 <p align="center">
 <i>Gambar X. Sequence Diagram [UC06]</i>
