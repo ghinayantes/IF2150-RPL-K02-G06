@@ -323,8 +323,15 @@ Tabel 3.5. Identifikasi Kelas Use Case [UC05]
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
 |:--- | :--- | :--- |
-| 1 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
-| 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
+| 1 | *Pembeli* | *Pembeli* |
+| 2 | *ListingMakanan* | *ListingMakanan* |
+| 3 | *MetodePembayaran* | *MetodePembayaran* |
+| 4 | *Transaksi* | *Transaksi* |
+| 5 | *ItemTransaksi* | *(kelas baru pada perancangan; rincian listing, jumlah, dan harga satuan dalam Transaksi C06)* |
+| 6 | *PembayaranView* | *Pembeli* |
+| 7 | *PembayaranController* | *Pembeli* |
+| 8 | *PaymentGatewayAdapter* | *MetodePembayaran* |
+
 
 ### 3.5.2 Sequence Diagram
 
@@ -370,8 +377,11 @@ Tabel 3.6. Identifikasi Kelas Use Case [UC06]
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
 |:--- | :--- | :--- |
-| 1 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
-| 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL]* |
+| 1 | *ListingView* | *Penjual* |
+| 2 | *ListingController* | *Penjual* |
+| 4 | *Penjual* | *Penjual* |
+| 5 | *ListingMakanan* | *ListingMakanan* |
+| 6 | *Validasi* | *ListingMakanan* |
 
 ### 3.6.2 Sequence Diagram
 
