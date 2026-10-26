@@ -247,10 +247,28 @@ Bagian ini diisi dengan daftar seluruh kelas dalam tabel berikut:
 Tabel 5.1. Daftar Kelas Perancangan dan Kelas Analisis Terkait
 
 | No | Nama Kelas Perancangan | Nama Kelas Analisis Terkait |
-| :--- | :--- | :--- |
-| 1 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL atau -]* |
-| 2 | *[Nama kelas perancangan]* | *[Nama kelas analisis pada SKPL atau -]* |
-| ... | *...* | *...* |
+|:--- | :--- | :--- |
+| 1 | *Pengguna* | *verifikasiPassword()<br>getPeran()<br>bukaListing()* |
+| 2 | *Penjual* | *Penjual<br>idPenjual, toko<br>getPeran()<br>memilikiListing()<br>hapusListing()* |
+| 3 | *Pembeli* | *Pembeli<br>idPembeli, nama<br>getPeran()* |
+| 4 | *ListingMakanan* | *ListingMakanan<br>idListing, namaMakanan, harga, stok, deskripsi, foto<br>cariById()<br>ambilSemuaTersedia()<br>cariDaftar()<br>isTersedia()<br>ubahData()<br>kurangiStok()<br>nonaktifkan()* |
+| 5 | *KatalogView* | *Pembeli* |
+| 6 | *KatalogController* | *ListingMakanan* |
+| 7 | *ListingView* | *Penjual<br>tampilkanMenuListing()<br>tampilkanKonfirmasiHapus()<br>hapusMakanan()* |
+| 8 | *ListingController* | *Penjual<br>tambahListing()<br>ubahListing()<br>hapusListing()<br>isPenjual()* |
+| 9 | *Validasi* | *ListingMakanan<br>validasiKredensial()* |
+| 10 | *MetodePembayaran* | *MetodePembayaran* |
+| 11 | *Transaksi* | *Transaksi* |
+| 12 | *ItemTransaksi* | *(kelas baru pada perancangan; rincian listing, jumlah, dan harga satuan dalam Transaksi C06)* |
+| 13 | *PembayaranView* | *Pembeli* |
+| 14 | *PembayaranController* | *Pembeli* |
+| 15 | *PaymentGatewayAdapter* | *MetodePembayaran* |
+| 16 | *LoginView* | *tampilkanForm()<br>kirimKredensial()<br>tampilkanPesan()<br>arahkanKeBeranda()* |
+| 17 | *AuthController* | *login()* |
+| 18 | *RewardView* | *kirimKlaim()<br>tampilkanKupon()<br>tampilkanPesan()<br>tampilkanProgres()* |
+| 19 | *RewardController* | *klaimReward()<br>lihatProgres()<br>catatLogin()* |
+| 20 | *RewardLogin* | *cukupUntukKlaim()<br>kurangiPoin()* |
+| 21 | *Kupon* | *Model data pembuatan objek kupon (isBerlaku)* |
 
 Untuk **setiap kelas**, identifikasi operasi berdasarkan tanggung jawab kelas beserta *visibility*-nya, serta atribut beserta *visibility* dan tipenya. Buat subbab tersendiri untuk setiap kelas.
 
