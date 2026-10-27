@@ -717,52 +717,391 @@ Tabel 5.1. Daftar Kelas Perancangan dan Kelas Analisis Terkait
 | 20 | *RewardLogin* | *cukupUntukKlaim()<br>kurangiPoin()* |
 | 21 | *Kupon* | *Model data pembuatan objek kupon (isBerlaku)* |
 
-Untuk **setiap kelas**, identifikasi operasi berdasarkan tanggung jawab kelas beserta *visibility*-nya, serta atribut beserta *visibility* dan tipenya. Buat subbab tersendiri untuk setiap kelas.
+## 5.1 Kelas Pengguna
 
-## 5.1 Kelas [Nama Kelas 1]
+**Nama Kelas:** *Pengguna <<abstract>>*  
+**ID Kelas:** *C01*
 
-**Nama Kelas:** *[Nama kelas]*  
-**ID Kelas:** *[ID kelas]*
-
-Tabel 5.1.1. Operasi Kelas [Nama Kelas 1]
+Tabel 5.1.1. Operasi Kelas Pengguna
 
 | Nama Operasi | Visibility (private, public) | Keterangan |
 | :--- | :--- | :--- |
-| *[Signature operasi, termasuk parameter dan tipe kembalian]* | *[Visibility]* | *[Tanggung jawab operasi]* |
-| *...* | *...* | *...* |
+| *verifikasiPassword(password: String): Boolean* | *public* | *Mengecek apakah password yang didapat saat login sama dengan hash bcrypt di atribut password* |
+| *getPeran(): String* | *public* | *Operasi abstrak untuk mengembalikan peran pengguna* |
+| *bukaListing(): ListingMakanan* | *public* | *Mengambil listing milik pengguna penjual* |
 
-Tabel 5.1.2. Atribut Kelas [Nama Kelas 1]
+Tabel 5.1.2. Atribut Kelas Pengguna
 
 | Nama Atribut | Visibility (private, public) | Tipe |
 | :--- | :--- | :--- |
-| *[Nama atribut]* | *[Visibility]* | *[Tipe sesuai bahasa pemrograman yang digunakan]* |
-| *...* | *...* | *...* |
+| *idPengguna* | *private* | *Integer* |
+| *nama* | *private* | *String* |
+| *email* | *private* | *String* |
+| *password* | *private* | *String (hash bcrypt)* |
 
 ### 5.1.1 Algoritma/Query
 
-Bagian ini diisi untuk kerangka algoritma proses yang dianggap cukup penting. Algoritma dapat dituliskan sebagai *pseudocode*. Implementasi *skeleton code* juga dapat digunakan untuk kelas yang sudah terdefinisi pada bahasa pemrograman tertentu.
-
-**Nama Kelas:** *[Nama kelas]*  
-**Nama Operasi:** *[Signature operasi]*  
-**ID Algoritma:** *[Algo-001]*
+**Nama Kelas:** *Pengguna*  
+**Nama Operasi:** *verifikasiPassword(password: String): Boolean*  
+**ID Algoritma:** *Algo-C01-01*
 
 ```text
-[Tuliskan pseudocode algoritma operasi di sini.]
+Function verifikasiPassword(password)
+    → bcrypt.cek(password, this.password)
 ```
-
-Jika operasi mengacu pada query tertentu, lengkapi tabel berikut. 
-
-Tabel 5.1.1. Query Operasi [Nama Operasi]
-
-| No Query | Query | Keterangan |
-| :--- | :--- | :--- |
-| *[Q-001]* | *[Tuliskan query]* | *[Fungsi query]* |
-| *...* | *...* | *...* |
-
 
 ### 5.1.2 Algoritma/Query
 
-*[Ulangi pola 5.1.1 untuk operasi penting berikutnya pada kelas yang sama, jika ada.]*
+**Nama Kelas:** *Pengguna*  
+**Nama Operasi:** *bukaListing(): ListingMakanan*  
+**ID Algoritma:** *Algo-C01-02*
+
+```text
+Function bukaListing()
+    daftar ← run Q-C01-01 //ambil listing aktif dengan idPenjual = idPengguna
+    → daftar
+```
+
+Tabel 5.1.3. Query Operasi bukaListing
+
+| No Query | Query | Keterangan |
+| :--- | :--- | :--- |
+| *Q-C01-01* | *ambilListingAktifPenjual: `SELECT * FROM listing_makanan WHERE id_penjual = :idPengguna AND aktif = TRUE ORDER BY id_listing DESC;`* | *Mengambil seluruh listing aktif milik penjual yang sedang login.* |
+
+## 5.2 Kelas Penjual
+
+**Nama Kelas:** *Penjual*  
+**ID Kelas:** *C02*
+
+Tabel 5.2.1. Operasi Kelas Penjual
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *verifikasiPassword(password: String): Boolean* | *public* | *Memeriksa apakah listing yang diberikan adalah milik penjual ini* |
+| *getPeran(): String* | *public* | *Mengembalikan "PENJUAL"* |
+
+Tabel 5.2.2. Atribut Kelas Penjual
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *namaToko* | *private* | *String* |
+| *alamatToko* | *private* | *String* |
+
+### 5.2.1 Algoritma/Query
+
+**Nama Kelas:** *Penjual*  
+**Nama Operasi:** *verifikasiPassword(password: String):*  
+**ID Algoritma:** *Algo-C02-01*
+
+```text
+Function memilikiListing(listing)
+    → listing.idPenjual = this.idPengguna
+```
+
+### 5.2.2 Algoritma/Query
+
+**Nama Kelas:** *Penjual*  
+**Nama Operasi:** *getPeran(): String*  
+**ID Algoritma:** *Algo-C02-01*
+
+```text
+Function getPeran()
+    → "PENJUAL"
+```
+
+## 5.3 Kelas Pembeli
+
+**Nama Kelas:** *Pembeli*  
+**ID Kelas:** *C03*
+
+Tabel 5.3.1. Operasi Kelas Pembeli
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *getPeran(): String* | *public* | *Mengembalikan "PEMBELI"* |
+
+Tabel 5.3.2. Atribut Kelas Pembeli
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *namaAkun* | *private* | *String* |
+
+### 5.3.1 Algoritma/Query
+
+**Nama Kelas:** *Pembeli*  
+**Nama Operasi:** *getPeran(): String*  
+**ID Algoritma:** *Algo-C03-01*
+
+```text
+Function getPeran()
+    → "Pembeli"
+```
+
+## 5.4 Kelas ListingMakanan
+
+**Nama Kelas:** *ListingMakanan*  
+**ID Kelas:** *C04*
+
+Tabel 5.4.1. Operasi Kelas ListingMakanan
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *cariById(idListing: Integer): ListingMakanan {static}* | *public* | *Mengambil satu listing dari database berdasarkan id* |
+| *ambilSemuaTersedia(): List<ListingMakanan> {static}* | *public* | *	Mengambil seluruh listing yang aktif, berstok > 0, dan belum melewati batas kedaluwarsa* |
+| *cariDaftar(kataKunci: String, hargaMin: Integer, hargaMaks: Integer): List<ListingMakanan> {static}* | *public* | *Mengambil listing tersedia yang namanya memuat kata kunci dan harganya berada dalam rentang* |
+| *isTersedia(waktu: DateTime): Boolean* | *public* | *Menentukan apakah listing dapat dibeli pada waktu tertentu* |
+| *ubahData(data: DataListing): void* | *public* | *Memperbarui nama, deskripsi, porsi, kondisi, harga, stok, batas kedaluwarsa, dan foto pada listing* |
+| *kurangiStok(jumlah: Integer): void* | *public* | *Mengurangi stok sejumlah porsi yang dibeli* |
+| *nonaktifkan(): void* | *public* | *Menandai listing sebagai tidak aktif* |
+
+Tabel 5.4.2. Atribut Kelas ListingMakanan
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *idListing* | *private* | *Integer* |
+| *idPenjual* | *private* | *Integer* |
+| *namaMakanan* | *private* | *String* |
+| *deskripsi* | *private* | *String* |
+| *porsi* | *private* | *String* |
+| *kondisi* | *private* | *String* |
+| *foto* | *private* | *String* |
+| *harge* | *private* | *Integer* |
+| *stok* | *private* | *Integer* |
+| *batasKedaluwarsa* | *private* | *DateTime* |
+| *aktif* | *private* | *Boolean* |
+
+### 5.4.1 Algoritma/Query
+
+**Nama Kelas:** *ListingMakanan*  
+**Nama Operasi:** *cariById(idListing: Integer): ListingMakanan {static}*  
+**ID Algoritma:** *Algo-C04-01*
+
+```text
+Function cariById(idListing)
+    baris ← ambil listing berdasarkan idListing // Q-C04-01
+    if baris kosong then
+        → NULL
+    ListingMakanan → baris.toListingMakanan
+    → ListingMakanan
+```
+
+Tabel 5.4.3. Query Operasi cariById
+
+| No Query | Query | Keterangan |
+| :--- | :--- | :--- |
+| *Q-C04-01* | *ambilListingById: `SELECT * FROM listing_makanan WHERE id_listing = @idListing;`* | *Mengambil satu listing berdasarkan id* |
+
+### 5.4.2 Algoritma/Query
+
+**Nama Kelas:** *ListingMakanan*  
+**Nama Operasi:** *ambilSemuaTersedia(): List<ListingMakanan> {static}*  
+**ID Algoritma:** *Algo-C04-02*
+
+```text
+Function ambilSemuaTersedia()
+    hasil ← ambil seluruh listing tersedia // Q-C04-02
+    daftar ← daftar kosong
+    FOR each baris IN hasil
+        tambahkan ListingMakanan dari baris ke daftar
+    → daftar
+```
+
+Tabel 5.4.4. Query Operasi ambilSemuaTersedia
+
+| No Query | Query | Keterangan |
+| :--- | :--- | :--- |
+| *Q-C04-02* | *ambilListingTersedia: `SELECT * FROM listing_makanan WHERE aktif = TRUE AND stok > 0 AND batas_kedaluwarsa > NOW() ORDER BY batas_kedaluwarsa ASC;`* | *Mengambil listing yang dapat dibeli* |
+
+### 5.4.3 Algoritma/Query
+
+**Nama Kelas:** *ListingMakanan*  
+**Nama Operasi:** *cariDaftar(kataKunci, hargaMin, hargaMaks): List<ListingMakanan>*  
+**ID Algoritma:** *Algo-C04-03*
+
+```text
+Function cariDaftar(kataKunci, hargaMin, hargaMaks)
+    hasil ← cari listing tersedia sesuai kata kunci dan rentang harga   // Q-C04-03
+    daftar ← daftar kosong
+    FOR each baris IN hasil
+        tambahkan ListingMakanan dari baris ke daftar
+    → daftar
+```
+
+Tabel 5.4.5. Query Operasi cariDaftar
+
+| No Query | Query | Keterangan |
+| :--- | :--- | :--- |
+| *Q-C04-02* | *cariListingTersedia: `SELECT * FROM listing_makanan WHERE aktif = TRUE AND stok > 0 AND batas_kedaluwarsa > NOW() AND (@kataKunci IS NULL OR LOWER(nama_makanan) LIKE '%' or LOWER(@kataKunci) or '%') AND (@hargaMin IS NULL OR harga >= @hargaMin) AND (@hargaMaks IS NULL OR harga <= @hargaMaks) ORDER BY batas_kedaluwarsa ASC;`* | *Mencari nama dan menyaring rentang harga* |
+
+### 5.4.4 Algoritma/Query
+
+**Nama Kelas:** *ListingMakanan*  
+**Nama Operasi:** *isTersedia(waktu: DateTime): Boolean*  
+**ID Algoritma:** *Algo-C04-04*
+
+```text
+Function isTersedia(waktu)
+    → aktif = TRUE and stok > 0 and waktu < batasKedaluwarsa
+```
+
+### 5.4.5 Algoritma/Query
+
+**Nama Kelas:** *ListingMakanan*  
+**Nama Operasi:** *ubahData(data: DataListing): void*  
+**ID Algoritma:** *Algo-C04-05*
+
+```text
+Function ubahData(data)
+    namaMakanan ← data.namaMakanan
+    deskripsi ← data.deskripsi
+    porsi ← data.porsi
+    kondisi ← data.kondisi
+    harga ← data.harga
+    stok ← data.stok
+    batasKedaluwarsa ← data.batasKedaluwarsa
+    if data.foto ≠ NULL then
+        foto ← data.foto
+    simpan perubahan listing // Q-C04-04
+```
+
+Tabel 5.4.6. Query Operasi ubahData
+
+| No Query | Query | Keterangan |
+| :--- | :--- | :--- |
+| *Q-C04-04* | *perbaruiDataListing: `UPDATE listing_makanan SET nama_makanan = @nama, deskripsi = @deskripsi, porsi = @porsi, kondisi = @kondisi, harga = @harga, stok = @stok, batas_kedaluwarsa = @batas, foto = @foto WHERE id_listing = @idListing;`* | *Menyimpan perubahan data listing* |
+
+### 5.4.6 Algoritma/Query
+
+**Nama Kelas:** *ListingMakanan*  
+**Nama Operasi:** *kurangiStok(jumlah: Integer): void*  
+**ID Algoritma:** *Algo-C04-06*
+
+```text
+Function kurangiStok(jumlah)
+    if jumlah ≤ 0 or jumlah > stok then
+        → error "Stok tidak mencukupi"
+    stok ← stok - jumlah
+```
+
+### 5.4.7 Algoritma/Query
+
+**Nama Kelas:** *ListingMakanan*  
+**Nama Operasi:** *nonaktifkan(): void*  
+**ID Algoritma:** *Algo-C04-05*
+
+```text
+Function nonaktifkan()
+    aktif ← FALSE
+    simpan perubahan status listing // Q-C04-05
+```
+
+Tabel 5.4.7. Query Operasi nonaktifkan
+
+| No Query | Query | Keterangan |
+| :--- | :--- | :--- |
+| *Q-C04-05* | *nonaktifkanListing: `UPDATE listing_makanan SET aktif = FALSE WHERE id_listing = @idListing;`* | *Menonaktifkan listing* |
+
+## 5.5 Kelas MetodePembayaran
+
+**Nama Kelas:** *MetodePembayaran <<interface>>*  
+**ID Kelas:** *C05*
+
+Tabel 5.5.1. Operasi Kelas MetodePembayaran
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *buatTagihan(transaksi: Transaksi): String* | *public* | *Membuat tagihan untuk Transaksi pada penyedia pembayaran dan mengembalikan kode atau lokasi gambar QRIS* |
+| *cekStatus(idTransaksi: Integer): String* | *public* | *Menanyakan status pembayaran suatu Transaksi pada penyedia pembayaran* |
+
+Tabel 5.5.2. Atribut Kelas MetodePembayaran
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *-* | *-* | *-* |
+
+### 5.5.1 Algoritma/Query
+Tidak ada algoritma karena kelas ini berupa interface. Implementasinya ada pada PaymentGatewayAdapter (5.21).
+
+## 5.6 Kelas Transaksi
+
+**Nama Kelas:** *Transaksi*  
+**ID Kelas:** *C06*
+
+Tabel 5.6.1. Operasi Kelas Transaksi
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *hitungTotal(): Integer* | *public* | *Menjumlahkan subtotal seluruh ItemTransaksi milik transaksi ini* |
+| *tandaiLunas(): void* | *public* | *Mengubah status dari MENUNGGU_BAYAR menjadi LUNAS dan membuat kodePengambilan* |
+| *batalkan(): void* | *public* | *Mengubah status dari MENUNGGU_BAYAR menjadi BATAL* |
+| *sLewatBatasWaktu(waktu: DateTime): Boolean* | *public* | *Memeriksa apakah waktu sudah melewati batasWaktuBayar* |
+
+Tabel 5.6.2. Atribut Kelas Transaksi
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| :--- | :--- | :--- |
+| *idTransaksi* | *private* | *Integer* |
+| *idPembeli* | *private* | *Integer* |
+| *tanggal* | *private* | *DateTime* |
+| *batasWaktuBayar* | *private* | *DateTime* |
+| *totalHarga* | *private* | *Integer* |
+| *status* | *private* | *StatusTransaksi* |
+| *kodePengambilan* | *private* | *String* |
+
+### 5.6.1 Algoritma/Query
+
+**Nama Kelas:** *Transaksi*  
+**Nama Operasi:** *hitungTotal(): Integer*  
+**ID Algoritma:** *Algo-C06-01*
+
+```text
+Function hitungTotal()
+    total ← 0
+    FOR each item IN daftarItem
+        total ← total + item.hitungSubtotal()
+    totalHarga ← total
+    → total
+```
+
+### 5.6.2 Algoritma/Query
+
+**Nama Kelas:** *Transaksi*  
+**Nama Operasi:** *tandaiLunas(): void*  
+**ID Algoritma:** *Algo-C06-02*
+
+```text
+Function tandaiLunas()
+    if status ≠ MENUNGGU_BAYAR then
+        → error "Transaksi tidak dapat dilunasi"
+    status ← LUNAS
+    kodePengambilan ← buat kode unik
+```
+
+### 5.6.3 Algoritma/Query
+
+**Nama Kelas:** *Transaksi*  
+**Nama Operasi:** *batalkan(): void*  
+**ID Algoritma:** *Algo-C06-03*
+
+```text
+Function batalkan()
+    if status = LUNAS then
+        → error "Transaksi sudah lunas dan tidak dapat dibatalkan"
+    if status = MENUNGGU_BAYAR then
+        status ← BATAL
+```
+
+### 5.6.4 Algoritma/Query
+
+**Nama Kelas:** *Transaksi*  
+**Nama Operasi:** *isLewatBatasWaktu(waktu: DateTime): Boolean*  
+**ID Algoritma:** *Algo-C06-04*
+
+```text
+Function isLewatBatasWaktu(waktu)
+    → waktu > batasWaktuBayar
+```
 
 ## 5.13 Kelas PembayaranView
 
