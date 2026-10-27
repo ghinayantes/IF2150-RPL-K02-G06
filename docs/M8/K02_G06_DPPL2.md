@@ -1051,10 +1051,138 @@ Tabel 5.17.3. Query Operasi login
 | *Q-C15-02* | *ambilRewardLoginTerkunci:*<br>`SELECT * FROM reward_login WHERE id_pembeli = @idPengguna FOR UPDATE;` | *Mengambil dan mengunci data poin login milik Pembeli* |
 | *Q-C15-03* | *perbaruiRewardLogin:*<br>`UPDATE reward_login SET poin_terkumpul = @poinTerkumpul, tanggal_login_terakhir = @tanggal WHERE id_pembeli = @idPengguna;` | *Menyimpan poin baru dan tanggal login terakhir* |
 
-<br>
+## 5.18 Kelas RewardView
+
+**Nama Kelas:** *RewardView*  
+**ID Kelas:** *C14*
+
+Tabel 5.18.1. Operasi Kelas RewardView
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *tampilkanProgres(poin: Integer, bisaKlaim: Boolean): void* | *public* | *Menampilkan jumlah poin yang telah terkumpul beserta progresnya menuju poin minimal klaim. Tombol klaim bisa ditekan jika bisaKlaim bernilai true.* |
+| *kirimKlaim(): void* | *public* | *Meneruskan aksi Pembeli menekan tombol klaim reward ke RewardController, lalu menampilkan kupon atau pesan error (UC08).* |
+| *tampilkanKupon(kupon: Kupon): void* | *public* | *Menampilkan kupon hasil klaim kepada Pembeli, yaitu kode kupon, nilai potongan, dan tanggal kadaluarsa.* |
+| *tampilkanPesan(pesan: String): void* | *public* | *Menampilkan pesan informasi atau error, misalnya poin tidak mencukupi atau terjadi kegagalan sistem saat klaim.* |
+
+Tabel 5.18.2. Atribut Kelas RewardView
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *–* | *–* | *–* |
+
+### 5.18.1 Algoritma/Query
+
+**Nama Kelas:** *RewardView*  
+**Nama Operasi:** *kirimKlaim(): void*  
+**ID Algoritma:** *Algo-C14-01*
+
+```text
+Function kirimKlaim()
+    nonaktifkan tombol klaim agar tidak terkirim dua kali
+    idPembeli ← ID Pembeli yang sedang login
+    hasil ← RewardController.klaimReward(idPembeli)
+    if hasil adalah error then
+        tampilkanPesan(hasil.pesan)
+    else
+        tampilkanKupon(hasil)
+    progres ← RewardController.lihatProgres(idPembeli)
+    tampilkanProgres(progres.poinTerkumpul, progres.cukupUntukKlaim())
+```
+
+### 5.18.2 Algoritma/Query
+
+**Nama Kelas:** *RewardView*  
+**Nama Operasi:** *tampilkanProgres(poin: Integer, bisaKlaim: Boolean): void*  
+**ID Algoritma:** *Algo-C14-02*
+
+```text
+Function tampilkanProgres(poin, bisaKlaim)
+    tampilkan poin beserta indikator progres (poin / POIN_PER_KLAIM)
+    if bisaKlaim then
+        aktifkan tombol klaim
+    else
+        nonaktifkan tombol klaim
+        tampilkan keterangan sisa poin yang dibutuhkan
+```
+
+## 5.19 Kelas RewardController
+
+**Nama Kelas:** *RewardController*  
+**ID Kelas:** *C19*
+
+Tabel 5.19.1. Operasi Kelas RewardController
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *lihatProgres(idPembeli: Integer): RewardLogin* | *public* | *Mengambil data RewardLogin milik Pembeli (poin terkumpul dan tanggal login terakhir) untuk ditampilkan oleh RewardView.* |
+| *klaimReward(idPembeli: Integer): Kupon* | *public* | *Memeriksa kecukupan poin melalui RewardLogin, mengurangi poin, dan menerbitkan Kupon baru bagi Pembeli dalam satu transaksi database (UC08).* |
+
+Tabel 5.19.2. Atribut Kelas RewardController
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *–* | *–* | *–* |
+
+### 5.19.1 Algoritma/Query
+
+**Nama Kelas:** *RewardController*  
+**Nama Operasi:** *lihatProgres(idPembeli: Integer): RewardLogin*  
+**ID Algoritma:** *Algo-C19-01*
+
+```text
+Function lihatProgres(idPembeli)
+    reward ← ambil RewardLogin milik idPembeli               // Q-C19-01
+    if reward = NULL then
+        → error "Data reward tidak ditemukan"
+    → reward
+```
+
+Tabel 5.19.3. Query Operasi lihatProgres
+
+| No Query | Query | Keterangan |
+| :--- | :--- | :--- |
+| *Q-C19-01* | *ambilRewardLogin:*<br>`SELECT id_reward, id_pembeli, poin_terkumpul, tanggal_login_terakhir FROM reward_login WHERE id_pembeli = @idPembeli;` | *Mengambil data poin login milik Pembeli untuk ditampilkan sebagai progres* |
+
+### 5.19.2 Algoritma/Query
+
+**Nama Kelas:** *RewardController*  
+**Nama Operasi:** *klaimReward(idPembeli: Integer): Kupon*  
+**ID Algoritma:** *Algo-C19-02*
+
+```text
+Function klaimReward(idPembeli)
+    BEGIN TRANSACTION
+    reward ← ambil RewardLogin milik idPembeli dan kunci barisnya    // Q-C19-02
+    if reward = NULL then
+        ROLLBACK
+        → error "Data reward tidak ditemukan"
+    if not reward.cukupUntukKlaim() then
+        ROLLBACK
+        → error "Poin tidak mencukupi"
+
+    reward.kurangiPoin(POIN_PER_KLAIM)
+    perbarui poin terkumpul                                  // Q-C19-03
+
+    kupon ← new Kupon(buatKodeUnik(), idPembeli, NILAI_POTONGAN,
+                      tanggalHariIni + MASA_BERLAKU_HARI, terpakai = false)
+    simpan kupon                                             // Q-C19-04
+    COMMIT
+
+    → kupon
+```
+
+Seluruh langkah dijalankan dalam satu transaksi database. Jika salah satu langkah gagal (misalnya sistem gagal saat menyimpan kupon), semua perubahan dibatalkan sehingga poin tidak berkurang tanpa kupon diterbitkan. Baris dikunci dengan `FOR UPDATE` guna mencegah klaim ganda dari dua permintaan yang dikirim bersamaan (*double claim*).
+
+Tabel 5.19.4. Query Operasi klaimReward
+
+| No Query | Query | Keterangan |
+| :--- | :--- | :--- |
+| *Q-C19-02* | *ambilRewardLoginTerkunci:*<br>`SELECT * FROM reward_login WHERE id_pembeli = @idPembeli FOR UPDATE;` | *Mengambil dan mengunci data poin Pembeli agar tidak diubah permintaan lain selama klaim diproses* |
+| *Q-C19-03* | *perbaruiPoinReward:*<br>`UPDATE reward_login SET poin_terkumpul = @poinTerkumpul WHERE id_pembeli = @idPembeli;` | *Menyimpan poin setelah dikurangi biaya klaim* |
+| *Q-C19-04* | *simpanKupon:*<br>`INSERT INTO kupon (kode_kupon, id_pembeli, nilai_potongan, berlaku_sampai, terpakai) VALUES (@kodeKupon, @idPembeli, @nilaiPotongan, @berlakuSampai, FALSE);` | *Menyimpan kupon baru hasil klaim reward* |
 
 ---
-
 # BAB 6: Perancangan Antarmuka
 
 ## 6.1 Rancangan Antarmuka [ID Layar 1]
