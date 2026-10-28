@@ -149,8 +149,9 @@
 **Periode:** 21 Oktober 2026 - 28 Oktober 2026
 | Tanggal | Nama Anggota | Deskripsi Pekerjaan | Durasi (Jam) | Status | Kendala / *Blocker* | 
 | :--- | :--- | :--- | :--- | :--- | :--- | 
+| *27-10-2026* | *Nadia Aulia Syafarani* | *Menyelesaikan Bab 5.1 s.d 5.6* | *3* | *Done* | *-* |
+| *27-10-2026* | *Cendra Asih Chairunnisa* | *Menyelesaikan Bab 5.7 s.d 5.12* | *3* | *Done* | *-* |
 | *27-10-2026* | *Ghina Emelia Yantes* | *Menyelesaikan Bab 5.13 s.d 5.17* | *3* | *Done* | *-* |
-
 
 ``Gunakan format penulisan Logbook yang sama untuk setiap Milestone dan pastikan pembuatan Daftar Isi juga sudah sesuai sebelum Logbook dikumpulkan. ``
 
