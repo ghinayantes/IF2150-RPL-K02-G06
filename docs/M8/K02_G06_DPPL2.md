@@ -31,7 +31,7 @@ Dipersiapkan oleh:
 
 | Revisi | Deskripsi |
 | :--- | :--- |
-| *A* | *Deskripsikan perubahan yang dilakukan dari dokumen sebelumnya pada dokumen ini. Jika tidak terdapat perubahan, harap kosongkan tabel.* |
+| *A* | *Perubahan nama aplikasi dari Food Waste Stop menjadi SaveBite* |
 | *B* |  |
 | *C* |  |
 | ... |  |
@@ -2348,8 +2348,8 @@ Tabel 6.8. Rancangan Antarmuka Keseluruhan
 
 | No | Tampilan Antarmuka |
 | :--- | :--- |
-| *[UI-01]* | <img width="402" height="874" alt="SIGNUP" src="https://github.com/user-attachments/assets/b544f8d2-2dea-4a6d-b61d-c83e2f6a9c06" /> |
-| *[UI-02]* | <img width="402" height="874" alt="LOGIN" src="https://github.com/user-attachments/assets/3cf742f5-dd17-4668-a690-f06d69d5e822" /> | 
+| *[UI-01]* | <img width="402" height="874" alt="SIGNUP" src="https://github.com/user-attachments/assets/12f1b524-3305-468e-bd5d-9da3a0702b68" />|
+| *[UI-02]* | <img width="402" height="874" alt="LOGIN" src="https://github.com/user-attachments/assets/b18178cf-5dc3-42c3-be08-c28a67c1db00" />| 
 | *[UI-03]* | <img width="402" height="874" alt="HOME" src="https://github.com/user-attachments/assets/7a1f2412-a4a4-4bb5-b3c1-99c8e64cfab5" /> |
 | *[UI-04]* | <img width="402" height="874" alt="CART-1" src="https://github.com/user-attachments/assets/69369f3c-0832-4962-909d-db3aff270cc7" /> |
 | *[UI-05]* | <img width="402" height="874" alt="CART" src="https://github.com/user-attachments/assets/26862b82-5c01-45ad-a8b9-ac98c088a266" /> |
