@@ -1783,32 +1783,180 @@ Tabel 5.21.3. Query Operasi cekStatus
 ---
 # BAB 6: Perancangan Antarmuka
 
-## 6.1 Rancangan Antarmuka [ID Layar 1]
+## 6.1 Rancangan Antarmuka
 
-Masukkan versi awal prototipe antarmuka, dimana untuk setiap antarmuka/layar, tuliskan spesifikasi rinci objek yang ditampilkan dan reaksi sistem terhadap interaksi pengguna.
+Bagian ini memuat versi awal prototipe antarmuka aplikasi **SaveBite**, yaitu aplikasi pembelian makanan surplus. Setiap layar dilengkapi spesifikasi objek dan reaksi sistem terhadap interaksi pengguna.
 
-**Antarmuka:** *[ID layar]*  
-**Nama Layar:** *[Nama layar]*
+Daftar layar:
+
+| ID Layar | Nama Layar |
+| :--- | :--- |
+| UI-01 | Sign Up (Buat Akun) |
+| UI-02 | Log In (Masuk Akun) |
+| UI-03 | Home (Beranda) |
+| UI-04 | My Reward |
+| UI-05 | My Cart (Keranjang) |
+
+---
+
+### 6.1.1 Rancangan Antarmuka [UI-01]
+
+**Antarmuka:** UI-01  
+**Nama Layar:** Sign Up (Buat Akun)
 
 <p align="center">
-<img alt="Contoh Logical View pada P/L E-Commerce" src="./assets/diagram/contoh-design.png" width="50%">
+<img alt="Rancangan Antarmuka UI-01 Sign Up" src="./assets/diagram/ui-01-sign-up.png" width="30%">
 </p>
 <p align="center">
-<i>Gambar 6.1. Rancangan Antarmuka [ID Layar] - [Nama Layar]</i>
+<i>Gambar 6.1. Rancangan Antarmuka UI-01 - Sign Up</i>
 </p>
 
-Tabel 6.1. Spesifikasi Objek Antarmuka [ID Layar]
+Tabel 6.1. Spesifikasi Objek Antarmuka UI-01
 
 | Id_Objek | Jenis | Konten | Keterangan |
 | :--- | :--- | :--- | :--- |
-| *[ID objek]* | *[Jenis objek, misalnya Button, RTF Box, dll]* | *[String yang tampil pada layar]* | *[Reaksi sistem, layar tujuan, tautan, atau ID algoritma yang dijalankan]* |
-| *[ID objek]* | *[Jenis objek]* | *[Konten yang ditampilkan]* | *[Reaksi sistem atau nama file terkait beserta deskripsi ringkasnya]* |
-| *...* | *...* | *...* | *...* |
+| UI01-01 | Image/Label | SaveBite | Logo aplikasi pada header. |
+| UI01-02 | Label | Create an Account | Judul layar, hanya tampilan. |
+| UI01-03 | Text Field (Email) | Icon amplop dan placeholder "Enter Your Email" | Pengguna mengisi alamat email. Sistem memvalidasi format email dan memeriksa bahwa email belum terdaftar. Jika tidak valid, tampil pesan kesalahan di bawah kolom. |
+| UI01-04 | Password Field | Icon gembok dan placeholder "Enter Your Password" | Pengguna mengisi kata sandi. Karakter yang diketik disamarkan. Sistem memvalidasi panjang minimal kata sandi. |
+| UI01-05 | Icon Button (Toggle) | Icon mata pada kolom password | Saat ditekan, kata sandi ditampilkan atau ditutup kembali. |
+| UI01-06 | Password Field | Icon gembok dan placeholder "Confirm Password" | Pengguna mengetik ulang kata sandi. Sistem membandingkannya dengan UI01-04. Jika tidak sama, tampil pesan "Password tidak sama". |
+| UI01-07 | Icon Button (Toggle) | Icon mata pada kolom konfirmasi | Menampilkan atau menyamarkan isi kolom konfirmasi kata sandi. |
+| UI01-08 | Checkbox | "I agree to the" | Pengguna mencentang untuk menyetujui syarat dan ketentuan. Tombol Sign Up hanya dapat diproses jika kotak tercentang. |
+| UI01-09 | Link | Terms & Condition | Saat ditekan, sistem menampilkan halaman atau dialog syarat dan ketentuan. |
+| UI01-10 | Button | Sign Up | Sistem memvalidasi seluruh isian (UI01-03, UI01-04, UI01-06, UI01-08). Jika valid, akun dibuat dan sistem menuju layar Home (UI-03). Jika tidak, pesan kesalahan ditampilkan. |
+| UI01-11 | Label dan Link | Already have an account? Log In | Saat tautan "Log In" ditekan, sistem menuju layar Log In (UI-02). |
 
+---
 
-## 6.X Rancangan Antarmuka [ID Layar X]
+### 6.1.2 Rancangan Antarmuka [UI-02]
 
-*[Ulangi pola 6.1 untuk layar berikutnya sampai semua layar teridentifikasi]*
+**Antarmuka:** UI-02  
+**Nama Layar:** Log In (Masuk Akun)
+
+<p align="center">
+<img alt="Rancangan Antarmuka UI-02 Log In" src="./assets/diagram/ui-02-log-in.png" width="30%">
+</p>
+<p align="center">
+<i>Gambar 6.2. Rancangan Antarmuka UI-02 - Log In</i>
+</p>
+
+Tabel 6.2. Spesifikasi Objek Antarmuka UI-02
+
+| Id_Objek | Jenis | Konten | Keterangan |
+| :--- | :--- | :--- | :--- |
+| UI02-01 | Image/Label | SaveBite | Logo aplikasi pada header. |
+| UI02-02 | Label | Log In Your Account | Judul layar, hanya tampilan. |
+| UI02-03 | Text Field (Email) | Icon amplop dan placeholder "Enter Your Email" | Pengguna mengisi email yang telah terdaftar. |
+| UI02-04 | Password Field | Icon gembok dan placeholder "Enter Your Password" | Pengguna mengisi kata sandi. Karakter disamarkan. |
+| UI02-05 | Icon Button (Toggle) | Icon mata | Menampilkan atau menutup kata sandi. |
+| UI02-06 | Link | Forgot Password ? | Saat ditekan, sistem menuju proses pemulihan kata sandi (reset password melalui email). |
+| UI02-07 | Button | Log In | Sistem memverifikasi email dan kata sandi. Jika benar, sistem menuju layar Home (UI-03). Jika salah, tampil pesan "Email atau password salah". |
+| UI02-08 | Label dan Link | Don't have an account? Sign Up | Saat tautan "Sign Up" ditekan, sistem menuju layar Sign Up (UI-01). |
+| UI02-09 | Label dan Link | Want to sell your surplus stocks? Register your shop | Saat tautan "Register your shop" ditekan, sistem menuju formulir pendaftaran toko (penjual). |
+
+---
+
+### 6.1.3 Rancangan Antarmuka [UI-03]
+
+**Antarmuka:** UI-03  
+**Nama Layar:** Home (Beranda)
+
+<p align="center">
+<img width="402" height="874" alt="HOME" src="https://github.com/user-attachments/assets/3447fe88-4a32-421e-9560-9160159b3020" />
+
+</p>
+<p align="center">
+<i>Gambar 6.3. Rancangan Antarmuka UI-03 - Home</i>
+</p>
+
+Tabel 6.3. Spesifikasi Objek Antarmuka UI-03
+
+| Id_Objek | Jenis | Konten | Keterangan |
+| :--- | :--- | :--- | :--- |
+| UI03-01 | Label | What do you want to eat today? | Judul sapaan pada header hijau. Hanya tampilan. |
+| UI03-02 | Search Box | Icon lup dan placeholder "Search food name" | Pengguna mengetik nama makanan. Sistem menyaring daftar "Today's food" sesuai kata kunci yang dimasukkan. |
+| UI03-03 | Link | Categories > | Saat ditekan, sistem menampilkan seluruh daftar kategori makanan. |
+| UI03-04 | Card Button (3 buah) | Icon makanan dan label "Food 1", "Food 2", "Food 3" | Setiap kartu mewakili satu kategori. Saat ditekan, sistem menampilkan daftar makanan pada kategori tersebut. |
+| UI03-05 | Link | Today's menu > | Saat ditekan, sistem menampilkan seluruh daftar makanan yang tersedia hari ini. |
+| UI03-06 | Card (List Item) | Kartu produk makanan (diulang untuk setiap makanan) | Saat kartu ditekan, sistem menampilkan detail makanan. |
+| UI03-07 | Image | Foto makanan | Gambar produk pada kartu. Hanya tampilan. |
+| UI03-08 | Label | Labbaik Chicken | Nama makanan. |
+| UI03-09 | Label | The first oven fried chicken | Deskripsi singkat makanan. |
+| UI03-10 | Label | Rp. 67,676 | Harga satuan makanan. |
+| UI03-11 | Button | "-" (minus) | Mengurangi jumlah pesanan sebanyak 1. Jumlah minimal 1. |
+| UI03-12 | Label | 1 | Jumlah pesanan saat ini. Nilai awal 1. |
+| UI03-13 | Button | "+" (plus) | Menambah jumlah pesanan sebanyak 1. Jumlah maksimal sesuai stok yang tersedia. |
+| UI03-14 | Tab Navigasi | Home (Icon rumah) | Menu aktif. Sistem tetap pada layar Home (UI-03). |
+| UI03-15 | Tab Navigasi | Cart (Icon keranjang) | Saat ditekan, sistem menuju layar My Cart (UI-05). |
+| UI03-16 | Tab Navigasi | Account (Icon profil) | Saat ditekan, sistem menuju layar My Reward (UI-04). |
+
+---
+
+### 6.1.4 Rancangan Antarmuka [UI-04]
+
+**Antarmuka:** UI-04  
+**Nama Layar:** My Reward
+
+<p align="center">
+<img width="402" height="874" alt="CART-1" src="https://github.com/user-attachments/assets/ac3dffbf-1003-4ae3-abe6-d27d3df16c74" />
+
+</p>
+<p align="center">
+<i>Gambar 6.4. Rancangan Antarmuka UI-04 - My Reward</i>
+</p>
+
+Tabel 6.4. Spesifikasi Objek Antarmuka UI-04
+
+| Id_Objek | Jenis | Konten | Keterangan |
+| :--- | :--- | :--- | :--- |
+| UI04-01 | Label | My Reward | Judul layar pada header merah muda. Hanya tampilan. |
+| UI04-02 | Image | Ilustrasi sarang berisi telur | Ilustrasi dekoratif. Hanya tampilan. |
+| UI04-03 | Label | 3 Day Streak | Menampilkan jumlah hari berturut-turut pengguna melakukan aktivitas atau pembelian. Nilai diambil dari data pengguna. |
+| UI04-04 | Icon Indicator (7 buah) | Icon api dengan label Mon, Tue, Wed, Thu, Fri, Sat, Sun | Icon berwarna kuning menandakan hari yang telah terpenuhi, sedangkan Icon abu-abu menandakan hari yang belum terpenuhi. Sistem memperbarui status setiap hari. Jika streak terputus, indikator diatur ulang. |
+| UI04-05 | Label | Total Point | Judul kartu poin. |
+| UI04-06 | Label | 67 | Total poin yang dimiliki pengguna. Nilai bertambah sesuai aturan perolehan poin. |
+| UI04-07 | Label | Reward | Judul kartu daftar hadiah. |
+| UI04-08 | Voucher Card | 10% Discount, Expire Date : 10/28/2026 | Menampilkan voucher diskon dan masa berlakunya. Saat ditekan, voucher dapat dipilih untuk dipakai pada pembelian di layar My Cart (UI-05). Voucher yang kedaluwarsa tidak dapat digunakan. |
+| UI04-09 | Tab Navigasi | Home | Saat ditekan, sistem menuju layar Home (UI-03). |
+| UI04-10 | Tab Navigasi | Cart | Saat ditekan, sistem menuju layar My Cart (UI-05). |
+| UI04-11 | Tab Navigasi | Account | Menu aktif. Sistem tetap pada layar My Reward (UI-04). |
+
+---
+
+### 6.1.5 Rancangan Antarmuka [UI-05]
+
+**Antarmuka:** UI-05  
+**Nama Layar:** My Cart (Keranjang)
+
+<p align="center">
+<img width="402" height="874" alt="CART" src="https://github.com/user-attachments/assets/2d5ea40e-c37e-4ad2-b36f-991ddb9412c4" />
+</p>
+<p align="center">
+<i>Gambar 6.5. Rancangan Antarmuka UI-05 - My Cart</i>
+</p>
+
+Tabel 6.5. Spesifikasi Objek Antarmuka UI-05
+
+| Id_Objek | Jenis | Konten | Keterangan |
+| :--- | :--- | :--- | :--- |
+| UI05-01 | Label | My Cart | Judul layar pada header biru. Hanya tampilan. |
+| UI05-02 | Card (List Item) | Kartu makanan di keranjang (diulang untuk setiap item) | Menampilkan item yang telah dipilih pengguna dari layar Home. |
+| UI05-03 | Image | Foto makanan | Gambar produk. Hanya tampilan. |
+| UI05-04 | Label | Labbaik Chicken | Nama makanan. |
+| UI05-05 | Label | The first oven fried chicken | Deskripsi singkat makanan. |
+| UI05-06 | Label | Rp. 67,676 | Harga satuan makanan. |
+| UI05-07 | Icon Button | Icon "X" | Menghapus item dari keranjang. Sistem memperbarui daftar dan menghitung ulang total. |
+| UI05-08 | Button | "-" (minus) | Mengurangi jumlah item sebanyak 1 (minimal 1). Sistem menghitung ulang Total dan Subtotal. |
+| UI05-09 | Label | 1 | Jumlah item saat ini. |
+| UI05-10 | Button | "+" (plus) | Menambah jumlah item sebanyak 1 (maksimal sesuai stok). Sistem menghitung ulang Total dan Subtotal. |
+| UI05-11 | Label | Total : Rp. 135.352 | Jumlah seluruh harga item (harga x jumlah) sebelum diskon. |
+| UI05-12 | Label | Discount : Rp. 10 | Potongan harga dari voucher atau reward yang digunakan. Bernilai 0 jika tidak ada voucher. |
+| UI05-13 | Label | Subtotal : Rp. 135.352 | Jumlah harga yang harus dibayar setelah berbagai potongan. |
+| UI05-14 | Button | Buy Now | Sistem memvalidasi keranjang tidak kosong dan stok masih tersedia, lalu menuju proses pembayaran. Jika berhasil, pesanan dibuat dan poin reward ditambahkan. |
+| UI05-15 | Tab Navigasi | Home | Saat ditekan, sistem menuju layar Home (UI-03). |
+| UI05-16 | Tab Navigasi | Cart | Menu aktif. Sistem tetap pada layar My Cart (UI-05). |
+| UI05-17 | Tab Navigasi | Account | Saat ditekan, sistem menuju layar My Reward (UI-04). |
 
 ## 6.Y Rancangan Antarmuka Keseluruhan
 
