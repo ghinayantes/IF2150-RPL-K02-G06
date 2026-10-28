@@ -1,44 +1,42 @@
+<img width="738" height="1600" alt="WhatsApp Image 2026-10-27 at 21 17 06" src="https://github.com/user-attachments/assets/88d8eace-5865-4637-9e27-6c7c6e39e634" />
 # Form Asistensi
 
 ## Tugas Besar IF2150 - Rekayasa Perangkat Lunak
 
 | Informasi | Keterangan |
 | --- | --- |
-| **Hari** | *\[Hari\]* |
-| **Tanggal** | *\[DD/MM/YYYY\]* |
-| **Kelas** | *\[Kelas\]* |
-| **Nomor Kelompok** | *\[Nomor Kelompok\]*  |
-| **Nama Kelompok** | *\[Nama Kelompok\]*  |
-| **Nama Perangkat Lunak** | *\[Nama P/L\]*  |
-| **Dokumen** | *\[Nama Dokumen yang diasistensikan\]*  |
+| **Hari** | *\[Selasa\]* |
+| **Tanggal** | *\[20/10/2026\]* |
+| **Kelas** | *\[K02\]* |
+| **Nomor Kelompok** | *\[G06\]*  |
+| **Nama Kelompok** | *\[Rengginang\]*  |
+| **Nama Perangkat Lunak** | *\[SaveBite\]*  |
+| **Dokumen** | *\[K02_G06_APL\]*  |
 
 ### Anggota Kelompok
 
 | NIM | Nama |
 | --- | --- |
-| *\[NIM 1\]* | *\[Nama Anggota 1\]* |
-| *\[NIM 2\]* | *\[Nama Anggota 2\]* |
-| *\[NIM 3\]* | *\[Nama Anggota 3\]* |
-| *\[NIM 4\]* | *\[Nama Anggota 4\]* |
-| *\[NIM 5\]* | *\[Nama Anggota 5\]* |
+| *13525120* | *Nadia Aulia Syafarani* |
+| *13525041* | *Renata Puspanegara Ninagan* |
+| *13525119* | *Ghina Emelia Yantes* |
+| *13525017* | *Cendra Asih Chairunnisa* |
+| *13525089* | *Sherin Felicia Danessa* |
 
 ### Catatan
 
 | Catatan |
 | --- |
-| 1. *\[Berikan catatan hasil asistensi\]*  |
-| 2. ... |
-| 3. ... |
-| 4. ... |
-
-**Notes for this section:**  
-*Catatan dapat dituliskan dalam bentuk paragraf atau poin-poin, disesuaikan saja.* 
+| 1. Tambahin aturan penomoran idObjek, idAntarmuka, idAlgortima  |
+| 2. Figma yang penting memenuhi fungsionalitasnya |
+| 3. Tambahin lampiran figma |
+| 4. Notasi ga terlalu dilihat, ga terlalu strict, yang penting gampang dipahami |
 
 ## Dokumentasi
 
 <!-- ![](./assets/foto-asistensi.jpg) -->
 <p align="center">
-  <img src="./assets/foto-asistensi.jpg" width="100%">
+  <img width="738" height="1600" alt="WhatsApp Image 2026-10-27 at 21 17 06" src="https://github.com/user-attachments/assets/1d47f17e-4a66-4337-b0ac-6ffbea800cfb" />
 </p>
 
 <p align="center">
