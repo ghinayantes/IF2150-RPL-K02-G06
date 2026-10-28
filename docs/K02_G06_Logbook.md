@@ -28,6 +28,8 @@
 * [Milestone 4](#milestone-4)
 * [Milestone 5](#milestone-5)
 * [Milestone 6](#milestone-6)
+* [Milestone 7](#milestone-7)
+* [Milestone 8](#milestone-8)
 * Notes: Copy bagian Daftar Isi seperti Milestone 1 untuk Milestone berikutnya, contoh ``* [Milestone 2](#milestone-2)``. Ketika Daftar isi diklik maka akan langsung diarahkan ke bagian bawah sesuai dengan Milestone tujuan.
 
 
@@ -141,6 +143,14 @@
 | *07-10-2026* | *Ghina Emelia Yantes* | *Menyelesaikan Bab 3.3 dan 3.4* | *3* | *Done* | *-* |
 | *07-10-2026* | *Renata Puspanegara Ninagan* | *Menyelesaikan Bab 3.9 dan 4* | *3* | *Done* | *-* |
 | *07-10-2026* | *Sherin Felicia Danessa* | *Menyelesaikan Bab 3.5 dan 3.6* | *3* | *Done* | *-* |
+
+---
+### Milestone 8
+**Periode:** 21 Oktober 2026 - 28 Oktober 2026
+| Tanggal | Nama Anggota | Deskripsi Pekerjaan | Durasi (Jam) | Status | Kendala / *Blocker* | 
+| :--- | :--- | :--- | :--- | :--- | :--- | 
+| *27-10-2026* | *Ghina Emelia Yantes* | *Menyelesaikan Bab 5.13 s.d 5.17* | *3* | *Done* | *-* |
+
 
 ``Gunakan format penulisan Logbook yang sama untuk setiap Milestone dan pastikan pembuatan Daftar Isi juga sudah sesuai sebelum Logbook dikumpulkan. ``
 
