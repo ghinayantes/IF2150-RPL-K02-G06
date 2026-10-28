@@ -1102,6 +1102,139 @@ Function isLewatBatasWaktu(waktu)
     → waktu > batasWaktuBayar
 ```
 
+## 5.7 Kelas RewardLogin
+
+**Nama Kelas:** *RewardLogin*  
+**ID Kelas:** *C07*
+
+Tabel 5.7.1. Operasi Kelas RewardLogin
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *catatLogin(tanggal: Date): Boolean* | *public* | *Menambah poin sebesar POIN_PER_LOGIN jika Pembeli belum login pada tanggal tersebut, lalu memperbarui tanggal login terakhir. Mengembalikan true jika poin ditambahkan.* |
+| *cukupUntukKlaim(): Boolean* | *public* | *Memeriksa apakah poin terkumpul sudah mencapai POIN_PER_KLAIM.* |
+| *kurangiPoin(jumlah: Integer): void* | *public* | *Mengurangi poin terkumpul sejumlah poin yang dipakai untuk klaim reward.* |
+
+Tabel 5.7.2. Atribut Kelas RewardLogin
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *idReward* | *private* | *Integer* |
+| *idPembeli* | *private* | *Integer* |
+| *poinTerkumpul* | *private* | *Integer* |
+| *tanggalLoginTerakhir* | *private* | *Date* |
+| *POIN_PER_LOGIN* | *private* | *Integer (konstanta)* |
+| *POIN_PER_KLAIM* | *private* | *Integer (konstanta)* |
+
+### 5.7.1 Algoritma/Query
+
+**Nama Kelas:** *RewardLogin*  
+**Nama Operasi:** *catatLogin(tanggal: Date): Boolean*  
+**ID Algoritma:** *Algo-C07-01*
+
+```text
+Function catatLogin(tanggal)
+    if tanggalLoginTerakhir ≠ NULL and tanggalLoginTerakhir = tanggal then
+        → FALSE                  // sudah login hari ini, poin tidak ditambah
+    poinTerkumpul ← poinTerkumpul + POIN_PER_LOGIN
+    tanggalLoginTerakhir ← tanggal
+    → TRUE
+```
+
+Perubahan disimpan ke database oleh AuthController melalui Q-C15-03.
+
+### 5.7.2 Algoritma/Query
+
+**Nama Kelas:** *RewardLogin*  
+**Nama Operasi:** *cukupUntukKlaim(): Boolean*  
+**ID Algoritma:** *Algo-C07-02*
+
+```text
+Function cukupUntukKlaim()
+    → poinTerkumpul ≥ POIN_PER_KLAIM
+```
+
+### 5.7.3 Algoritma/Query
+
+**Nama Kelas:** *RewardLogin*  
+**Nama Operasi:** *kurangiPoin(jumlah: Integer): void*  
+**ID Algoritma:** *Algo-C07-03*
+
+```text
+Function kurangiPoin(jumlah)
+    if jumlah ≤ 0 or jumlah > poinTerkumpul then
+        → error "Poin tidak mencukupi"
+    poinTerkumpul ← poinTerkumpul - jumlah
+```
+
+Perubahan disimpan ke database oleh RewardController melalui Q-C19-03.
+
+## 5.8 Kelas ItemTransaksi
+
+**Nama Kelas:** *ItemTransaksi*  
+**ID Kelas:** *C08*
+
+Tabel 5.8.1. Operasi Kelas ItemTransaksi
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *hitungSubtotal(): Integer* | *public* | *Menghitung subtotal item, yaitu jumlah porsi dikali harga satuan saat checkout.* |
+
+Tabel 5.8.2. Atribut Kelas ItemTransaksi
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *idItem* | *private* | *Integer* |
+| *idTransaksi* | *private* | *Integer* |
+| *idListing* | *private* | *Integer* |
+| *jumlah* | *private* | *Integer* |
+| *hargaSatuan* | *private* | *Integer* |
+
+### 5.8.1 Algoritma/Query
+
+**Nama Kelas:** *ItemTransaksi*  
+**Nama Operasi:** *hitungSubtotal(): Integer*  
+**ID Algoritma:** *Algo-C08-01*
+
+```text
+Function hitungSubtotal()
+    → jumlah × hargaSatuan
+```
+
+`hargaSatuan` disalin dari harga listing saat checkout, sehingga subtotal tidak berubah walaupun Penjual mengedit harga listing setelahnya.
+
+## 5.9 Kelas Kupon
+
+**Nama Kelas:** *Kupon*  
+**ID Kelas:** *C09*
+
+Tabel 5.9.1. Operasi Kelas Kupon
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *isBerlaku(tanggal: Date): Boolean* | *public* | *Memeriksa apakah kupon belum terpakai dan tanggal yang diberikan belum melewati tanggal berlaku kupon.* |
+
+Tabel 5.9.2. Atribut Kelas Kupon
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *kodeKupon* | *private* | *String* |
+| *idPembeli* | *private* | *Integer* |
+| *nilaiPotongan* | *private* | *Integer* |
+| *berlakuSampai* | *private* | *Date* |
+| *terpakai* | *private* | *Boolean* |
+
+### 5.9.1 Algoritma/Query
+
+**Nama Kelas:** *Kupon*  
+**Nama Operasi:** *isBerlaku(tanggal: Date): Boolean*  
+**ID Algoritma:** *Algo-C09-01*
+
+```text
+Function isBerlaku(tanggal)
+    → terpakai = FALSE and tanggal ≤ berlakuSampai
+```
+
 ## 5.10 Kelas LoginView
 
 **Nama Kelas:** *LoginView*  
@@ -1138,6 +1271,191 @@ Function kirimKredensial(email, password)
     else
         arahkanKeBeranda(hasil.getPeran())
     aktifkan kembali tombol masuk
+```
+
+### 5.10.2 Algoritma/Query
+
+**Nama Kelas:** *LoginView*  
+**Nama Operasi:** *arahkanKeBeranda(peran: String): void*  
+**ID Algoritma:** *Algo-C10-02*
+
+```text
+Function arahkanKeBeranda(peran)
+    if peran = "PENJUAL" then
+        buka halaman daftar listing milik Penjual
+    else if peran = "PEMBELI" then
+        buka halaman katalog
+```
+
+## 5.11 Kelas KatalogView
+
+**Nama Kelas:** *KatalogView*  
+**ID Kelas:** *C11*
+
+Tabel 5.11.1. Operasi Kelas KatalogView
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *pilihListing(idListing: Integer): void* | *public* | *Meneruskan aksi Pembeli memilih satu listing ke KatalogController untuk mengambil detailnya (UC03).* |
+| *tampilkanDaftar(daftar: List<ListingMakanan>): void* | *public* | *Menampilkan daftar listing berupa kartu berisi foto, nama makanan, harga, stok, dan batas kedaluwarsa (UC02).* |
+| *tampilkanDetail(listing: ListingMakanan): void* | *public* | *Menampilkan detail satu listing, yaitu foto, nama, deskripsi, porsi, kondisi, harga, stok, batas kedaluwarsa, beserta tombol beli (UC03).* |
+| *tampilkanPilihanHarga(): void* | *public* | *Menampilkan kolom harga minimum dan harga maksimum untuk menyaring listing (UC04).* |
+| *kirimPencarian(kataKunci: String, hargaMin: Integer, hargaMaks: Integer): void* | *public* | *Meneruskan kata kunci dan rentang harga ke KatalogController, lalu menampilkan hasilnya (UC04).* |
+| *tampilkanPesan(pesan: String): void* | *public* | *Menampilkan pesan informasi atau kesalahan, misalnya listing tidak tersedia atau rentang harga tidak valid.* |
+
+Tabel 5.11.2. Atribut Kelas KatalogView
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *–* | *–* | *–* |
+
+### 5.11.1 Algoritma/Query
+
+**Nama Kelas:** *KatalogView*  
+**Nama Operasi:** *tampilkanDaftar(daftar: List<ListingMakanan>): void*  
+**ID Algoritma:** *Algo-C11-01*
+
+```text
+Function tampilkanDaftar(daftar)
+    kosongkan area daftar listing
+    if daftar kosong then
+        tampilkanPesan("Belum ada makanan surplus yang tersedia")
+        → 
+    FOR each listing IN daftar
+        tampilkan kartu (foto, namaMakanan, harga, stok, batasKedaluwarsa)
+```
+
+Saat halaman katalog dibuka, KatalogView memanggil `KatalogController.ambilListingTersedia()` (Algo-C16-01) lalu meneruskan hasilnya ke operasi ini.
+
+### 5.11.2 Algoritma/Query
+
+**Nama Kelas:** *KatalogView*  
+**Nama Operasi:** *pilihListing(idListing: Integer): void*  
+**ID Algoritma:** *Algo-C11-02*
+
+```text
+Function pilihListing(idListing)
+    hasil ← KatalogController.ambilDetail(idListing)
+    if hasil adalah error then
+        tampilkanPesan(hasil.pesan)          // listing sudah dihapus atau habis
+        tampilkanDaftar(KatalogController.ambilListingTersedia())
+    else
+        tampilkanDetail(hasil)
+```
+
+### 5.11.3 Algoritma/Query
+
+**Nama Kelas:** *KatalogView*  
+**Nama Operasi:** *kirimPencarian(kataKunci: String, hargaMin: Integer, hargaMaks: Integer): void*  
+**ID Algoritma:** *Algo-C11-03*
+
+```text
+Function kirimPencarian(kataKunci, hargaMin, hargaMaks)
+    hasil ← KatalogController.cariListing(kataKunci, hargaMin, hargaMaks)
+    if hasil adalah error then
+        tampilkanPesan(hasil.pesan)
+    else if hasil kosong then
+        if kataKunci tidak kosong then
+            tampilkanPesan("Makanan dengan kata kunci tersebut tidak ditemukan")
+        else
+            tampilkanPesan("Tidak ada makanan pada rentang harga tersebut")
+    else
+        tampilkanDaftar(hasil)
+```
+
+## 5.12 Kelas ListingView
+
+**Nama Kelas:** *ListingView*  
+**ID Kelas:** *C12*
+
+Tabel 5.12.1. Operasi Kelas ListingView
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *tampilkanFormTambah(): void* | *public* | *Menampilkan form kosong untuk menambah listing baru (UC01).* |
+| *tampilkanFormEdit(listing: ListingMakanan): void* | *public* | *Menampilkan form yang sudah terisi data listing yang akan diedit (UC06).* |
+| *kirimListing(data: DataListing): void* | *public* | *Meneruskan data form ke ListingController untuk ditambahkan atau diperbarui, lalu menampilkan hasilnya (UC01, UC06).* |
+| *tampilkanKonfirmasiKeluar(): Boolean* | *public* | *Menampilkan dialog konfirmasi ketika Penjual keluar dari form yang memiliki perubahan belum tersimpan. Mengembalikan true jika Penjual memilih keluar (UC01).* |
+| *tampilkanKonfirmasiHapus(listing: ListingMakanan): Boolean* | *public* | *Menampilkan dialog konfirmasi hapus listing. Mengembalikan true jika Penjual memilih hapus (UC09).* |
+| *hapusMakanan(listing: ListingMakanan): void* | *public* | *Meneruskan aksi hapus ke ListingController setelah Penjual mengonfirmasi, lalu menghapus listing dari daftar yang ditampilkan (UC09).* |
+| *tampilkanPesan(pesan: String): void* | *public* | *Menampilkan pesan informasi atau kesalahan, misalnya hasil validasi form atau listing berhasil disimpan.* |
+
+Tabel 5.12.2. Atribut Kelas ListingView
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *idListingDiedit* | *private* | *Integer (NULL saat menambah listing)* |
+| *adaPerubahan* | *private* | *Boolean* |
+
+### 5.12.1 Algoritma/Query
+
+**Nama Kelas:** *ListingView*  
+**Nama Operasi:** *tampilkanFormEdit(listing: ListingMakanan): void*  
+**ID Algoritma:** *Algo-C12-01*
+
+```text
+Function tampilkanFormEdit(listing)
+    isi setiap kolom form dengan data listing
+    idListingDiedit ← listing.idListing
+    adaPerubahan ← FALSE
+```
+
+`tampilkanFormTambah()` sama, tetapi form dikosongkan dan `idListingDiedit ← NULL`. Setiap kali pengguna mengubah isi kolom form, `adaPerubahan ← TRUE`.
+
+### 5.12.2 Algoritma/Query
+
+**Nama Kelas:** *ListingView*  
+**Nama Operasi:** *kirimListing(data: DataListing): void*  
+**ID Algoritma:** *Algo-C12-02*
+
+```text
+Function kirimListing(data)
+    nonaktifkan tombol simpan agar tidak terkirim dua kali
+    idPenjual ← ID Penjual yang sedang login
+    if idListingDiedit = NULL then
+        hasil ← ListingController.tambahListing(idPenjual, data)
+    else
+        hasil ← ListingController.ubahListing(idPenjual, idListingDiedit, data)
+    if hasil adalah error then
+        tampilkanPesan(hasil.pesan)          // isi form tetap dipertahankan
+    else
+        adaPerubahan ← FALSE
+        tampilkanPesan("Listing berhasil disimpan")
+        kembali ke halaman daftar listing Penjual
+    aktifkan kembali tombol simpan
+```
+
+### 5.12.3 Algoritma/Query
+
+**Nama Kelas:** *ListingView*  
+**Nama Operasi:** *tampilkanKonfirmasiKeluar(): Boolean*  
+**ID Algoritma:** *Algo-C12-03*
+
+```text
+Function tampilkanKonfirmasiKeluar()
+    if adaPerubahan = FALSE then
+        → TRUE                   // tidak ada yang hilang, langsung keluar
+    tampilkan dialog "Perubahan belum disimpan. Yakin ingin keluar?"
+    → TRUE jika Penjual memilih "Keluar", FALSE jika memilih "Batal"
+```
+
+### 5.12.4 Algoritma/Query
+
+**Nama Kelas:** *ListingView*  
+**Nama Operasi:** *hapusMakanan(listing: ListingMakanan): void*  
+**ID Algoritma:** *Algo-C12-04*
+
+```text
+Function hapusMakanan(listing)
+    if not tampilkanKonfirmasiHapus(listing) then
+        →                        // Penjual membatalkan penghapusan
+    idPenjual ← ID Penjual yang sedang login
+    hasil ← ListingController.hapusListing(idPenjual, listing.idListing)
+    if hasil adalah error then
+        tampilkanPesan(hasil.pesan)
+    else
+        hapus kartu listing dari daftar yang ditampilkan
+        tampilkanPesan("Listing berhasil dihapus")
 ```
 
 ## 5.13 Kelas PembayaranView
