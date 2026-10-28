@@ -2348,11 +2348,16 @@ Tabel 6.8. Rancangan Antarmuka Keseluruhan
 
 | No | Tampilan Antarmuka |
 | :--- | :--- |
-| *[UI-01]* | <img src="./assets/diagram/ui-01.png" alt="UI-01" width="400"> |
-| *[UI-02]* | <img src="./assets/diagram/ui-02.png" alt="UI-02" width="400"> |
-| *[UI-03]* | <img src="./assets/diagram/ui-03.png" alt="UI-03" width="400"> |
-| *[UI-04]* | <img src="./assets/diagram/ui-04.png" alt="UI-04" width="400"> |
-| *[UI-05]* | <img src="./assets/diagram/ui-05.png" alt="UI-05" width="400"> |
+| *[UI-01]* | <img width="402" height="874" alt="SIGNUP" src="https://github.com/user-attachments/assets/b544f8d2-2dea-4a6d-b61d-c83e2f6a9c06" />
+ |
+| *[UI-02]* | <img width="402" height="874" alt="LOGIN" src="https://github.com/user-attachments/assets/3cf742f5-dd17-4668-a690-f06d69d5e822" />
+ |
+| *[UI-03]* | <img width="402" height="874" alt="HOME" src="https://github.com/user-attachments/assets/7a1f2412-a4a4-4bb5-b3c1-99c8e64cfab5" />
+ |
+| *[UI-04]* | <img width="402" height="874" alt="CART-1" src="https://github.com/user-attachments/assets/69369f3c-0832-4962-909d-db3aff270cc7" />
+ |
+| *[UI-05]* | <img width="402" height="874" alt="CART" src="https://github.com/user-attachments/assets/26862b82-5c01-45ad-a8b9-ac98c088a266" />
+|
 | *[UI-06]* | <img width="402" height="874" alt="iPhone 18 Pro - 1" src="https://github.com/user-attachments/assets/f61b2a95-9068-4db7-89c9-84bf809efb6e" /> |
 | *[UI-07]* | <img width="402" height="874" alt="iPhone 18 Pro - 2" src="https://github.com/user-attachments/assets/0759f7c8-1a07-4e1e-91cc-1c2c2bb47dbd" />|
 
