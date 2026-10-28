@@ -8,7 +8,7 @@ DESKRIPSI PERANCANGAN PERANGKAT LUNAK (DPPL)
 <br>
 
 ## *SaveBite*
-<img width="40%" alt="log" src="https://github.com/user-attachments/assets/4444d8f8-8565-4a3e-bc73-00ac09b6d0c9" />
+<img width="40%" alt="logo" src=".\assets\save_bite.PNG" />
 
 ### Untuk: *Aurelia Jennifer Gunawan*
 
