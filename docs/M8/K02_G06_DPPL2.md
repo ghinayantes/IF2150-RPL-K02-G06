@@ -1828,12 +1828,28 @@ Tabel 6.Y. Rancangan Antarmuka Keseluruhan
 
 # BAB 7: Matriks Kerunutan
 
-Petakan kelas perancangan dengan use case yang terkait. Gunakan **BAB 6 Traceability pada dokumen SKPL** sebagai acuan keterkaitan kelas analisis dan use case, lalu sesuaikan dengan realisasi use case dan kelas perancangan pada BAB 3–BAB 5 DPPL.
-
 Tabel 7.1. Matriks Kerunutan Kelas terhadap Use Case
 
 | Kelas | Use Case Terkait |
 | :--- | :--- |
-| *[ID kelas - Nama kelas]* | *[ID UC - Nama use case; tuliskan seluruh use case terkait]* |
-| *[ID kelas - Nama kelas]* | *[ID UC - Nama use case]* |
-| *...* | *...* |
+| *C01 - Pengguna* | *UC07 - Login ke sistem* |
+| *C02 - Penjual* | *UC01 - Menambahkan listing makanan surplus, UC06 - Mengedit listing, UC07 - Login ke sistem, UC09 - Menghapus listing* |
+| *C03 - Pembeli* | *UC05 - Melakukan pembayaran, UC07 - Login ke sistem, UC08 - Mengklaim reward login* |
+| *C04 - ListingMakanan* | *UC01 - Menambahkan listing makanan surplus, UC02 - Melihat listing makanan surplus, UC03 - Melihat detail makanan surplus, UC04 - Menyaring listing makanan surplus, UC05 - Melakukan pembayaran, UC06 - Mengedit listing, UC09 - Menghapus listing* |
+| *C05 - MetodePembayaran* | *UC05 - Melakukan pembayaran* |
+| *C06 - Transaksi* | *UC05 - Melakukan pembayaran* |
+| *C07 - RewardLogin* | *UC07 - Login ke sistem, UC08 - Mengklaim reward login* |
+| *C08 - ItemTransaksi* | *UC05 - Melakukan pembayaran* |
+| *C09 - Kupon* | *UC08 - Mengklaim reward login* |
+| *C10 - LoginView* | *UC07 - Login ke sistem* |
+| *C11 - KatalogView* | *UC02 - Melihat listing makanan surplus, UC03 - Melihat detail makanan surplus, UC04 - Menyaring listing makanan surplus* |
+| *C12 - ListingView* | *UC01 - Menambahkan listing makanan surplus, UC06 - Mengedit listing, UC09 - Menghapus listing* |
+| *C13 - PembayaranView* | *UC05 - Melakukan pembayaran* |
+| *C14 - RewardView* | *UC08 - Mengklaim reward login* |
+| *C15 - AuthController* | *UC07 - Login ke sistem* |
+| *C16 - KatalogController* | *UC02 - Melihat listing makanan surplus, UC03 - Melihat detail makanan surplus, UC04 - Menyaring listing makanan surplus* |
+| *C17 - ListingController* | *UC01 - Menambahkan listing makanan surplus, UC06 - Mengedit listing, UC09 - Menghapus listing* |
+| *C18 - PembayaranController* | *UC05 - Melakukan pembayaran* |
+| *C19 - RewardController* | *UC08 - Mengklaim reward login* |
+| *C20 - Validasi* | *UC01 - Menambahkan listing makanan surplus, UC06 - Mengedit listing, UC07 - Login ke sistem* |
+| *C21 - PaymentGatewayAdapter* | *UC05 - Melakukan pembayaran* |
