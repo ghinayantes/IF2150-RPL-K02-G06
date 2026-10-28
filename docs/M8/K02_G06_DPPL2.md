@@ -7,7 +7,7 @@ DESKRIPSI PERANCANGAN PERANGKAT LUNAK (DPPL)
 </h1>
 <br>
 
-## *Food Waste Stop*
+## *SaveBite*
 <img width="40%" alt="log" src="https://github.com/user-attachments/assets/4444d8f8-8565-4a3e-bc73-00ac09b6d0c9" />
 
 ### Untuk: *Aurelia Jennifer Gunawan*
@@ -52,14 +52,14 @@ Dipersiapkan oleh:
 # BAB 1: Pendahuluan
 
 ## 1.1 Tujuan Penulisan Dokumen
-Dokumen Deskripsi Perancangan Perangkat Lunak (DPPL) ini disusun untuk menjelaskan rancangan aplikasi web Food Waste Stop sebagai bagian dari Tugas Besar mata kuliah Rekayasa Perangkat Lunak (RPL). Dokumen ini melanjutkan DPPL sebelumnya yang memuat lingkungan implementasi, arsitektur, realisasi use case, dan diagram kelas keseluruhan, lalu melengkapinya dengan perancangan rinci setiap kelas (operasi, atribut, serta algoritma/*query* untuk operasi penting) serta perancangan antarmuka pengguna. Dengan demikian, kebutuhan pada SKPL dan arsitektur pada APL diterjemahkan menjadi rancangan yang lengkap dan siap diimplementasikan.
+Dokumen Deskripsi Perancangan Perangkat Lunak (DPPL) ini disusun untuk menjelaskan rancangan aplikasi web SaveBite sebagai bagian dari Tugas Besar mata kuliah Rekayasa Perangkat Lunak (RPL). Dokumen ini melanjutkan DPPL sebelumnya yang memuat lingkungan implementasi, arsitektur, realisasi use case, dan diagram kelas keseluruhan, lalu melengkapinya dengan perancangan rinci setiap kelas (operasi, atribut, serta algoritma/*query* untuk operasi penting) serta perancangan antarmuka pengguna. Dengan demikian, kebutuhan pada SKPL dan arsitektur pada APL diterjemahkan menjadi rancangan yang lengkap dan siap diimplementasikan.
 
 Dokumen ini ditujukan bagi asisten dan/atau dosen mata kuliah RPL sebagai bahan evaluasi dan penilaian, serta bagi anggota kelompok sebagai acuan pada tahap implementasi dan pengujian aplikasi.
 
 ## 1.2 Lingkup Masalah
 Industri makanan sering menghasilkan makanan surplus yang masih layak konsumsi tetapi tidak terjual. Makanan tersebut umumnya dibuang sehingga menambah sampah makanan dan menimbulkan kerugian ekonomi bagi pelaku industri. Selain itu, belum tersedia wadah yang memudahkan penjualan makanan surplus kepada konsumen dengan harga terjangkau.
 
-Food Waste Stop merupakan web aplikasi untuk kegiatan jual-beli makanan surplus. Food Waste Stop berfokus menjadi solusi permasalahan sampah makanan industri. Selain itu, Food Waste Stop juga mengurangi kerugian ekonomi industri.
+SaveBite merupakan web aplikasi untuk kegiatan jual-beli makanan surplus. SaveBite berfokus menjadi solusi permasalahan sampah makanan industri. Selain itu, SaveBite juga mengurangi kerugian ekonomi industri.
 
 ## 1.3 Definisi, Istilah, dan Singkatan
 
@@ -99,9 +99,9 @@ Tabel 1.4. Aturan Penomoran
 | *Objek Antarmuka* | *SXX-OYY* | *Objek yang tampil pada suatu layar antarmuka, dengan SXX adalah ID layar dan YY adalah nomor urut objek pada layar tersebut* |
 
 ## 1.5 Referensi
-- Dokumen Spesifikasi Kebutuhan Perangkat Lunak (SKPL) Food Waste Stop, K02-G06.
-- Dokumen Arsitektur Perangkat Lunak (APL) Food Waste Stop, K02-G06.
-- Dokumen Deskripsi Perancangan Perangkat Lunak (DPPL) Food Waste Stop versi sebelumnya (Milestone 7), K02-G06.
+- Dokumen Spesifikasi Kebutuhan Perangkat Lunak (SKPL) SaveBite, K02-G06.
+- Dokumen Arsitektur Perangkat Lunak (APL) SaveBite, K02-G06.
+- Dokumen Deskripsi Perancangan Perangkat Lunak (DPPL) SaveBite versi sebelumnya (Milestone 7), K02-G06.
 - Sommerville, I. (2016). *Software Engineering* (10th ed.). Pearson.
 - PowerPoint Rekayasa Perangkat Lunak "Objek, Tanggung Jawab, dan Kolaborasi" & "Stereotipe, Gaya Kendali, dan Lapisan".
 - Diagram UML: [https://www.drawio.com/](https://www.drawio.com/), [https://staruml.io/](https://staruml.io/), [https://plantuml.com/](https://plantuml.com/)
@@ -135,10 +135,10 @@ Tabel 2.1. Rancangan Lingkungan Implementasi
 Style yang digunakan adalah client-server: client meminta layanan dan server memproses permintaan tersebut. Pattern yang digunakan adalah MVC, dengan View di sisi client (Next.js), serta Controller dan Model di sisi server (FastAPI). Model membaca dan menyimpan data ke database PostgreSQL.
 
 <p align="center">
-  <img width="50%" alt="Arsitektur MVC Food Waste Stop" src="https://github.com/user-attachments/assets/c05b7e88-bbfc-4aca-8004-37839e45328c" />
+  <img width="50%" alt="Arsitektur MVC SaveBite" src="https://github.com/user-attachments/assets/c05b7e88-bbfc-4aca-8004-37839e45328c" />
 </p>
 <p align="center">
-<i>Gambar 1. Arsitektur MVC Food Waste Stop</i>
+<i>Gambar 1. Arsitektur MVC SaveBite</i>
 </p>
 
 Alasan pemilihan style/pattern tersebut:
@@ -177,10 +177,10 @@ Tabel 2.3. Identifikasi Komponen/Modul/Subsistem
 Logical view dipilih karena memperlihatkan pembagian tanggung jawab antarkomponen MVC dan arah ketergantungannya, sehingga setiap kelas perancangan pada BAB 3 dapat ditelusuri ke komponennya. Setiap View hanya berkomunikasi dengan satu Controller pasangannya melalui HTTPS. Controller memakai Validasi untuk memeriksa input dan memakai Model untuk membaca serta mengubah data. Model menyimpan datanya ke Database. PembayaranController adalah satu-satunya Controller yang berkomunikasi dengan sistem eksternal, yaitu QRIS dummy melalui PaymentGatewayAdapter. AuthController juga memakai Model RewardLogin karena pemberian poin harian terjadi pada saat login.
 
 <p align="center">
-<img width="80%" alt="Logical View Food Waste Stop" src="https://github.com/user-attachments/assets/e115d579-4f88-49de-913b-5d40c2c35a95" />
+<img width="80%" alt="Logical View SaveBite" src="https://github.com/user-attachments/assets/e115d579-4f88-49de-913b-5d40c2c35a95" />
 </p>
 <p align="center">
-<i>Gambar 2. Logical View Food Waste Stop</i>
+<i>Gambar 2. Logical View SaveBite</i>
 </p>
 
 <br>
@@ -640,7 +640,7 @@ Tabel 3.9. Identifikasi Kelas Use Case [UC09]
 <img width="1559" height="1009" alt="cdl drawio" src="https://github.com/user-attachments/assets/fdf8aec9-3d79-4873-9fff-5bac79ec2343" />
 </p>
 <p align="center">
-<i>Gambar 4.1. Diagram Kelas Perancangan Keseluruhan Food Waste Stop</i>
+<i>Gambar 4.1. Diagram Kelas Perancangan Keseluruhan SaveBite</i>
 </p>
 
 Relasi antarkelas entity:
