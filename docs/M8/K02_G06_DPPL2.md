@@ -95,8 +95,8 @@ Tabel 1.4. Aturan Penomoran
 | *Kelas* | *CXX* | *Representasi objek dalam sistem yang memiliki atribut dan metode. C01–C07 mengikuti SKPL, sedangkan C08 dan seterusnya adalah kelas baru pada tahap perancangan* |
 | *Algoritma* | *Algo-CXX-YY* | *Kerangka algoritma (pseudocode) untuk operasi penting pada perancangan rinci kelas (BAB 5), dengan CXX adalah ID kelas pemilik operasi dan YY adalah nomor urut algoritma pada kelas tersebut* |
 | *Query* | *Q-CXX-YY* | *Query SQL yang digunakan oleh operasi pada perancangan rinci kelas (BAB 5), dengan CXX adalah ID kelas pemilik operasi dan YY adalah nomor urut query pada kelas tersebut* |
-| *Layar Antarmuka* | *SXX* | *Layar/halaman antarmuka aplikasi pada perancangan antarmuka (BAB 6), dinomori berurutan mulai dari S01* |
-| *Objek Antarmuka* | *SXX-OYY* | *Objek yang tampil pada suatu layar antarmuka, dengan SXX adalah ID layar dan YY adalah nomor urut objek pada layar tersebut* |
+| *Layar Antarmuka* | *UIXX* | *Layar/halaman antarmuka aplikasi pada perancangan antarmuka (BAB 6), dinomori berurutan mulai dari UI01* |
+| *Objek Antarmuka* | *UIXX-YY* | *Objek yang tampil pada suatu layar antarmuka, dengan UIXX adalah ID layar dan YY adalah nomor urut objek pada layar tersebut* |
 
 ## 1.5 Referensi
 - Dokumen Spesifikasi Kebutuhan Perangkat Lunak (SKPL) SaveBite, K02-G06.
