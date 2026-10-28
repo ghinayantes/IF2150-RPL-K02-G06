@@ -1640,6 +1640,86 @@ Tabel 5.19.4. Query Operasi klaimReward
 | *Q-C19-03* | *perbaruiPoinReward:*<br>`UPDATE reward_login SET poin_terkumpul = @poinTerkumpul WHERE id_pembeli = @idPembeli;` | *Menyimpan poin setelah dikurangi biaya klaim* |
 | *Q-C19-04* | *simpanKupon:*<br>`INSERT INTO kupon (kode_kupon, id_pembeli, nilai_potongan, berlaku_sampai, terpakai) VALUES (@kodeKupon, @idPembeli, @nilaiPotongan, @berlakuSampai, FALSE);` | *Menyimpan kupon baru hasil klaim reward* |
 
+## 5.20 Kelas Validasi
+
+**Nama Kelas:** *Validasi*  
+**ID Kelas:** *C20*
+
+Tabel 5.20.1. Operasi Kelas Validasi
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *validasiListing(data: DataListing): List<String>* | *public* | *Memeriksa input listing dan mengembalikan daftar pesan kesalahan. Daftar kosong berarti input valid.* |
+| *validasiKredensial(email: String, password: String): List<String>* | *public* | *Memeriksa input login dan mengembalikan daftar pesan kesalahan. Daftar kosong berarti input valid.* |
+
+Tabel 5.20.2. Atribut Kelas Validasi
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *–* | *–* | *–* |
+
+### 5.20.1 Algoritma/Query
+
+**Nama Kelas:** *Validasi*  
+**Nama Operasi:** *validasiListing(data: DataListing): List<String>*  
+**ID Algoritma:** *Algo-C20-01*
+
+```text
+Function validasiListing(data)
+    daftarError ← daftar kosong
+    if (data.namaMakanan kosong) then
+        tambah "Nama makanan wajib diisi"
+    if (data.porsi kosong) then
+        tambah "Porsi wajib diisi"
+    if (data.kondisi kosong) then
+        tambah "Kondisi wajib diisi"
+    if ((data.harga kosong) OR (data.harga < 0)) then
+        tambah "Harga tidak boleh kosong atau negatif"
+    if ((data.stok kosong) OR (data.stok < 0)) then
+        tambah "Stok tidak boleh kosong atau negatif"
+    if (data.batasKedaluwarsa kosong) then
+        tambah "Batas kedaluwarsa wajib diisi"
+    else if (data.batasKedaluwarsa ≤ waktu sekarang) then
+        tambah "Batas kedaluwarsa sudah lewat"
+    if (data.foto ≠ null) then
+        if (tipe data.foto bukan PNG atau JPG) then tambah "Foto harus berformat PNG atau JPG"
+        if (ukuran data.foto > 10 MB) then tambah "Ukuran foto maksimal 10 MB"
+    return daftarError
+```
+
+Tabel 5.20.3. Query Operasi validasiListing
+
+| No Query | Query | Keterangan |
+| :--- | :--- | :--- |
+| *Q-C20-01* | *ambilRewardLogin:*<br>`SELECT id_reward, id_pembeli, poin_terkumpul, tanggal_login_terakhir FROM reward_login WHERE id_pembeli = @idPembeli;` | *Mengambil data poin login milik Pembeli untuk ditampilkan sebagai progres* |
+
+### 5.20.2 Algoritma/Query
+
+**Nama Kelas:** *Validasi*  
+**Nama Operasi:** *validasiKredensial(email: String, password: String): List<String>*  
+**ID Algoritma:** *Algo-C20-02*
+
+```text
+Function validasiKredensial(email, password)
+    daftarError ← daftar kosong
+    if (email kosong) then
+        tambah "Email wajib diisi"
+    else if (email tidak sesuai format email) then
+        tambah "Format email tidak valid"
+    if (password kosong) then
+        tambah "Password wajib diisi"
+    return daftarError
+```
+
+
+Tabel 5.20.4. Query Operasi klaimReward
+
+| No Query | Query | Keterangan |
+| :--- | :--- | :--- |
+| *Q-C20-02* | *ambilRewardLoginTerkunci:*<br>`SELECT * FROM reward_login WHERE id_pembeli = @idPembeli FOR UPDATE;` | *Mengambil dan mengunci data poin Pembeli agar tidak diubah permintaan lain selama klaim diproses* |
+| *Q-C20-03* | *perbaruiPoinReward:*<br>`UPDATE reward_login SET poin_terkumpul = @poinTerkumpul WHERE id_pembeli = @idPembeli;` | *Menyimpan poin setelah dikurangi biaya klaim* |
+| *Q-C20-04* | *simpanKupon:*<br>`INSERT INTO kupon (kode_kupon, id_pembeli, nilai_potongan, berlaku_sampai, terpakai) VALUES (@kodeKupon, @idPembeli, @nilaiPotongan, @berlakuSampai, FALSE);` | *Menyimpan kupon baru hasil klaim reward* |
+
 ## 5.21 Kelas PaymentGatewayAdapter
 
 **Nama Kelas:** *PaymentGatewayAdapter*  
