@@ -1690,7 +1690,7 @@ Tabel 5.20.3. Query Operasi validasiListing
 
 | No Query | Query | Keterangan |
 | :--- | :--- | :--- |
-| *Q-C20-01* | *ambilRewardLogin:*<br>`SELECT id_reward, id_pembeli, poin_terkumpul, tanggal_login_terakhir FROM reward_login WHERE id_pembeli = @idPembeli;` | *Mengambil data poin login milik Pembeli untuk ditampilkan sebagai progres* |
+| *-* | *-* | *-* |
 
 ### 5.20.2 Algoritma/Query
 
@@ -1711,13 +1711,11 @@ Function validasiKredensial(email, password)
 ```
 
 
-Tabel 5.20.4. Query Operasi klaimReward
+Tabel 5.20.4. Query Operasi validasiKredensial
 
 | No Query | Query | Keterangan |
 | :--- | :--- | :--- |
-| *Q-C20-02* | *ambilRewardLoginTerkunci:*<br>`SELECT * FROM reward_login WHERE id_pembeli = @idPembeli FOR UPDATE;` | *Mengambil dan mengunci data poin Pembeli agar tidak diubah permintaan lain selama klaim diproses* |
-| *Q-C20-03* | *perbaruiPoinReward:*<br>`UPDATE reward_login SET poin_terkumpul = @poinTerkumpul WHERE id_pembeli = @idPembeli;` | *Menyimpan poin setelah dikurangi biaya klaim* |
-| *Q-C20-04* | *simpanKupon:*<br>`INSERT INTO kupon (kode_kupon, id_pembeli, nilai_potongan, berlaku_sampai, terpakai) VALUES (@kodeKupon, @idPembeli, @nilaiPotongan, @berlakuSampai, FALSE);` | *Menyimpan kupon baru hasil klaim reward* |
+| *-* | *-* | *-* |
 
 ## 5.21 Kelas PaymentGatewayAdapter
 
@@ -1736,6 +1734,51 @@ Tabel 5.21.2. Atribut Kelas PaymentGatewayAdapter
 | Nama Atribut | Visibility (private, public) | Tipe |
 | :--- | :--- | :--- |
 | *urlGateway* | *private* | *String* |
+
+### 5.21.1 Algoritma/Query
+
+**Nama Kelas:** *PaymentGatewayAdapter*  
+**Nama Operasi:** *buatTagihan(transaksi: Transaksi): String*  
+**ID Algoritma:** *Algo-C21-01*
+
+```text
+Function buatTagihan(transaksi)
+    try
+        respons ← kirim permintaan tagihan ke urlGateway
+                  dengan data (transaksi.idTransaksi, transaksi.totalHarga)
+        if respons gagal then
+            raise Error("Gagal membuat tagihan pembayaran")
+        return respons.kodeQRIS
+    catch timeout atau kegagalan koneksi
+        raise Error("Layanan pembayaran tidak dapat dihubungi")
+```
+
+Tabel 5.21.3. Query Operasi buatTagihan
+
+| No Query | Query | Keterangan |
+| :--- | :--- | :--- |
+| *-* | *-* | *-* |
+
+### 5.21.2 Algoritma/Query
+
+**Nama Kelas:** *PaymentGatewayAdapter*  
+**Nama Operasi:** *cekStatus(idTransaksi: Integer): String*  
+**ID Algoritma:** *Algo-C20-02*
+
+```text
+Function cekStatus(idTransaksi)
+    try
+        respons ← kirim permintaan status ke urlGateway untuk idTransaksi
+        return respons.status
+    catch timeout atau kegagalan koneksi
+        raise Error("Layanan pembayaran tidak dapat dihubungi")
+```
+
+Tabel 5.21.3. Query Operasi cekStatus
+
+| No Query | Query | Keterangan |
+| :--- | :--- | :--- |
+| *-* | *-* | *-* |
 
 ---
 # BAB 6: Perancangan Antarmuka
