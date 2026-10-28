@@ -1040,7 +1040,6 @@ Tabel 5.6.2. Atribut Kelas Transaksi
 
 | Nama Atribut | Visibility (private, public) | Tipe |
 | :--- | :--- | :--- |
-| :--- | :--- | :--- |
 | *idTransaksi* | *private* | *Integer* |
 | *idPembeli* | *private* | *Integer* |
 | *tanggal* | *private* | *DateTime* |
