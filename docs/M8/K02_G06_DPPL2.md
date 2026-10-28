@@ -1103,6 +1103,44 @@ Function isLewatBatasWaktu(waktu)
     → waktu > batasWaktuBayar
 ```
 
+## 5.10 Kelas LoginView
+
+**Nama Kelas:** *LoginView*  
+**ID Kelas:** *C10*
+
+Tabel 5.10.1. Operasi Kelas LoginView
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *tampilkanForm(): void* | *public* | *Menampilkan form login berisi kolom email, kolom password, dan tombol masuk untuk Penjual maupun Pembeli.* |
+| *kirimKredensial(email: String, password: String): void* | *public* | *Mengirim email dan password yang diisi pengguna ke AuthController melalui HTTPS, lalu menindaklanjuti hasil login.* |
+| *tampilkanPesan(pesan: String): void* | *public* | *Menampilkan pesan kesalahan, misalnya format email tidak valid, password kosong, atau email dan password tidak cocok.* |
+| *arahkanKeBeranda(peran: String): void* | *public* | *Mengarahkan pengguna ke halaman utama sesuai perannya, yaitu beranda Penjual atau beranda Pembeli.* |
+
+Tabel 5.10.2. Atribut Kelas LoginView
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *–* | *–* | *–* |
+
+### 5.10.1 Algoritma/Query
+
+**Nama Kelas:** *LoginView*  
+**Nama Operasi:** *kirimKredensial(email: String, password: String): void*  
+**ID Algoritma:** *Algo-C10-01*
+
+```text
+Function kirimKredensial(email, password)
+    nonaktifkan tombol masuk selama permintaan diproses
+    hasil ← AuthController.login(email, password)
+    if hasil adalah error then
+        tampilkanPesan(hasil.pesan)
+        kosongkan kolom password
+    else
+        arahkanKeBeranda(hasil.getPeran())
+    aktifkan kembali tombol masuk
+```
+
 ## 5.13 Kelas PembayaranView
 
 **Nama Kelas:** *PembayaranView*  
@@ -1158,12 +1196,260 @@ Function kirimBatal(idTransaksi)
     kembali ke halaman sebelumnya
 ```
 
-## 5.14 Kelas PembayaranController
+## 5.14 Kelas RewardView
+
+**Nama Kelas:** *RewardView*  
+**ID Kelas:** *C14*
+
+Tabel 5.14.1. Operasi Kelas RewardView
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *tampilkanProgres(poin: Integer, bisaKlaim: Boolean): void* | *public* | *Menampilkan jumlah poin yang telah terkumpul beserta progresnya menuju poin minimal klaim. Tombol klaim bisa ditekan jika bisaKlaim bernilai true.* |
+| *kirimKlaim(): void* | *public* | *Meneruskan aksi Pembeli menekan tombol klaim reward ke RewardController, lalu menampilkan kupon atau pesan error (UC08).* |
+| *tampilkanKupon(kupon: Kupon): void* | *public* | *Menampilkan kupon hasil klaim kepada Pembeli, yaitu kode kupon, nilai potongan, dan tanggal kadaluarsa.* |
+| *tampilkanPesan(pesan: String): void* | *public* | *Menampilkan pesan informasi atau error, misalnya poin tidak mencukupi atau terjadi kegagalan sistem saat klaim.* |
+
+Tabel 5.14.2. Atribut Kelas RewardView
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *–* | *–* | *–* |
+
+### 5.14.1 Algoritma/Query
+
+**Nama Kelas:** *RewardView*  
+**Nama Operasi:** *kirimKlaim(): void*  
+**ID Algoritma:** *Algo-C14-01*
+
+```text
+Function kirimKlaim()
+    nonaktifkan tombol klaim agar tidak terkirim dua kali
+    idPembeli ← ID Pembeli yang sedang login
+    hasil ← RewardController.klaimReward(idPembeli)
+    if hasil adalah error then
+        tampilkanPesan(hasil.pesan)
+    else
+        tampilkanKupon(hasil)
+    progres ← RewardController.lihatProgres(idPembeli)
+    tampilkanProgres(progres.poinTerkumpul, progres.cukupUntukKlaim())
+```
+
+### 5.14.2 Algoritma/Query
+
+**Nama Kelas:** *RewardView*  
+**Nama Operasi:** *tampilkanProgres(poin: Integer, bisaKlaim: Boolean): void*  
+**ID Algoritma:** *Algo-C14-02*
+
+```text
+Function tampilkanProgres(poin, bisaKlaim)
+    tampilkan poin beserta indikator progres (poin / POIN_PER_KLAIM)
+    if bisaKlaim then
+        aktifkan tombol klaim
+    else
+        nonaktifkan tombol klaim
+        tampilkan keterangan sisa poin yang dibutuhkan
+```
+
+## 5.15 Kelas AuthController
+
+**Nama Kelas:** *AuthController*  
+**ID Kelas:** *C15*
+
+Tabel 5.15.1. Operasi Kelas AuthController
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *login(email: String, password: String): Pengguna* | *public* | *Memvalidasi format kredensial melalui Validasi, mencari Pengguna berdasarkan email, memverifikasi password terhadap hash bcrypt, lalu jika pengguna adalah Pembeli, memerintahkan RewardLogin mencatat login harian dan menambah poin (UC07).* |
+
+Tabel 5.15.2. Atribut Kelas AuthController
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *–* | *–* | *–* |
+
+### 5.15.1 Algoritma/Query
+
+**Nama Kelas:** *AuthController*  
+**Nama Operasi:** *login(email: String, password: String): Pengguna*  
+**ID Algoritma:** *Algo-C15-01*
+
+```text
+Function login(email, password)
+    galat ← Validasi.validasiKredensial(email, password)
+    if galat tidak kosong then
+        → error galat
+
+    pengguna ← cari pengguna berdasarkan email               // Q-C15-01
+    if pengguna = NULL or not pengguna.verifikasiPassword(password) then
+        → error "Email atau password salah"
+
+    if pengguna.getPeran() = "Pembeli" then
+        BEGIN TRANSACTION
+        reward ← ambil RewardLogin milik pengguna dan kunci barisnya   // Q-C15-02
+        if reward.catatLogin(tanggalHariIni) then
+            perbarui poin dan tanggal login terakhir         // Q-C15-03
+        COMMIT
+
+    → pengguna
+```
+
+Tabel 5.15.3. Query Operasi login
+
+| No Query | Query | Keterangan |
+| :--- | :--- | :--- |
+| *Q-C15-01* | *cariPenggunaByEmail:*<br>`SELECT p.id_pengguna, p.nama, p.email, p.password, CASE WHEN pb.id_pengguna IS NOT NULL THEN 'Pembeli' ELSE 'Penjual' END AS peran FROM pengguna p LEFT JOIN pembeli pb ON pb.id_pengguna = p.id_pengguna WHERE p.email = @email;` | *Mengambil data pengguna beserta hash password, lalu menentukan perannya dari keberadaan baris pada tabel pembeli* |
+| *Q-C15-02* | *ambilRewardLoginTerkunci:*<br>`SELECT * FROM reward_login WHERE id_pembeli = @idPengguna FOR UPDATE;` | *Mengambil dan mengunci data poin login milik Pembeli* |
+| *Q-C15-03* | *perbaruiRewardLogin:*<br>`UPDATE reward_login SET poin_terkumpul = @poinTerkumpul, tanggal_login_terakhir = @tanggal WHERE id_pembeli = @idPengguna;` | *Menyimpan poin baru dan tanggal login terakhir* |
+
+## 5.16 Kelas KatalogController
+
+**Nama Kelas:** *KatalogController*  
+**ID Kelas:** *C16*
+
+Tabel 5.16.1. Operasi Kelas KatalogController
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *ambilListingTersedia(): List<ListingMakanan>* | *public* | *Mengambil seluruh listing yang masih dapat dibeli melalui ListingMakanan untuk ditampilkan oleh KatalogView (UC02).* |
+| *ambilDetail(idListing: Integer): ListingMakanan* | *public* | *Mengambil satu listing berdasarkan ID dan memastikan listing tersebut masih tersedia sebelum detailnya ditampilkan (UC03).* |
+| *cariListing(kataKunci: String, hargaMin: Integer, hargaMaks: Integer): List<ListingMakanan>* | *public* | *Memeriksa rentang harga, lalu mengambil listing tersedia yang sesuai kata kunci dan rentang harga melalui ListingMakanan (UC04).* |
+
+Tabel 5.16.2. Atribut Kelas KatalogController
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *–* | *–* | *–* |
+
+### 5.16.1 Algoritma/Query
+
+**Nama Kelas:** *KatalogController*  
+**Nama Operasi:** *ambilListingTersedia(): List<ListingMakanan>*  
+**ID Algoritma:** *Algo-C16-01*
+
+```text
+Function ambilListingTersedia()
+    daftar ← ListingMakanan.ambilSemuaTersedia()            // Q-C04-02
+    → daftar (daftar kosong berarti tidak ada listing yang tersedia)
+```
+
+### 5.16.2 Algoritma/Query
+
+**Nama Kelas:** *KatalogController*  
+**Nama Operasi:** *ambilDetail(idListing: Integer): ListingMakanan*  
+**ID Algoritma:** *Algo-C16-02*
+
+```text
+Function ambilDetail(idListing)
+    listing ← ListingMakanan.cariById(idListing)            // Q-C04-01
+    if listing = NULL or not listing.isTersedia(waktuSekarang) then
+        → error "Listing sudah tidak tersedia"
+    → listing
+```
+
+### 5.16.3 Algoritma/Query
+
+**Nama Kelas:** *KatalogController*  
+**Nama Operasi:** *cariListing(kataKunci: String, hargaMin: Integer, hargaMaks: Integer): List<ListingMakanan>*  
+**ID Algoritma:** *Algo-C16-03*
+
+```text
+Function cariListing(kataKunci, hargaMin, hargaMaks)
+    if kataKunci kosong then
+        kataKunci ← NULL
+    if (hargaMin ≠ NULL and hargaMin < 0) or (hargaMaks ≠ NULL and hargaMaks < 0) then
+        → error "Rentang harga tidak valid"
+    if hargaMin ≠ NULL and hargaMaks ≠ NULL and hargaMin > hargaMaks then
+        → error "Rentang harga tidak valid"
+    daftar ← ListingMakanan.cariDaftar(kataKunci, hargaMin, hargaMaks)   // Q-C04-03
+    → daftar (daftar kosong berarti tidak ada listing yang cocok)
+```
+
+## 5.17 Kelas ListingController
+
+**Nama Kelas:** *ListingController*  
+**ID Kelas:** *C17*
+
+Tabel 5.17.1. Operasi Kelas ListingController
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *tambahListing(idPenjual: Integer, data: DataListing): ListingMakanan* | *public* | *Memvalidasi data form melalui Validasi, lalu menyimpan ListingMakanan baru yang aktif milik Penjual (UC01).* |
+| *ubahListing(idPenjual: Integer, idListing: Integer, data: DataListing): ListingMakanan* | *public* | *Memastikan listing ada dan milik Penjual, memvalidasi data form, lalu memperbarui data listing melalui ListingMakanan (UC06).* |
+| *hapusListing(idPenjual: Integer, idListing: Integer): void* | *public* | *Memastikan listing ada dan milik Penjual, lalu menonaktifkan listing agar tidak tampil lagi di katalog. Listing tidak dihapus permanen agar riwayat Transaksi yang merujuknya tetap utuh (UC09).* |
+
+Tabel 5.17.2. Atribut Kelas ListingController
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *–* | *–* | *–* |
+
+### 5.17.1 Algoritma/Query
+
+**Nama Kelas:** *ListingController*  
+**Nama Operasi:** *tambahListing(idPenjual: Integer, data: DataListing): ListingMakanan*  
+**ID Algoritma:** *Algo-C17-01*
+
+```text
+Function tambahListing(idPenjual, data)
+    galat ← Validasi.validasiListing(data)
+    if galat tidak kosong then
+        → error galat
+    listing ← new ListingMakanan(idPenjual, data, aktif = TRUE)
+    simpan listing baru                                      // Q-C17-01
+    → listing
+```
+
+Tabel 5.17.3. Query Operasi tambahListing
+
+| No Query | Query | Keterangan |
+| :--- | :--- | :--- |
+| *Q-C17-01* | *simpanListing:*<br>`INSERT INTO listing_makanan (id_penjual, nama_makanan, deskripsi, porsi, kondisi, foto, harga, stok, batas_kedaluwarsa, aktif) VALUES (@idPenjual, @nama, @deskripsi, @porsi, @kondisi, @foto, @harga, @stok, @batas, TRUE) RETURNING id_listing;` | *Menyimpan listing baru milik Penjual dan mengambil ID-nya* |
+
+### 5.17.2 Algoritma/Query
+
+**Nama Kelas:** *ListingController*  
+**Nama Operasi:** *ubahListing(idPenjual: Integer, idListing: Integer, data: DataListing): ListingMakanan*  
+**ID Algoritma:** *Algo-C17-02*
+
+```text
+Function ubahListing(idPenjual, idListing, data)
+    penjual ← Penjual yang sedang login (idPenjual)
+    listing ← ListingMakanan.cariById(idListing)            // Q-C04-01
+    if listing = NULL or not listing.aktif then
+        → error "Listing tidak ditemukan"
+    if not penjual.memilikiListing(listing) then
+        → error "Listing bukan milik Penjual ini"
+    galat ← Validasi.validasiListing(data)
+    if galat tidak kosong then
+        → error galat
+    listing.ubahData(data)                                   // Q-C04-04
+    → listing
+```
+
+### 5.17.3 Algoritma/Query
+
+**Nama Kelas:** *ListingController*  
+**Nama Operasi:** *hapusListing(idPenjual: Integer, idListing: Integer): void*  
+**ID Algoritma:** *Algo-C17-03*
+
+```text
+Function hapusListing(idPenjual, idListing)
+    penjual ← Penjual yang sedang login (idPenjual)
+    listing ← ListingMakanan.cariById(idListing)            // Q-C04-01
+    if listing = NULL or not listing.aktif then
+        → error "Listing tidak ditemukan"
+    if not penjual.memilikiListing(listing) then
+        → error "Listing bukan milik Penjual ini"
+    listing.nonaktifkan()                                    // Q-C04-05
+```
+
+## 5.18 Kelas PembayaranController
 
 **Nama Kelas:** *PembayaranController*  
 **ID Kelas:** *C18*
 
-Tabel 5.14.1. Operasi Kelas PembayaranController
+Tabel 5.18.1. Operasi Kelas PembayaranController
 
 | Nama Operasi | Visibility (private, public) | Keterangan |
 | :--- | :--- | :--- |
@@ -1172,13 +1458,13 @@ Tabel 5.14.1. Operasi Kelas PembayaranController
 | *batalkan(idTransaksi: Integer): void* | *public* | *Menandai Transaksi yang masih berstatus MENUNGGU_BAYAR menjadi BATAL ketika Pembeli menutup atau keluar dari halaman pembayaran.* |
 | *batalkanLewatBatasWaktu(): void* | *public* | *Menandai seluruh Transaksi berstatus MENUNGGU_BAYAR yang telah melewati batas waktu bayar menjadi BATAL. Operasi ini dijalankan secara berkala oleh server.* |
 
-Tabel 5.14.2. Atribut Kelas PembayaranController
+Tabel 5.18.2. Atribut Kelas PembayaranController
 
 | Nama Atribut | Visibility (private, public) | Tipe |
 | :--- | :--- | :--- |
 | *metodePembayaran* | *private* | *MetodePembayaran* |
 
-### 5.14.1 Algoritma/Query
+### 5.18.1 Algoritma/Query
 
 **Nama Kelas:** *PembayaranController*  
 **Nama Operasi:** *checkout(idPembeli: Integer, idListing: Integer, jumlah: Integer): Transaksi*  
@@ -1208,7 +1494,7 @@ Function checkout(idPembeli, idListing, jumlah)
     → transaksi (beserta kodeQRIS untuk ditampilkan oleh PembayaranView)
 ```
 
-Tabel 5.14.3. Query Operasi checkout
+Tabel 5.18.3. Query Operasi checkout
 
 | No Query | Query | Keterangan |
 | :--- | :--- | :--- |
@@ -1216,7 +1502,7 @@ Tabel 5.14.3. Query Operasi checkout
 | *Q-C18-02* | *simpanItemTransaksi:*<br>`INSERT INTO item_transaksi (id_listing, jumlah, harga_satuan) VALUES (@idListing, @jumlah, @hargaSatuan) RETURNING id_item;` | *Menyimpan rincian listing dan jumlah porsi yang dibeli* |
 | *Q-C18-03* | *perbaruiTotalHarga:*<br>`UPDATE transaksi SET total_harga = @totalHarga WHERE id_transaksi = @idTransaksi;` | *Menyimpan total harga hasil perhitungan* |
 
-### 5.14.2 Algoritma/Query
+### 5.18.2 Algoritma/Query
 
 **Nama Kelas:** *PembayaranController*  
 **Nama Operasi:** *konfirmasiBayar(idTransaksi: Integer): Transaksi*  
@@ -1252,9 +1538,7 @@ Function konfirmasiBayar(idTransaksi)
     → transaksi
 ```
 
-Seluruh langkah dijalankan dalam satu transaksi database. Jika salah satu langkah gagal, semua perubahan dibatalkan sehingga stok dan status transaksi tetap konsisten (KNF01). Penguncian baris dengan `FOR UPDATE` mencegah dua pembayaran mengurangi stok yang sama secara bersamaan (*lost update*).
-
-Tabel 5.14.4. Query Operasi konfirmasiBayar
+Tabel 5.18.4. Query Operasi konfirmasiBayar
 
 | No Query | Query | Keterangan |
 | :--- | :--- | :--- |
@@ -1263,7 +1547,7 @@ Tabel 5.14.4. Query Operasi konfirmasiBayar
 | *Q-C18-06* | *perbaruiStatusTransaksi:*<br>`UPDATE transaksi SET status = @status, kode_pengambilan = @kodePengambilan WHERE id_transaksi = @idTransaksi;` | *Menyimpan status akhir transaksi (LUNAS atau BATAL) dan kode pengambilan* |
 | *Q-C18-07* | *kurangiStokListing:*<br>`UPDATE listing_makanan SET stok = stok - @jumlah WHERE id_listing = @idListing;` | *Mengurangi stok listing sesuai jumlah porsi yang dibeli* |
 
-### 5.14.3 Algoritma/Query
+### 5.18.3 Algoritma/Query
 
 **Nama Kelas:** *PembayaranController*  
 **Nama Operasi:** *batalkanLewatBatasWaktu(): void*  
@@ -1275,175 +1559,11 @@ Function batalkanLewatBatasWaktu()
     sudah lewat menjadi BATAL                                // Q-C18-08
 ```
 
-Tabel 5.14.5. Query Operasi batalkanLewatBatasWaktu
+Tabel 5.18.5. Query Operasi batalkanLewatBatasWaktu
 
 | No Query | Query | Keterangan |
 | :--- | :--- | :--- |
 | *Q-C18-08* | *batalkanTransaksiKedaluwarsa:*<br>`UPDATE transaksi SET status = 'BATAL' WHERE status = 'MENUNGGU_BAYAR' AND batas_waktu_bayar < NOW();` | *Membatalkan transaksi yang melewati batas waktu bayar. Stok tidak perlu dikembalikan karena stok baru dikurangi saat pembayaran dikonfirmasi* |
-
-## 5.15 Kelas PaymentGatewayAdapter
-
-**Nama Kelas:** *PaymentGatewayAdapter*  
-**ID Kelas:** *C21*
-
-Tabel 5.15.1. Operasi Kelas PaymentGatewayAdapter
-
-| Nama Operasi | Visibility (private, public) | Keterangan |
-| :--- | :--- | :--- |
-| *buatTagihan(transaksi: Transaksi): String* | *public* | *Merealisasikan operasi MetodePembayaran. Mengembalikan lokasi file gambar QRIS dummy untuk ditampilkan kepada Pembeli.* |
-| *cekStatus(idTransaksi: Integer): String* | *public* | *Merealisasikan operasi MetodePembayaran. Karena pembayaran hanya disimulasikan, operasi ini selalu mengembalikan status "LUNAS" ketika Pembeli menekan tombol untuk melanjutkan simulasi pembayaran.* |
-
-Tabel 5.15.2. Atribut Kelas PaymentGatewayAdapter
-
-| Nama Atribut | Visibility (private, public) | Tipe |
-| :--- | :--- | :--- |
-| *urlGateway* | *private* | *String* |
-
-PaymentGatewayAdapter tetap dipisahkan dari PembayaranController melalui interface MetodePembayaran meskipun pembayaran hanya disimulasikan. Dengan demikian, apabila QRIS dummy diganti dengan *payment gateway* sungguhan, hanya kelas ini yang perlu diubah.
-
-## 5.16 Kelas LoginView
-
-**Nama Kelas:** *LoginView*  
-**ID Kelas:** *C10*
-
-Tabel 5.16.1. Operasi Kelas LoginView
-
-| Nama Operasi | Visibility (private, public) | Keterangan |
-| :--- | :--- | :--- |
-| *tampilkanForm(): void* | *public* | *Menampilkan form login berisi kolom email, kolom password, dan tombol masuk untuk Penjual maupun Pembeli.* |
-| *kirimKredensial(email: String, password: String): void* | *public* | *Mengirim email dan password yang diisi pengguna ke AuthController melalui HTTPS, lalu menindaklanjuti hasil login.* |
-| *tampilkanPesan(pesan: String): void* | *public* | *Menampilkan pesan kesalahan, misalnya format email tidak valid, password kosong, atau email dan password tidak cocok.* |
-| *arahkanKeBeranda(peran: String): void* | *public* | *Mengarahkan pengguna ke halaman utama sesuai perannya, yaitu beranda Penjual atau beranda Pembeli.* |
-
-Tabel 5.16.2. Atribut Kelas LoginView
-
-| Nama Atribut | Visibility (private, public) | Tipe |
-| :--- | :--- | :--- |
-| *–* | *–* | *–* |
-
-### 5.16.1 Algoritma/Query
-
-**Nama Kelas:** *LoginView*  
-**Nama Operasi:** *kirimKredensial(email: String, password: String): void*  
-**ID Algoritma:** *Algo-C10-01*
-
-```text
-Function kirimKredensial(email, password)
-    nonaktifkan tombol masuk selama permintaan diproses
-    hasil ← AuthController.login(email, password)
-    if hasil adalah error then
-        tampilkanPesan(hasil.pesan)
-        kosongkan kolom password
-    else
-        arahkanKeBeranda(hasil.getPeran())
-    aktifkan kembali tombol masuk
-```
-
-## 5.17 Kelas AuthController
-
-**Nama Kelas:** *AuthController*  
-**ID Kelas:** *C15*
-
-Tabel 5.17.1. Operasi Kelas AuthController
-
-| Nama Operasi | Visibility (private, public) | Keterangan |
-| :--- | :--- | :--- |
-| *login(email: String, password: String): Pengguna* | *public* | *Memvalidasi format kredensial melalui Validasi, mencari Pengguna berdasarkan email, memverifikasi password terhadap hash bcrypt, lalu jika pengguna adalah Pembeli, memerintahkan RewardLogin mencatat login harian dan menambah poin (UC07).* |
-
-Tabel 5.17.2. Atribut Kelas AuthController
-
-| Nama Atribut | Visibility (private, public) | Tipe |
-| :--- | :--- | :--- |
-| *–* | *–* | *–* |
-
-### 5.17.1 Algoritma/Query
-
-**Nama Kelas:** *AuthController*  
-**Nama Operasi:** *login(email: String, password: String): Pengguna*  
-**ID Algoritma:** *Algo-C15-01*
-
-```text
-Function login(email, password)
-    galat ← Validasi.validasiKredensial(email, password)
-    if galat tidak kosong then
-        → error galat
-
-    pengguna ← cari pengguna berdasarkan email               // Q-C15-01
-    if pengguna = NULL or not pengguna.verifikasiPassword(password) then
-        → error "Email atau password salah"
-
-    if pengguna.getPeran() = "Pembeli" then
-        BEGIN TRANSACTION
-        reward ← ambil RewardLogin milik pengguna dan kunci barisnya   // Q-C15-02
-        if reward.catatLogin(tanggalHariIni) then
-            perbarui poin dan tanggal login terakhir         // Q-C15-03
-        COMMIT
-
-    → pengguna
-```
-
-Tabel 5.17.3. Query Operasi login
-
-| No Query | Query | Keterangan |
-| :--- | :--- | :--- |
-| *Q-C15-01* | *cariPenggunaByEmail:*<br>`SELECT p.id_pengguna, p.nama, p.email, p.password, CASE WHEN pb.id_pengguna IS NOT NULL THEN 'Pembeli' ELSE 'Penjual' END AS peran FROM pengguna p LEFT JOIN pembeli pb ON pb.id_pengguna = p.id_pengguna WHERE p.email = @email;` | *Mengambil data pengguna beserta hash password, lalu menentukan perannya dari keberadaan baris pada tabel pembeli* |
-| *Q-C15-02* | *ambilRewardLoginTerkunci:*<br>`SELECT * FROM reward_login WHERE id_pembeli = @idPengguna FOR UPDATE;` | *Mengambil dan mengunci data poin login milik Pembeli* |
-| *Q-C15-03* | *perbaruiRewardLogin:*<br>`UPDATE reward_login SET poin_terkumpul = @poinTerkumpul, tanggal_login_terakhir = @tanggal WHERE id_pembeli = @idPengguna;` | *Menyimpan poin baru dan tanggal login terakhir* |
-
-## 5.18 Kelas RewardView
-
-**Nama Kelas:** *RewardView*  
-**ID Kelas:** *C14*
-
-Tabel 5.18.1. Operasi Kelas RewardView
-
-| Nama Operasi | Visibility (private, public) | Keterangan |
-| :--- | :--- | :--- |
-| *tampilkanProgres(poin: Integer, bisaKlaim: Boolean): void* | *public* | *Menampilkan jumlah poin yang telah terkumpul beserta progresnya menuju poin minimal klaim. Tombol klaim bisa ditekan jika bisaKlaim bernilai true.* |
-| *kirimKlaim(): void* | *public* | *Meneruskan aksi Pembeli menekan tombol klaim reward ke RewardController, lalu menampilkan kupon atau pesan error (UC08).* |
-| *tampilkanKupon(kupon: Kupon): void* | *public* | *Menampilkan kupon hasil klaim kepada Pembeli, yaitu kode kupon, nilai potongan, dan tanggal kadaluarsa.* |
-| *tampilkanPesan(pesan: String): void* | *public* | *Menampilkan pesan informasi atau error, misalnya poin tidak mencukupi atau terjadi kegagalan sistem saat klaim.* |
-
-Tabel 5.18.2. Atribut Kelas RewardView
-
-| Nama Atribut | Visibility (private, public) | Tipe |
-| :--- | :--- | :--- |
-| *–* | *–* | *–* |
-
-### 5.18.1 Algoritma/Query
-
-**Nama Kelas:** *RewardView*  
-**Nama Operasi:** *kirimKlaim(): void*  
-**ID Algoritma:** *Algo-C14-01*
-
-```text
-Function kirimKlaim()
-    nonaktifkan tombol klaim agar tidak terkirim dua kali
-    idPembeli ← ID Pembeli yang sedang login
-    hasil ← RewardController.klaimReward(idPembeli)
-    if hasil adalah error then
-        tampilkanPesan(hasil.pesan)
-    else
-        tampilkanKupon(hasil)
-    progres ← RewardController.lihatProgres(idPembeli)
-    tampilkanProgres(progres.poinTerkumpul, progres.cukupUntukKlaim())
-```
-
-### 5.18.2 Algoritma/Query
-
-**Nama Kelas:** *RewardView*  
-**Nama Operasi:** *tampilkanProgres(poin: Integer, bisaKlaim: Boolean): void*  
-**ID Algoritma:** *Algo-C14-02*
-
-```text
-Function tampilkanProgres(poin, bisaKlaim)
-    tampilkan poin beserta indikator progres (poin / POIN_PER_KLAIM)
-    if bisaKlaim then
-        aktifkan tombol klaim
-    else
-        nonaktifkan tombol klaim
-        tampilkan keterangan sisa poin yang dibutuhkan
-```
 
 ## 5.19 Kelas RewardController
 
@@ -1511,7 +1631,6 @@ Function klaimReward(idPembeli)
     → kupon
 ```
 
-Seluruh langkah dijalankan dalam satu transaksi database. Jika salah satu langkah gagal (misalnya sistem gagal saat menyimpan kupon), semua perubahan dibatalkan sehingga poin tidak berkurang tanpa kupon diterbitkan. Baris dikunci dengan `FOR UPDATE` guna mencegah klaim ganda dari dua permintaan yang dikirim bersamaan (*double claim*).
 
 Tabel 5.19.4. Query Operasi klaimReward
 
@@ -1520,6 +1639,24 @@ Tabel 5.19.4. Query Operasi klaimReward
 | *Q-C19-02* | *ambilRewardLoginTerkunci:*<br>`SELECT * FROM reward_login WHERE id_pembeli = @idPembeli FOR UPDATE;` | *Mengambil dan mengunci data poin Pembeli agar tidak diubah permintaan lain selama klaim diproses* |
 | *Q-C19-03* | *perbaruiPoinReward:*<br>`UPDATE reward_login SET poin_terkumpul = @poinTerkumpul WHERE id_pembeli = @idPembeli;` | *Menyimpan poin setelah dikurangi biaya klaim* |
 | *Q-C19-04* | *simpanKupon:*<br>`INSERT INTO kupon (kode_kupon, id_pembeli, nilai_potongan, berlaku_sampai, terpakai) VALUES (@kodeKupon, @idPembeli, @nilaiPotongan, @berlakuSampai, FALSE);` | *Menyimpan kupon baru hasil klaim reward* |
+
+## 5.21 Kelas PaymentGatewayAdapter
+
+**Nama Kelas:** *PaymentGatewayAdapter*  
+**ID Kelas:** *C21*
+
+Tabel 5.21.1. Operasi Kelas PaymentGatewayAdapter
+
+| Nama Operasi | Visibility (private, public) | Keterangan |
+| :--- | :--- | :--- |
+| *buatTagihan(transaksi: Transaksi): String* | *public* | *Merealisasikan operasi MetodePembayaran. Mengembalikan lokasi file gambar QRIS dummy untuk ditampilkan kepada Pembeli.* |
+| *cekStatus(idTransaksi: Integer): String* | *public* | *Merealisasikan operasi MetodePembayaran. Karena pembayaran hanya disimulasikan, operasi ini selalu mengembalikan status "LUNAS" ketika Pembeli menekan tombol untuk melanjutkan simulasi pembayaran.* |
+
+Tabel 5.21.2. Atribut Kelas PaymentGatewayAdapter
+
+| Nama Atribut | Visibility (private, public) | Tipe |
+| :--- | :--- | :--- |
+| *urlGateway* | *private* | *String* |
 
 ---
 # BAB 6: Perancangan Antarmuka
