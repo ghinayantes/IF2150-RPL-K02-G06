@@ -2123,7 +2123,8 @@ Daftar layar:
 **Nama Layar:** Sign Up (Buat Akun)
 
 <p align="center">
-<img alt="Rancangan Antarmuka UI-01 Sign Up" src="./assets/diagram/ui-01-sign-up.png" width="30%">
+<img width="402" height="874" alt="SIGNUP" src="https://github.com/user-attachments/assets/5f45bf2b-a4d1-489e-9edd-2bb72a5c484e" />
+
 </p>
 <p align="center">
 <i>Gambar 6.1. Rancangan Antarmuka UI-01 - Sign Up</i>
@@ -2153,7 +2154,8 @@ Tabel 6.1. Spesifikasi Objek Antarmuka UI-01
 **Nama Layar:** Log In (Masuk Akun)
 
 <p align="center">
-<img alt="Rancangan Antarmuka UI-02 Log In" src="./assets/diagram/ui-02-log-in.png" width="30%">
+<img width="402" height="874" alt="LOGIN" src="https://github.com/user-attachments/assets/5c9c4f3b-a262-4c38-bab3-2d0df54b3dae" />
+
 </p>
 <p align="center">
 <i>Gambar 6.2. Rancangan Antarmuka UI-02 - Log In</i>
