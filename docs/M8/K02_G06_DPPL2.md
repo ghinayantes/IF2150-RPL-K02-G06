@@ -2276,17 +2276,83 @@ Tabel 6.5. Spesifikasi Objek Antarmuka UI-05
 | UI05-16 | Tab Navigasi | Cart | Menu aktif. Sistem tetap pada layar My Cart (UI-05). |
 | UI05-17 | Tab Navigasi | Account | Saat ditekan, sistem menuju layar My Reward (UI-04). |
 
-## 6.Y Rancangan Antarmuka Keseluruhan
+### 6.1.6 Rancangan Antarmuka [UI-06]
 
-Tuliskan daftar gambar seluruh antarmuka. Berikan ID unik untuk setiap tampilan dan gunakan ID yang sama pada subbab perancangan antarmuka masing-masing.
+**Antarmuka:** UI-06
+**Nama Layar:** Add Product
 
-Tabel 6.Y. Rancangan Antarmuka Keseluruhan
+<p align="center">
+<img width="402" height="874" alt="iPhone 18 Pro - 1" src="https://github.com/user-attachments/assets/f61b2a95-9068-4db7-89c9-84bf809efb6e" />
+</p>
+<p align="center">
+<i>Gambar 6.6. Rancangan Antarmuka UI-06 - Add Product</i>
+</p>
+
+Tabel 6.6. Spesifikasi Objek Antarmuka UI-06
+
+| Id_Objek | Jenis | Konten | Keterangan |
+| :--- | :--- | :--- | :--- |
+| UI06-01 | Label | Add Product | Judul layar pada header biru. Hanya tampilan. |
+| UI06-02 | Label | Product Photo* | Label field foto produk. Tanda bintang (*) menandakan wajib diisi. |
+| UI06-03 | Icon Button | Icon "?" (info) | Menampilkan petunjuk pengisian foto produk. |
+| UI06-04 | Button (Upload) | + Add Photo | Kotak dengan garis putus-putus berwarna merah. Saat ditekan, sistem membuka galeri/kamera untuk memilih foto produk. |
+| UI06-05 | Label | Product Name* | Label field nama produk. Wajib diisi. |
+| UI06-06 | Icon Button | Icon "?" (info) | Menampilkan petunjuk pengisian nama produk. |
+| UI06-07 | Text Field | Input Product Name | Tempat penjual mengetik nama produk |
+| UI06-08 | List Item (Navigasi) | Category* > | Saat ditekan, sistem menampilkan daftar kategori makanan untuk dipilih. |
+| UI06-09 | List Item (Input) | Price* / Adjust | Saat ditekan, sistem menampilkan input harga satuan produk |
+| UI06-10 | List Item (Input) | Stock* / 0 | Jumlah stok produk |
+| UI06-11 | List Item (Navigasi) | Description* 0/3000 > | Saat ditekan, sistem membuka layar pengisian deskripsi produk. Penghitung karakter menampilkan jumlah karakter terpakai dari maksimal 3000. |
+| UI06-12 | Text Field | Input Description | Pratinjau isi deskripsi yang telah diketik. Placeholder tampil jika deskripsi masih kosong. |
+| UI06-13 | List Item (Input) | Expiry Date* / Adjust | Saat ditekan, sistem menampilkan pemilih tanggal (date picker) untuk menentukan tanggal kedaluwarsa produk |
+| UI06-14 | Icon Button | Icon "?" (info) | Menampilkan petunjuk pengisian tanggal kedaluwarsa. |
+| UI06-15 | Button | Save | Sistem memvalidasi seluruh field wajib (*) sudah terisi. Jika valid, data produk disimpan sebagai draf. Jika tidak, sistem menampilkan pesan kesalahan pada field yang belum lengkap. |
+| UI06-16 | Button | Show | Berstatus nonaktif (abu-abu) selama data wajib belum lengkap. Setelah lengkap dan aktif, saat ditekan sistem menyimpan dan menampilkan produk pada layar Home agar dapat dibeli pengguna. |
+| UI06-17 | Tab Navigasi | Home | Saat ditekan, sistem menuju layar Home (UI-03). |
+| UI06-18 | Tab Navigasi | Cart | Saat ditekan, sistem menuju layar My Cart (UI-05). |
+| UI06-19 | Tab Navigasi | Account | Saat ditekan, sistem menuju layar My Reward (UI-04). |
+
+### 6.1.7 Rancangan Antarmuka [UI-07]
+
+**Antarmuka:** UI-07
+**Nama Layar:** Detail Produk
+
+<p align="center">
+<img width="402" height="874" alt="iPhone 18 Pro - 2" src="https://github.com/user-attachments/assets/0759f7c8-1a07-4e1e-91cc-1c2c2bb47dbd" />
+</p>
+<p align="center">
+<i>Gambar 6.7. Rancangan Antarmuka UI-07 - Add Product</i>
+</p>
+
+Tabel 6.7. Spesifikasi Objek Antarmuka UI-07
+| Id_Objek | Jenis | Konten | Keterangan |
+| :--- | :--- | :--- | :--- |
+| UI07-01 | Label | Labbaik Chicken | Judul layar pada header biru, berisi nama penjual/toko. Hanya tampilan. |
+| UI07-02 | Image | Foto makanan | Foto produk berukuran besar. Hanya tampilan. |
+| UI07-03 | Label | Rp67.676 | Harga satuan produk. Hanya tampilan. |
+| UI07-04 | Icon Button | Icon "♡" (favorit) | Menambahkan atau menghapus produk dari daftar favorit. Ikon berubah warna saat produk difavoritkan. |
+| UI07-05 | Label | Ayam Goreng Paket Lengkap | Nama produk. |
+| UI07-06 | Label | Stock: 5 | Jumlah stok yang tersedia. Jika bernilai 0, produk ditandai habis dan tombol Add to Cart dinonaktifkan. |
+| UI07-07 | Label | Description | Judul bagian deskripsi produk. |
+| UI07-08 | Label | Ayam goreng + lalap + nasi. Rasanya sangat nikmat dan lezat dengan potongan timun yang fresh dan nasi putih hanat. ayam dibalyur saus gurih pedas | Deskripsi lengkap produk sesuai yang diisi penjual pada layar Add Product (UI-06). |
+| UI07-09 | Button | Add to Cart | Sistem memvalidasi stok masih tersedia, lalu menambahkan produk ke keranjang (jumlah awal 1). Item tampil pada layar My Cart (UI-05). |
+| UI07-10 | Tab Navigasi | Home | Saat ditekan, sistem menuju layar Home (UI-03). |
+| UI07-11 | Tab Navigasi | Cart | Saat ditekan, sistem menuju layar My Cart (UI-05). |
+| UI07-12 | Tab Navigasi | Account | Saat ditekan, sistem menuju layar My Reward (UI-04). |
+
+## 6.8 Rancangan Antarmuka Keseluruhan
+
+Tabel 6.8. Rancangan Antarmuka Keseluruhan
 
 | No | Tampilan Antarmuka |
 | :--- | :--- |
-| *[I-01]* | <img src="./assets/diagram/contoh-design.png" alt="Contoh Desain" width="400"> |
-| *[I-02]* | *[Sisipkan gambar antarmuka I-02]* |
-| *[I-XX]* | *[Sisipkan gambar antarmuka berikutnya]* |
+| *[UI-01]* | <img src="./assets/diagram/ui-01.png" alt="UI-01" width="400"> |
+| *[UI-02]* | <img src="./assets/diagram/ui-02.png" alt="UI-02" width="400"> |
+| *[UI-03]* | <img src="./assets/diagram/ui-03.png" alt="UI-03" width="400"> |
+| *[UI-04]* | <img src="./assets/diagram/ui-04.png" alt="UI-04" width="400"> |
+| *[UI-05]* | <img src="./assets/diagram/ui-05.png" alt="UI-05" width="400"> |
+| *[UI-06]* | <img width="402" height="874" alt="iPhone 18 Pro - 1" src="https://github.com/user-attachments/assets/f61b2a95-9068-4db7-89c9-84bf809efb6e" /> |
+| *[UI-07]* | <img width="402" height="874" alt="iPhone 18 Pro - 2" src="https://github.com/user-attachments/assets/0759f7c8-1a07-4e1e-91cc-1c2c2bb47dbd" />|
 
 <br>
 
