@@ -22,15 +22,17 @@
 ---
 
 ### Daftar Isi
-* [Milestone 1](#milestone-1)
-* [Milestone 2](#milestone-2)
-* [Milestone 3](#milestone-3)
-* [Milestone 4](#milestone-4)
-* [Milestone 5](#milestone-5)
-* [Milestone 6](#milestone-6)
-* [Milestone 7](#milestone-7)
-* [Milestone 8](#milestone-8)
-* Notes: Copy bagian Daftar Isi seperti Milestone 1 untuk Milestone berikutnya, contoh ``* [Milestone 2](#milestone-2)``. Ketika Daftar isi diklik maka akan langsung diarahkan ke bagian bawah sesuai dengan Milestone tujuan.
+- [Logbook Pekerjaan](#logbook-pekerjaan)
+  - [Tugas Besar IF2150 - Rekayasa Perangkat Lunak](#tugas-besar-if2150---rekayasa-perangkat-lunak)
+    - [Daftar Isi](#daftar-isi)
+    - [Milestone 1](#milestone-1)
+    - [Milestone 2](#milestone-2)
+    - [Milestone 3](#milestone-3)
+    - [Milestone 4](#milestone-4)
+    - [Milestone 5](#milestone-5)
+    - [Milestone 6](#milestone-6)
+    - [Milestone 7](#milestone-7)
+    - [Milestone 8](#milestone-8)
 
 
 ---
@@ -152,7 +154,7 @@
 | *27-10-2026* | *Nadia Aulia Syafarani* | *Menyelesaikan Bab 5.1 s.d 5.6* | *3* | *Done* | *-* |
 | *27-10-2026* | *Cendra Asih Chairunnisa* | *Menyelesaikan Bab 5.7 s.d 5.12* | *3* | *Done* | *-* |
 | *27-10-2026* | *Ghina Emelia Yantes* | *Menyelesaikan Bab 5.13 s.d 5.17* | *3* | *Done* | *-* |
-| *07-10-2026* | *Renata Puspanegara Ninagan* | *Menyelesaikan Bab 6.1.1, 6.1.2, 6.1.3, 6.1.4, 6.1.5 dan 5.14, 5.19* | *3* | *Done* | *-* |
+| *07-10-2026* | *Renata Puspanegara Ninagan* | *Menyelesaikan Bab 6.1.1, 6.1.2, 6.1.3, 6.1.4, 6.1.5 dan 5.14, 5.19* | *3* | *Done* | *-* |\| *07-10-2026* | *Sherin Felicia Danessa* | *Menyelesaikan logo, Bab 5.20, 5.21, 6.1.6, 6.1.7* | *3* | *Done* | *-* |
 
 ``Gunakan format penulisan Logbook yang sama untuk setiap Milestone dan pastikan pembuatan Daftar Isi juga sudah sesuai sebelum Logbook dikumpulkan. ``
 
