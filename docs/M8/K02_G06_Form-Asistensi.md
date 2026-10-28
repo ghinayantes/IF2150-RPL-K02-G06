@@ -5,12 +5,12 @@
 | Informasi | Keterangan |
 | --- | --- |
 | **Hari** | *\[Selasa\]* |
-| **Tanggal** | *\[20/10/2026\]* |
+| **Tanggal** | *\[27/10/2026\]* |
 | **Kelas** | *\[K02\]* |
 | **Nomor Kelompok** | *\[G06\]*  |
 | **Nama Kelompok** | *\[Rengginang\]*  |
 | **Nama Perangkat Lunak** | *\[SaveBite\]*  |
-| **Dokumen** | *\[K02_G06_APL\]*  |
+| **Dokumen** | *\[K02_G06_DPPl2\]*  |
 
 ### Anggota Kelompok
 
