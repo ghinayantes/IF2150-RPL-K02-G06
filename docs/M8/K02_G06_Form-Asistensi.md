@@ -1,4 +1,3 @@
-<img width="738" height="1600" alt="WhatsApp Image 2026-10-27 at 21 17 06" src="https://github.com/user-attachments/assets/88d8eace-5865-4637-9e27-6c7c6e39e634" />
 # Form Asistensi
 
 ## Tugas Besar IF2150 - Rekayasa Perangkat Lunak
