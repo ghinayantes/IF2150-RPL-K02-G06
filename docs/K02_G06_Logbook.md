@@ -152,6 +152,7 @@
 | *27-10-2026* | *Nadia Aulia Syafarani* | *Menyelesaikan Bab 5.1 s.d 5.6* | *3* | *Done* | *-* |
 | *27-10-2026* | *Cendra Asih Chairunnisa* | *Menyelesaikan Bab 5.7 s.d 5.12* | *3* | *Done* | *-* |
 | *27-10-2026* | *Ghina Emelia Yantes* | *Menyelesaikan Bab 5.13 s.d 5.17* | *3* | *Done* | *-* |
+| *07-10-2026* | *Renata Puspanegara Ninagan* | *Menyelesaikan Bab 6.1.1, 6.1.2, 6.1.3, 6.1.4, 6.1.5 dan 5.14, 5.19* | *3* | *Done* | *-* |
 
 ``Gunakan format penulisan Logbook yang sama untuk setiap Milestone dan pastikan pembuatan Daftar Isi juga sudah sesuai sebelum Logbook dikumpulkan. ``
 
